@@ -56,3 +56,38 @@ TEST CLOUD COMUTING
 ---
 <h1 align="center">TEST IAM – Identity and Acess Management</h1>
 
+- 1 - What is a proper definition of IAM Roles?
+
+    An IAM entity that defines a set od permissions for making AWS services request, that will be used by AWS services
+
+- 2 - Which of the following is an IAM Security Tool?
+    
+    IAM Credentials report lists all your account's users and the status of their various credentials. The other IAM Security Tool is IAM Access Advisor. It shows the service permissions granted to a user and when those services were last accessed.
+
+- 3 - Which answer is INCORRECT regarding IAM Users?
+
+    IAM Users access AWS with the root account credentials. IAM Users access AWS using a username and a password.
+
+- 4 - Which of the following is an IAM best practice?
+
+    Don't use the root user account. You only want to use the root account to create your first IAM user, and for a few account and service management tasks. For every day and administration tasks, use an IAM user with permissions.
+
+- 5 - What are IAM Policies?
+
+    JSON documents to define Users, Groups or Roul's permission
+
+- 6 - Under the shared responsibility model, what is the customer responsible for in IAM?
+
+    Assinging users proper IAM Policies
+
+- 7 - Which of the following statements is TRUE?
+
+    The AWS CLI can interact with AWS using commands in your command-line shell, while the AWS SDK can interact whit AWS programmatically
+
+- 8 - Which principle should you apply regarding IAM Permissions?
+
+    Grant least privilege. That's right! Don't give more permissions than the user needs. 
+
+- 9 - What should you do to increase your root account security?
+
+    You want to enable MFA in order to add a layer of security, so even if your password is stolen, lost or hacked your account is not compromised.
