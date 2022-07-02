@@ -109,11 +109,9 @@ Todos os arquivos que forem criados em seu AWS Cloud Shell, mesmo após reinicia
 ## IAM Security Tools
 
 IAM Credential Report(Acount Level) - Pode ser criado um relatório de credenciais do IAM;
-
 _IAM > Credential Report > Download_
 
 IAM Access Advisor(User Level) – Mostrará as permissões de serviço concedidas a um usuário
-
 _IAM > User > YourUser > Access Advison_
 
 ## Shared Responsibility Model for IAM
