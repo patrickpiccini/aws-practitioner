@@ -94,6 +94,11 @@ Após fazer a instalação do CLI no seu computador, é necessário configurar o
 **Default output format [None]:** (enter)
 ```
 
+Para testar o usuario adm configurado: 
+``` AWS CLI
+**C:\Users\Patrick>** aws iam list-users
+```
+
 ## AWS Cloud Shell
 
 Está disponível somente para algumas Regions
