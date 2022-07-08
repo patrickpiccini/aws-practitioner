@@ -124,5 +124,11 @@ _IAM > User > YourUser > Access Advison_
 <h1 align="center">EC2 - Elastic Compute Cloud</h1>
 
 ## AWS Budget Setup
+Para que o usuário IAM possa fazer alterações no Billings Dashboard deve-se logar no root > acount > e editar “Usuário do IAM e acesso de função às informações de faturamento”.
+
+Esse serviço é responsável por toda a parte de custos da sua conta, com ele poderá criar alertas e alguns limites de gastos que você usa ou usará. Tambem poderá ver onde foi cobrado tal valor.
+
+Na aba “Bills” poderá ver quais serviços eraram custos e em quais regiões ass como todos os detalhes do uso do serviço.
+Para definir um Budget va em Budget > Create a Buget > Cost budget. Basta configurar o limite de gasto no mês definindo o valor. Na próxima aba deverá ciar thresholds para disparar algum alerta
 
 
