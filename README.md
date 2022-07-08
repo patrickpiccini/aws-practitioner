@@ -51,8 +51,6 @@ São o que está acontecendo na região. Cada região terá varias Avaliability 
 ---
 <h1 align="center">IAM – Identity and Acess Management</h1>
 
-**piccini-aws - patrick-adm - P@ssw0rd**
-
 ## Users, Goups and Policies
 É criado User e Goups para possemos atribuir policies a eles, fazendo com que tenham acesso aos serviços que necessitam ter, e não a tudo como um ADM. Os User e Goups pode receber um JSON document chamado POLICIE.
 
@@ -119,3 +117,7 @@ _IAM > User > YourUser > Access Advison_
 
 ---
 <h1 align="center">EC2 - Elastic Compute Cloud</h1>
+
+## AWS Budget Setup
+
+
