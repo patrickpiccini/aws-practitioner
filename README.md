@@ -131,4 +131,84 @@ Esse serviço é responsável por toda a parte de custos da sua conta, com ele p
 Na aba “Bills” poderá ver quais serviços eraram custos e em quais regiões ass como todos os detalhes do uso do serviço.
 Para definir um Budget va em Budget > Create a Buget > Cost budget. Basta configurar o limite de gasto no mês definindo o valor. Na próxima aba deverá ciar thresholds para disparar algum alerta
 
+## EC2 (Elastic Copute Cloud)
+
+É uma das ofertas mais populares da AWS e é usada em todos os lugares.
+
+EC2 é uma maeira de fazer "ifraestructure as a service". Não é apenas um serviço, ele é composto por muitas outras coisas de alto nível.
+
+- Pode criar VMs o EC2;
+
+- Armazenar dados em virtual drivers(EBS);
+
+- Pode distribuir carga entre maquinas (Elastic Load Balancer - ELB);
+
+- Pode escalar serviços usando um grupo de escalonamento automático (ASG)
+
+## Configuração EC2
+
+- Pode haver Windows, Linux e Mac;
+
+- CPU, Memória RAM, Storage Space(EBS e EFS ou EC2 storage);
+
+- Qual network deseja, Placa de rede, IP público;
+
+- Regras de Firewall (security group);
+
+- Boosttrap Script (EC2 User Data)
+
+**Bootstrap (EC2 Data User)**
+
+Bootstrapping significa os comando laçados quando a VM estiver iniciando. Esse comandos rodarão apenas uma vez quando essa maquina for criada, e nunca mais será rodado. Com o EC2 Data User script você pode: instalar softwares, instalar updates, baixar arquivos da internet para que a sua instância d VM seja inicializada e já configurada como deseja. Quanto mais Scripts colocar, mais demorado será para criar sua instância. TODOS os EC2 data user são rodados como Root.
+
+## EC2 hands on
+
+EC2 > instances > launch an Instance
+
+Sempre usar a **t2.micro**
+
+Key pair to login – é necessário se utilizar ua conexão SSH para acessar a instancia. Para gerar ua SSH Key pela AWS basta ir em **Create new key pair** nomear a chave,deixar como RSA. Para Mac, Linux ou widows 10 deixe como .pem. Se tiver Windows com versões infoeriores, use o .ppk.
+
+Em Network Settings não precisa mudar nada. Terá um ip publico.
+
+Em Storage (volumes) sempre é importante deixar habilitado a opção em advanced > Delete on termination > Yes. Para deletar a memoria quando a VM for termiada
+
+Em Advanced details no ultimo box de texto você poderá escrever seu EC2 Data User, para executar loco que a maquia for criada. Um exemplo que será utilizado é a inicialização de um website simples.
+
+``` AWS User Data
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemtl enabel httpd
+echo "<h1>Hello Word from $(hostname -f)</h1>" > /var/www/html/index.html
+```
+
+Para interromper uma instância – Actions > Instance States > Stop
+
+Para startar uma instância – Actions > Instance States > Start
+
+Para Terminar uma instância – Actions > Instance States > Terminate
+
+Quando dar um Stop em uma instância, o ip Publico pode alterar. Certifique-se sempre disto.
+
+Nunca mudará o Private IP!
+
+## EC2 Instance Types Basics
+
+Existem diferentes tipos de EC2 para usar com diferentes casos, e com diferentes tipos de optimização. Para isso será dividido em 7 tipos de propósitos.
+
+**General Purpose** - Bom para diversidade de cargas de trabalhos como servidores web, ou repositório de código. Tem uma equilíbrio entre compute, memória e Rede.
+
+**Compute Optimized** – Ótimos para optimizar tarefas de computação intensiva. Bom para quando precisa de um CPU de alto nível. Uso para processos em lote, Transcode, Alta performance em web services, Alta performance em computação (HPC). Processamento de modelo de Machine learnig, ou server dedicado a jogos.
+
+**Memory Optimized** – Terão um desempenho maior para o tipo de cargas de trabalho que processarão grandes conjuntos de dados na memória. Alta performance em Banco de dados, cache de web, memoria optimizada para BI e aplicativos que executam processamento em tempo real.
+
+**Storage Optimized** – Ótimos quando necessita acessar um conjunto de dados o local storage.
+
+Terão alta processamento transacional online de alta frequencia (OLTP), Banco de dados. Cache para banco de dados(ex: redis). Sistema de arquivos distribuídos
+
+Os demais exemplos de Accelerated Computing, Instance Features e Measuring Instance Performance, bastam verificar em [https://aws.amazon.com/ec2/instance-types/?nc1=h\_ls](https://aws.amazon.com/ec2/instance-types/?nc1=h_ls)
+
+## Security Groups &amp; Classic Ports Overview
 
