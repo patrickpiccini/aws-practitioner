@@ -1,5 +1,5 @@
 TEST CLOUD COMPUTING
-<h1 align="center">TEST CLOUD COMUTING</h1>
+<h1 align="center">TEST CLOUD COMPUTING</h1>
 
 - 1-You ONLY want to manage Applications and Data. Which type of Cloud Computing model should you use?
 
