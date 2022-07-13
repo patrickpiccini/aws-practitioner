@@ -212,3 +212,55 @@ Os demais exemplos de Accelerated Computing, Instance Features e Measuring Insta
 
 ## Security Groups &amp; Classic Ports Overview
 
+Security Groups são fundamentais para a segurança de network da AWS. Eles controlam como o trafego entra e sair da EC2. Contém apenas  regras de entrada e saída, então é fácil de configurar. Podem ter configurações tanto por IP adress ou por outros security groups.
+
+Security Groups são um “Firewall” para as instancias, irão regular o acesso as portas, autorizarão range de ips, controla a rede de entrada e saída da instancia.
+
+<img src="images/img2.png" alt="img2" width="800"/>
+ 
+ ### Importante:
+- Security Groups pode ser relacionadas a varias instancias EC2, elas n tem uma relação direta;
+- Security Groups são bloqueados para uma combinação de Region/VPC, caso mude de conta, terá que configurar uma nova Security Group;
+- o Security Groups é uma configuração fora da instancia EC2, sendo uma espécie de firewall;
+- É sempre bom manter separado os Security Groups apenas para SSH Access;
+- Se tiver problema de time out, isso pode ser um problema de Security Groups;
+- Se receber um erro de  “connection reused”, quer dizer que a segurança realmente fusionou;
+- Por padrão, todo o trafego de entrada é bloqueado e todo o trafego de saída é autorizado;
+
+<img src="images/img3.png" alt="img3" width="800"/>
+ 
+### Para o Exame: Quais portas precisa saber.
+- 22 = SSH (Secure Shell) – login em instancia Linux
+- 21 = FTP (File Transer Protocol)
+- 22 = SFTP (Secure File Transfer Protocol) – Upload de arquivos usando SSH
+- 80 = HTTP – Acesso inseguro de sites
+- 443 = HTTPS – Acesso seguro de sites
+- 3389 = RDP (Remote Desktop Protocol) – Login em instancia Windows
+
+## Security Groups Hands On
+Para acessar a tela de Security Groups va em EC2 > Network e Security > Security Groups.
+Sempre que tentar fazer qualquer tipo de conexão com a instância e der erro de time out, é 99% de chances de ser algo relacionada a security group. Para isso deve ser verificado as regras de Security Groups.
+
+## SSH Overview
+Para conexões em Linux server podemos nos conectar através da conexão SSH.
+Com EC2 instance connect podemos nos conectar de qualquer browser porem so funciona em Amazon NX2
+ 
+<img src="images/img4.png" alt="img4" width="800"/>
+
+## Acessar instancia através do win 10
+Devemos baixar o arquivo .pem (esse arquivo é baixado automaticamente quando é cria uma Key pairs. 
+
+Caso não tenha, vá em EC2 > Network e Security > Keys Pairs e crie uma nova. Provavelmente deverá atribui-la a instancia que você está tentando conectar.
+
+Para conectar deve-se estar na mesma pasta do arquivo .pem.
+
+Devemos ter certeza que no Security Groups temos a porta 22 liberada.
+
+Com o seguinte comando, deve ser conectado a instancia: 
+``` CLI
+ssh -i '.\ec2_tutorial.pem' ec2-user@<public_ip>
+```
+
+Caso tenha problemas para conexão, deve-se verificar se o arquivo esta no C:/user/patrick, e verificar as permissões do arquivo.
+
+Caso não funcione de jeito nenhum, utilize a EC2 Instance Connect. Para isso vá em EC2 > instances > your_instance > Connect
