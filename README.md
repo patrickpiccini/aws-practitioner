@@ -239,7 +239,8 @@ Security Groups são um “Firewall” para as instancias, irão regular o acess
 
 ## Security Groups Hands On
 Para acessar a tela de Security Groups va em EC2 > Network e Security > Security Groups.
-Sempre que tentar fazer qualquer tipo de conexão com a instância e der erro de time out, é 99% de chances de ser algo relacionada a security group. Para isso deve ser verificado as regras de Security Groups.
+Sempre que tentar fazer qualquer tipo de conexão com a instância e der erro de time out, é 99% de chances de ser algo relacionada a security group. 
+Para isso deve ser verificado as regras de Security Groups.
 
 ## SSH Overview
 Para conexões em Linux server podemos nos conectar através da conexão SSH.
