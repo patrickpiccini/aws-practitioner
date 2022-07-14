@@ -264,4 +264,68 @@ ssh -i '.\ec2_tutorial.pem' ec2-user@<public_ip>
 
 Caso tenha problemas para conexão, deve-se verificar se o arquivo esta no C:/user/patrick, e verificar as permissões do arquivo.
 
-Caso não funcione de jeito nenhum, utilize a EC2 Instance Connect. Para isso vá em EC2 > instances > your_instance > Connect
+Caso não funcione de jeito nenhum, utilize a EC2 Instance Connect. Para isso vá em EC2 > instances > your_instance > Connect.
+
+## EC2 Instance Roles Demo
+Jamais utilize o aws configure dentro da instancia e configure com a IAM key.
+Para que a instancia tenha acessos, é necessário criar IAM Rules. Para gerar essa Rule va em IAM > Roles > Create Roles. Coloque para AWS Service e Use case EC2. A permission será IAMReadOnlyAccess.
+Agora é necessário atribuir a Rule para a instancia EC2. Vá em EC2 > your_instance > Actions > Istance Setings > Attach/Replace IAM Role, e selecione sua Rule.
+Com isso você terá acesso a fazer os comando aws sem que precise utilizar o “aws configure”.
+ 
+## EC2 Instance Purchasing Options
+On-Demans Instances: 
+- Irá pagar pelo que usar por segundo nos sistema Linux e Windows. Em outros sistemas pagará  por hora;
+- Tem custo alto porem sem pagamentos antecipados e compromisso a longo prazo;
+- É recomendado para uma carga de trabalho curta  e ininterrupta
+
+### EC2 Reserved Instance:
+- As instacias reservadas 72% de desconto em comparação com a On-Demand;
+- Voce reserva atributos de instância especifico(Instance Type, region, Tenancy, OS);
+- especifica um período de desconto de 1 a 3 anos, quando mais, maior o desconto;
+- escolha entre pagar adiantado, pagar parcialmente, não pagar adiantado;
+- Reserva de uma região ou zona q desejar de A à Z;
+- Uso para casos de uso estável, como um banco de dados;
+- Pode comprar ou vender suas instancias;
+- Existe um tipo  específico de instância reservada chamada de Convertibla Reserved Instance que ganah 66% de desconto;
+
+### EC2 Savings Plans
+- Permite ter um desconto com base no use de longo prazo com 72% de desconto;
+- Define quanto gastar por hora nos próximos 1 a 3 anos.
+- Será cobrado pelo preço On-Deman;
+- fica preso a família e region de instancias especificas. Por exemplo M5 em us-east-1, porem pode ter todos os type da instancia, pode alterar entre wind ou Linux, e pode alterar a tenancy.
+
+### EC2 Spot Instance
+- Tem descontos mais agressivo de ate 90% em comparação a On-Deman;
+- são instancia que você pode perder a qualquer momentos porque você define um preço máximo que está disposto a pagar. E se o preço passar, você perde a instancia EC2 Spot;
+- São instancias mais economicacs na AWS;
+- Usadas para cargas de trabalho resilientes a falha;
+- Não são adequadas para aplicações criticas ou banco de dados;
+
+### EC2 Dedicated Hosts
+- Disponibiliza um servidor físico;
+- pode escolher as instancias dentro host dedicado como On-Deman ou Reserved;
+- É a opção mais cara da AWS pois você reserva um servidor físico;
+-  Ótimos para casos que você tem um software que tenha um licenciamento;
+
+### EC2 Dedicated Instances
+- São executadas em hardware dedicado a você; 
+- pode compartilhar o hardware com outras instancias na mesa conta;
+- NÃO tem o controle sobre posicionamento das instancias;
+
+### Diferença entre Dedicated Host and Instances
+
+<img src="images/img5.png" alt="img5" width="350"/>
+
+
+### EC2 Capacity Reservation
+- Pode reservar instancias On-Deman em uma AZ especifica por qualquer duração;
+- poderá ter acesso a essa EC2 quando precisar;
+- pode reservar ou cancelar a qualquer momento; 
+- pode combinar com Reserved instances ou Savings Plans para ganhar descontos; 
+- é cobrado de acondo com a ideia da On-Deman porem mesmo que não esteja executando algo, você será cobrado sobre ela (???);
+- É adequado para cargas de trabalho curto com prazo de termino;
+
+### Preços Exemplar de m4.large – us-east-1 
+  
+<img src="images/img6.png" alt="img6" width="800"/>
+
