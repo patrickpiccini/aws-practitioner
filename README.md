@@ -329,3 +329,10 @@ On-Demans Instances:
   
 <img src="images/img6.png" alt="img6" width="800"/>
 
+## Shared Responsibility Model for EC2
+A AWS é responsável por todos os data centers, sua infraestrutura e segurança deles. Tambem é responsável pelo isomaneto no host físico se estiver um host dedicado como vimos acima, e subistituindo hardwares com defeitos.
+
+O usuário é responsável pela segurança para acessar os serviços da nuvem. Definindo Scurity Roules, para definir quem pode acessar as instancias EC2. Possui todos os OS dentro de sua instancia EC2. Todos os softwares  e utilitários instalados é responsabilidade do usuário. Criar IAM Roles para garantir quais usuário terão acesso as instancias EC2. E também  o usuário deve garantir que sus dados estejam seguros na instancia EC2.
+
+## EC2 Sumary
+<img src="images/img7.png" alt="img7" width="600"/>

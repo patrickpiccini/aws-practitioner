@@ -91,3 +91,27 @@ TEST CLOUD COMPUTING
 - 9 - What should you do to increase your root account security?
 
     You want to enable MFA in order to add a layer of security, so even if your password is stolen, lost or hacked your account is not compromised.
+
+---
+<h1 align="center">TEST EC2 - ELASTIC COMPUTE CLOUD</h1>
+
+- 1 - Which EC2 Purchasing Option can provide the biggest discount, but is not suitable for critical jobs or databases?
+    Spot Instances are good for short workloads, but are less reliable.
+
+- 2 - Which network security tool can you use to control traffic in and out of EC2 Instances?
+    Security Groups operate at instance level and can control traffic.
+
+- 3 - Under the Shared Responsibility Model, who is responsible for operating-system patches and updates on EC2 Instances?
+    The customer is responsible for operating-system patches and updates on EC2 Instances, as well as data security on the instances, Security Groups rules, etc.
+
+- 4 - How long can you reserve an EC2 Reserved Instance?
+1 year or 3 years terms are available for EC2 Reserved Instances.
+
+- 5 - A company would like to deploy a high-performance computing (HPC) application on EC2. Which EC2 instance type should it choose?
+    Compute Optimized EC2 instances are great for compute-intensive workloads requiring high performance processors, such as batch processing, media transcoding, high performance web servers, high performance computing, scientific modeling & machine learning, and dedicated gaming servers.
+
+- 6 - Which of the following is NOT an EC2 Instance Purchasing Option?
+    Connect Instance. This EC2 Instance purchasing option does not exist.
+
+- 7 - Which EC2 Purchasing Option should you use for an application you plan on running on a server continuously for 1 year?
+    Reserved Instances are good for long workloads. You can reserve instances for 1 or 3 years.
