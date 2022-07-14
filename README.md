@@ -303,13 +303,13 @@ On-Demans Instances:
 
 ### EC2 Dedicated Hosts
 - Disponibiliza um servidor físico;
-- pode escolher as instancias dentro host dedicado como On-Deman ou Reserved;
+- Pode escolher as instancias dentro host dedicado como On-Deman ou Reserved;
 - É a opção mais cara da AWS pois você reserva um servidor físico;
--  Ótimos para casos que você tem um software que tenha um licenciamento;
+- Ótimos para casos que você tem um software que tenha um licenciamento;
 
 ### EC2 Dedicated Instances
 - São executadas em hardware dedicado a você; 
-- pode compartilhar o hardware com outras instancias na mesa conta;
+- Pode compartilhar o hardware com outras instancias na mesa conta;
 - NÃO tem o controle sobre posicionamento das instancias;
 
 ### Diferença entre Dedicated Host and Instances
@@ -319,10 +319,10 @@ On-Demans Instances:
 
 ### EC2 Capacity Reservation
 - Pode reservar instancias On-Deman em uma AZ especifica por qualquer duração;
-- poderá ter acesso a essa EC2 quando precisar;
-- pode reservar ou cancelar a qualquer momento; 
-- pode combinar com Reserved instances ou Savings Plans para ganhar descontos; 
-- é cobrado de acondo com a ideia da On-Deman porem mesmo que não esteja executando algo, você será cobrado sobre ela (???);
+- Poderá ter acesso a essa EC2 quando precisar;
+- Pode reservar ou cancelar a qualquer momento; 
+- Pode combinar com Reserved instances ou Savings Plans para ganhar descontos; 
+- É cobrado de acondo com a ideia da On-Deman porem mesmo que não esteja executando algo, você será cobrado sobre ela (???);
 - É adequado para cargas de trabalho curto com prazo de termino;
 
 ### Preços Exemplar de m4.large – us-east-1 
