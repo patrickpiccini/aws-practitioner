@@ -323,7 +323,7 @@ On-Demans Instances:
 - Pode reservar ou cancelar a qualquer momento; 
 - Pode combinar com Reserved instances ou Savings Plans para ganhar descontos; 
 - É cobrado de acondo com a ideia da On-Deman porem mesmo que não esteja executando algo, você será cobrado sobre ela (???);
-- É adequado para cargas de trabalho curto com prazo de termino;
+- É adequado para cargas de trabalho curto com prazo de termino.
 
 ### Preços Exemplar de m4.large – us-east-1 
   
