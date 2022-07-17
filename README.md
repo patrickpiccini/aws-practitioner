@@ -336,3 +336,45 @@ O usuário é responsável pela segurança para acessar os serviços da nuvem. D
 
 ## EC2 Sumary
 <img src="images/img7.png" alt="img7" width="600"/>
+
+# EC2 instance Storge
+- EBS significa Elastic Block Storage. È uma uniadede de rede que você pode anexar as suas instancias quando são executadas.
+- EBS nos permite persistir dados mesmo depois que a instância é encerrada. Podemos recriar uma intancia e monta-la no mesmo volume EBS.
+- Quando você cria um EBS volume, ele é vinculado a uma Availability zone especifica.
+- Podem pensar que a EBS volume é como se fosse um UBS de Rede. Onde você pode pegar de uma instancia e coloca-la em outra.
+
+## EBS Volume
+ - São drivers de rede que não são uma unidade física; Para se comunicar entre a instancia e EBS volume utilizará a rede, podendo conter um pouco de latência na transferência de dados
+- EBS por estar na rede, pode ser anexada a um instancia EC2 rapidamente;
+- EBS volumes são bloqueados para Availability Zone especificas, então, não podem ser anexadas em outra zonas;
+- Se fizer uma snapshot poderemos mover um volume para outras zonas;
+- Precisa provisionar a capacidade com antecedência. Será cobrado por todo o provisionamento da capacidade que escolher, e poderá aumenta a capacidade ao longo do  tempo se quiser
+Para ver os EBS Volumes basta ir em EC2 > Volumes.
+
+
+## EBS Snapshot
+Serve para criar um backup(snapshot) de seu volume em qualquer momento que desejar. A ideia é fazer backup do estado do volume mesmo que ele esteja encerrado. 
+
+Para fazer um backup, não é necessário desanexar o volume, porem é recomendado certificar-se que tudo esta certo com o volume EBS.
+
+O motivo de fazer snapshots é para poder restaura-los em alguma situação, ou também copiar para outra zonas ou regiões, com a ideia de transferir alguns de seus dados para um região.
+
+### Recursos EC2 Snapshot
+- EBS Snapshot Archive: Permite que você mova seus snapshots para outra camada de armazenamentom chamado de “Camada de Armazenamento”. 75% mais Barato. Mas se tiver no Archive, leva de 24 a 72 horas para restaurar do arquivo.
+- Recycle Bin for EBS Snapshots: Por padrão, se deletar uma Snapshot eles desaparecem. Mas com essa função você pode configurar uma lixeira onde terá todos as snapshots excluídos. E com ela, pode configurar o tempo que as snapshot serão excluídas.
+
+### Hands On EC2 Snapshot
+- Para criar uma SnapShot de um volume vá em EC2 > Volume > your_volume > Actions > Create Snapshot.
+- Para visualizar suas SnapShots vá em EC2 > SnapShot.
+- Para copiar a Snapshot para um outra Region vá em EC2 >  SnapShot > your_snapshot > Actions > Copy.
+- Para criar um volume apartir de uma Snapshot vá em EC2 >  SnapShot > your_snapshot > Actions > Create Volume.
+- Para criar uma  Recycle Bin vá em EC2 >  SnapShot > Recycle Bin > Create Retention Rule.
+
+
+## AMI Overview
+Significa Amazon Machine Image, e representam uma personificação de uma Instancia EC2. Voce pode criar AMI através de instancia que já criou , ou personificar as suas próprias.
+- AMI configura o SO qualquer ferramenta de monitoramento, e tempo de inicialização de instância mais rápido, visto que já tem tudo configurado em seu AMI.
+- AMI podem ser construídos para uma região e em seguida, copiados em toda a região que quisermos usar depois. 
+- Pode iniciar instancias EC2 de diferentes tipos de AMIs. Sendo elas Public AMI, criar a sua AMI ou em AWS marketplace AMI.
+Como funciona AMI 
+Primeir deve-se iniciar uma instancia EC2 e personaliza-la. Depois daremos um Stop na mesma, para garantir a integridade dos dados. E apartir da instancia construir uma AMI onde também criará EBS Snapshot por baixo dos panos. E finalmente poderá iniciar instnacias  apartir de outra AMIs
