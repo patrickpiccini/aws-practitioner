@@ -378,3 +378,54 @@ Significa Amazon Machine Image, e representam uma personificação de uma Instan
 - Pode iniciar instancias EC2 de diferentes tipos de AMIs. Sendo elas Public AMI, criar a sua AMI ou em AWS marketplace AMI.
 Como funciona AMI 
 Primeir deve-se iniciar uma instancia EC2 e personaliza-la. Depois daremos um Stop na mesma, para garantir a integridade dos dados. E apartir da instancia construir uma AMI onde também criará EBS Snapshot por baixo dos panos. E finalmente poderá iniciar instnacias  apartir de outra AMIs
+
+**Como funciona AMI**
+
+Primeir deve-se iniciar uma instancia EC2 e personaliza-la. Depois daremos um Stop na mesma, para garantir a integridade dos dados. E a partir da instancia construir uma AMI onde também criará EBS Snapshot por baixo dos panos. E finalmente poderá iniciar instâncias a partir de outra AMIs.
+
+## AMI Hands On
+
+Para criar uma imagem de uma instancia que desejar vá em EC2 > Instances > Right click > Image > Create Image.
+
+Para criar uma Instâcia a partir de uma AMI pode ir em EC2 > AMI > Build. Ou em EC2 > Instance > Launch Image > (escolher sua AMI na hora de configurar)
+
+## EC2 Image Builder Overview
+
+- É usado para automatizar a criação de VMs ou Containers Images.
+
+- Através do EC2 Images Builder poderá automatizar a criação, manter e testar AMIs para instancias EC2.
+
+- EC2 Images Builder pode ser executado em uma programação (semanal, sempre que os pacotes foram atualizados, etc...)
+
+- É um serviço gratuito(porem se o serviço criar instancias, e outras coisas, você será cobrado pela EC2 instance normalmente)
+
+**Funcionamento:**
+
+<img src="images/img8.png" alt="img8" width="800"/>
+
+
+## EC2 Image Builder Hands On
+
+Essa parte é um pouco complexa, mas nada que fazer com calma e se atentar as coisas que estão escritas possa dar errado.
+
+Na aba de pesquisa, vá em **EC2 Image builder** > Create Image Pipeline. Escreva um "Pipeline name" e marque a opção, **Build schedule** com "Manual" e Next.
+
+**Em Choose recipe:**
+
+Uma receita de imagem é um documento que define os componentes a serem aplicados às imagens de base para criar a configuração desejada para a imagem de saída. Após a criação de uma receita, ela não pode ser modificada. Uma nova versão deve ser criada para alterar os componentes.
+
+Selecione **Create New Recipe**. A Image Type deixe como AMI, escolha um Nome e Versão para a Recipe. Em **Base image Não mexer em nada.** Em **Image Name** escolha a "Amazon Linux 2 x86". Posteriormente entenderão o porquê dessa escolha.
+
+Em **Components** vamos selecionar os "amazon-corretto-11-headless", "aws-cli-version-2-linux".
+
+A parte de **Test components - Amazon Linux** pode pular. Após isso podemos ir para próxima página (Next).
+
+Na página de **Define infrastructure configuration** devemos ccriar um IAM Rule caso n tenha, chamada de **EC2InstanceProfileForImageBuilder.** É uma rule para EC2 e é composta pelas seguintes permissões: EC2InstanceProfileForImageBuilder, EC2InstanceProfileForImageBuilderECRContainerBuilds e AmazonSSMManagedInstanceCore
+
+Após criar a Rule caso não tenha, selecione a opção **Create a new infrastructure configuration.**
+
+De um nome a ela, e em IAM Rule selecione a rule citada anteriormente. Em Instance type vamos selecionar a VM **T2.micro x86_64** visto que no tipo da imagem escolhemos anteriormente a "Amazon Linux 2 x86". Logo após, clique em Next.
+
+Em **Define distribution settings** podem ser configurada as regions que a pipeline será testada, porem nessa Demo Free devemos deixar em **Create distribution settings using service defaults.**
+
+**Após isso poderá criar a pipeline e esperar os estágios. Demora em media de 30 min para finalizar todos os estágios.**
