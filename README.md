@@ -429,3 +429,32 @@ De um nome a ela, e em IAM Rule selecione a rule citada anteriormente. Em Instan
 Em **Define distribution settings** podem ser configurada as regions que a pipeline será testada, porem nessa Demo Free devemos deixar em **Create distribution settings using service defaults.**
 
 **Após isso poderá criar a pipeline e esperar os estágios. Demora em media de 30 min para finalizar todos os estágios.**
+
+## EC2 instance storage
+É o disco rígido(HD) conectado ao servidor físico.
+- Com ele há um melhor desempenho de I/O;
+- É bom se tiver algum Buffer,cache, dados temporários, nada para armazenamento a longo prazo;
+- O ruim é se Parar uma Instancia EC2 que tenha um armazenamento Instance storagem, será perdido e excluído tudo  que há nela. Por isso é chamado de “Armazenamento Efêmeo”;
+- Caso a instancia EC2 falhe, corre grandes riscos de perder os dados, pois o hardware conectado a instancia EC2 também falhará;
+- se utilizar esse tipo de armazenamento, é responsabilidade do usuário cuidar das rotinas de backup para que n se perca nenhum dado.
+
+
+## EFS – Elastic File System
+É um sistema de arquivos de rede ou NFS. E a ideia e os benefícios disso é que ele pode ser montado em centenas de instâncias do EC2 por vez, se tornando uma rede de arquivos compartilhados.
+- o EFS funciona apenas com instancias **Linux EC2** e funciona multi-AZ. Ou seja, uma instancia em certa região  q esteja anexado em um volume EFS pode usar o mesmo volume para outras instancias em outra regiões;
+- EFS é Altamente disponível, escalável e bastante caro. Chegando a ser cerca de 3x o valor de uma EBS;
+
+<img src="images/img9.png" alt="img9" width="800"/>
+
+### EFS-IA (Elastic File System Infrequent Access)
+É uma classe da EFS que será optimizada em termo de custo, ou seja, mais barata para arquivos que você não terá acesso com muita frequência;
+-essa opção dará até 92% de desconto para armazenar os dados em comparação a outra classe (EFS normal);
+- Se habilitar o EFS-IA, o EFS movera automaticamente os arquivos para uma EFS-IS com base nas ultimas vezes que foram acessados e em algo chamado “life circle policy”;
+- definindo uma life circle policy, poderá criar regras para arquivos que não foram acessados/modificados em X tempo, e mover para uma classe diferente de armazenamento EFS-IA, que terá uma economia de custos. Tudo isso é feito automaticamente.
+
+## Shared Responsibility Model for EC2 Storage
+A **AWS** é responsável por provisionar a infraestrutura para armazenar seus dados. Replicar os dados dos EBS Volumes e EFS driver caso haja alguma falha no hardware por parte da AWS, e seu cliente não seja impactado. AWS é responsável pela troca de hardware defeituosos. A AWS é responsável por garantir que funcionários AWS não acessem seus dados.
+
+O **Cliente** é responsável por criar rotinas de Backup, snapshots para que não perca seus dados. Configurar uma camada de criptografia para que pessoas não possam ter acesso aos seus dados. Qualquer coisa que for gravada nos storages é de responsabilidade do Cliente. Se o Cliente estiver usando EC2 instance Store, deve saber os riscos de armazenar dados nesse serviço, que pode perder os dados caso houver alguma falha na instancia ou um hardware estar defeituoso.
+
+<img src="images/img10.png" alt="img10" width="800"/>
