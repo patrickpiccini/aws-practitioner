@@ -458,3 +458,20 @@ A **AWS** é responsável por provisionar a infraestrutura para armazenar seus d
 O **Cliente** é responsável por criar rotinas de Backup, snapshots para que não perca seus dados. Configurar uma camada de criptografia para que pessoas não possam ter acesso aos seus dados. Qualquer coisa que for gravada nos storages é de responsabilidade do Cliente. Se o Cliente estiver usando EC2 instance Store, deve saber os riscos de armazenar dados nesse serviço, que pode perder os dados caso houver alguma falha na instancia ou um hardware estar defeituoso.
 
 <img src="images/img10.png" alt="img10" width="800"/>
+
+## Amazon FSx
+É um serviço gerenciado para ativar a high-performace file system na AWS para terceiros.
+Há 3 ofertas de FSx: FSx for Lustre, FSx for Windows File Server e FSx for NetApp ONTAP.
+### FSx for Windows File Server: É um sistema de arquivos compartilhado nativo do Windows totalmente gerenciado.
+- Construido no Windows server;
+- Suporte para todos os protocolos nativos do Windows como o SMB e Windws NTFS;
+- Intgrado com Microsoft Active Directory;
+
+### FSx for Lustre: 
+- Significa ter um armazenamento de arquivos totalmente gerenciado de alto desempenho e escalável para High Performaece Computing (HPC);
+- Nome Lustre deriva de Linux e Cluster;
+- Permite para casos de HPC como análise de dados, Machine learnig, Processamento de Vídeo, modelagem financeira etc... 
+- Trafego extremamente alto em termos de centenas de milhões de GB/s IOp/s com latência de sub-ms.
+
+EC2 Instance Storage Summary
+<img src="images/img11.png" alt="img11" width="800"/>
