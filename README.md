@@ -475,3 +475,33 @@ Há 3 ofertas de FSx: FSx for Lustre, FSx for Windows File Server e FSx for NetA
 
 EC2 Instance Storage Summary
 <img src="images/img11.png" alt="img11" width="800"/>
+
+# ELB & ASG - Elastic Load Balancing e Auto Scaling.
+**Scalability:** é a capacidade de um sistema de acomodar uma carga maior, tornando o hardware mais forte(scaling UP) ou adicionando mais Nós(scaling  OUT).
+
+**Elasticity:** é algo mais nativo da nuvem. Ocorre quando um sistema é realmente escalonável, que você pode aumenta-lo ou amplicalo. Significa que haverá algum tipo de escalonamento automático nele, para que o sistema possa escalar com base na carga que está recebendo. **Para esses casos, paga por uso, para atender a demanda  e optimizar os custos.**
+
+**Agility:** Não esta relacionada a nenhuma dos itens acima. Sgnifica que os novos recursos de TI estão a apenas um clique de distancia, podendo reduzir o tempo de disponibilização desses recursos para seus desenvolvedores de semanas para alguns minutos.
+
+## Scalability e High Availability 
+- Aplicativos podem ser escalonados, isso quer dizer que eles podem lidar com cargas maiores por meio da adaptação. 
+- Existem dois tipos de Scalability na nuvem:
+	- Vertical Scalability
+	- Horizon Scalability (= Elasticity)
+- Escalabilidade será vinculada , mas diferende da alta disponibilidade
+
+## Vertical Scalability
+- Pode aumenta o tamanho da instancia. Por exemplo se uma aplicação está rodando em um t2.micro, e fazer um vertical scalability, a instancia agora mudara para uma t2.large.
+- é muito comum fazer escalabilidade vertical quando se tem um sistema não distribuído, como um, banco de dados. Para que se possa dar mais performace ao DB.
+- Tem um limite que se pode fazer escalabilidade vertical, que é o hardware. Mesmo q esses limites sejam muito altos, ainda assim tem um limite.
+
+## Horizon Scalability
+- Aumenta o numero de instancias ou sistemas para a aplicação.
+- Para esse tipo de escalabilidade, é necessário que seja um sistema distribuído(aplicações intependentes como MS).
+- É fácil de escalar graças ao Amazon EC2 e aos grupos de escalonamento automático e load balancer.
+
+## High Availability
+- Esse serviço fica de mãos dadas com o  Horizontal Scaling.
+- Siguinifica que você está executando um aplicativo em pelo menos duas zonas de disponibilidade da AWS.
+- O objetivo é a combater a perda de um serviço um uma AZ, e ser direcionada para a outra AZ que está disponível ainda.
+
