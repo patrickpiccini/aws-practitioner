@@ -505,3 +505,47 @@ EC2 Instance Storage Summary
 - Siguinifica que você está executando um aplicativo em pelo menos duas zonas de disponibilidade da AWS.
 - O objetivo é a combater a perda de um serviço um uma AZ, e ser direcionada para a outra AZ que está disponível ainda.
 
+## Elastic Load Balancing (ELB)
+Um Balanceador de carga é um servidor que encaminhará o trafego da internet para vários servidores (EC2 Instances) downstreams, que também são chamadas de instancias EC2 backend.
+
+ELB é algo Gerenciado pela AWS. O que será publicado será o Load Balancer e por trás desse serviço terá múltipla instancias EC2. 
+
+- ELB serve obviamente para balancear as carcas de requisições por varias instancias downsrtream.
+- Pode expor um único ponto de acesso (DNS host) para seu aplicativo.
+- pode lidar perfeitamente com falhas de instancias de recebimento de dados.
+- Poderá faze regularmente exames de saúde nas instancias sem que tenha indisponibilidade de serviço
+- Fornece terminação SSL (HTTP) para os sites com muita facilidade.
+- Pode usar um ELB em varias AZ, o torna seu aplicativo altamente disponível.
+
+### Porque usar Elastic Load Balancer? 
+- ELB é um gerenciador de balanceador de carga
+	- AWS garante que estará funcionando
+	- AWS cuidará dps updates, manutenções e alta disponibilidade
+	- AWS fornece apelas configurações fáceis.
+- É menos trabalhoso user o serviço da AWS, do que criar seu próprio Load Balancer, pois terá que cuidar de toda a manutenção dele
+- Há 3 tipos de Load Balancer  na AWS
+	- Aplication Load Balancer (HTTP / HTTPS ) – Layer 7
+	-  Network Load Balancer (ultra-high performace for TCP) – Layer 4 
+	- Classic Load Balancer – Laayer 4 e 7
+
+## ELB Hands On
+Crie duas instancias EC2 com o apache rodando um o site demo.
+Em EC2 > Load Balancing > Load Balancer > Create Load Balancer > ALB 
+
+## Auto Scaling Groups (ASG)
+O Objetivo de um grupo de escalonamento automático é escalar horizontalmente suas instancias rapidamente, e também remover instancias de acordo com a necessidade. Isso garantirá a quantidade exatas de Intacias EC2 rodando para que n haja custos desnecessários. Se alguma instancia tiver algum problema, o ASG consegue identifica-lo e repor a instancia com uma nova.
+
+Outro dos benefícios é Cost Savings(Economia de custos) pois será sempre rodado as instancias necessárias para a necessidade da aplicação
+
+## Auto Scaling Groups (ASG) Hands On
+Vá em EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scalig
+
+## Auto Scaling Groups (ASG) Strategies
+- Escalonamento manual: Atualizar o tamanho do ASG manualmente.
+- Escalonamento Dinamico: Responde as demandas em constante mudança.
+- Simple / Step Scaling: Define trasholds para criar ou deletar istancias
+- Target Trackig Scaling : Define uma media que as instâncias devem ser mantidas
+- Escalonamento Programado: agenda as mudanças do dimensionamento das instâncias
+- Escalonamento Preditivo: Utiliza Machie Learnnig para predizer o trafego futuro que terá.
+- Provisionará automaticamente o número certo de instancias EC2 com antecedência para corresponder a predição calculada. 
+- É recomendado quando se tem padrões
