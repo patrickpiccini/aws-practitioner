@@ -476,7 +476,7 @@ Há 3 ofertas de FSx: FSx for Lustre, FSx for Windows File Server e FSx for NetA
 EC2 Instance Storage Summary
 <img src="images/img11.png" alt="img11" width="800"/>
 
-# ELB & ASG - Elastic Load Balancing e Auto Scaling.
+# ELB & ASG - Elastic Load Balancing e Auto Scaling
 **Scalability:** é a capacidade de um sistema de acomodar uma carga maior, tornando o hardware mais forte(scaling UP) ou adicionando mais Nós(scaling  OUT).
 
 **Elasticity:** é algo mais nativo da nuvem. Ocorre quando um sistema é realmente escalonável, que você pode aumenta-lo ou amplicalo. Significa que haverá algum tipo de escalonamento automático nele, para que o sistema possa escalar com base na carga que está recebendo. **Para esses casos, paga por uso, para atender a demanda  e optimizar os custos.**
