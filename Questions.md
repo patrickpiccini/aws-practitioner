@@ -116,8 +116,9 @@ TEST CLOUD COMPUTING
 - 7 - Which EC2 Purchasing Option should you use for an application you plan on running on a server continuously for 1 year?
     Reserved Instances are good for long workloads. You can reserve instances for 1 or 3 years.
 
+----
+<h1 align="center">TEST EC2 INSTANCE STORAGE </h1>
 
-TEST EC2 INSTANCE STORAGE 
 - 1 - Which EC2 Storage would you use to create a shared network file system for your EC2 Instances?
 Amazon EFS is a fully managed service that makes it easy to set up, scale, and cost-optimize file storage in the Amazon Cloud.
 
@@ -147,3 +148,32 @@ You can use AWS Marketplace AMIs to use someone else's AMI.
 
 - 10 - What is an EBS Volume tied to?
 EBS Volumes are tied to only one availability zone.
+
+<h1 align="center">TESTE ELB & ASG - ELASTIC LOAD BALANCING E AUTO SCALING</h1>
+
+- 1 - What is the main purpose of High Availability in the Cloud?
+Applications thriving even in case of a disaster. High Availability means applications running at least in two AZs to survive a data center loss.
+
+- 2 - Which AWS offered Load Balancer should you use to handle hundreds of thousands of connections with low latency?
+A Network Load Balancer can handle millions of requests per second with low-latency. It operates at Layer 4, and is best-suited for load-balancing TCP, UDP, and TLS traffic with ultra high-performance.
+
+- 3 - Changing an EC2 Instance Type from a t3a.medium to a t3a.2xlarge is an example of?
+Vertical scaling means increasing the size of the instance. Changing from a t3a.medium to a t3a.2xlarge is an example of size increase.
+
+- 4 - What can you use to handle quickly and automatically the changing load on your websites and applications by adding compute resources?
+An Auto Scaling Group (ASG) can automatically and quickly scale-in and scale-out to match the changing load on your applications and websites.
+
+- 5 - Which of the following statements is INCORRECT regarding Auto Scaling Groups?
+Automatically changing the EC2 Instance Types. Auto Scaling Groups can add or remove instances, but from the same type. They cannot change the EC2 Instances Types on the fly.
+
+- 6 - Which Load Balancer is best suited for HTTP/HTTPS load balancing traffic?
+Application Load Balancers are used for HTTP and HTTPS load balancing. They are the best-suited for this kind of traffic.
+
+- 7 - Which of the following is NOT an Auto Scaling Strategy?
+Active Scaling. This is not a scaling strategy. Auto Scaling Strategies include: Manual Scaling, Dynamic Scaling (Simple/Step Scaling, Target Tracking Scaling, Scheduled Scaling), and Predictive Scaling.
+
+- 8 - Which AWS service offers easy horizontal scaling of compute capacity?
+Auto Scaling Groups (ASG) offers the capacity to scale-out and scale-in by adding or removing instances based on demand.
+
+- 9 - Which of the following statements is NOT a feature of Load Balancers?
+Back-end Autoscaling. Load Balancers cannot help with back-end autoscaling. You should use Auto Scaling Groups.
