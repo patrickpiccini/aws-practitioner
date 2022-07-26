@@ -337,7 +337,9 @@ O usuário é responsável pela segurança para acessar os serviços da nuvem. D
 ## EC2 Sumary
 <img src="images/img7.png" alt="img7" width="600"/>
 
-# EC2 instance Storge
+---
+<h1 align="center">EC2 instance Storge</h1>
+
 - EBS significa Elastic Block Storage. È uma uniadede de rede que você pode anexar as suas instancias quando são executadas.
 - EBS nos permite persistir dados mesmo depois que a instância é encerrada. Podemos recriar uma intancia e monta-la no mesmo volume EBS.
 - Quando você cria um EBS volume, ele é vinculado a uma Availability zone especifica.
@@ -476,7 +478,10 @@ Há 3 ofertas de FSx: FSx for Lustre, FSx for Windows File Server e FSx for NetA
 EC2 Instance Storage Summary
 <img src="images/img11.png" alt="img11" width="800"/>
 
-# ELB & ASG - Elastic Load Balancing e Auto Scaling
+
+
+---
+<h1 align="center">ELB & ASG - Elastic Load Balancing e Auto Scaling</h1>
 **Scalability:** é a capacidade de um sistema de acomodar uma carga maior, tornando o hardware mais forte(scaling UP) ou adicionando mais Nós(scaling  OUT).
 
 **Elasticity:** é algo mais nativo da nuvem. Ocorre quando um sistema é realmente escalonável, que você pode aumenta-lo ou amplicalo. Significa que haverá algum tipo de escalonamento automático nele, para que o sistema possa escalar com base na carga que está recebendo. **Para esses casos, paga por uso, para atender a demanda  e optimizar os custos.**
@@ -549,3 +554,52 @@ Vá em EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scalig
 - Escalonamento Preditivo: Utiliza Machie Learnnig para predizer o trafego futuro que terá.
 - Provisionará automaticamente o número certo de instancias EC2 com antecedência para corresponder a predição calculada. 
 - É recomendado quando se tem padrões
+
+
+---
+<h1 align="center">Amazon S3</h1>
+
+- S3 está no centro de muitos outros bloco s de construção da AWS;
+- É chamada de “Armazenamento de escala infinita”. Onde pode armazenar quantos objetos quiser;
+- S3 será usado como um backbone para muitos sites e muitos serviços da AWS usarão S3 como uma integração;
+
+## Usos de S3 
+- Backup e Armazeamento;
+- Recuperação de desastres;
+- Arquivar dados no S3;
+- Ter uma armazeameto em nuvem hibrida;
+- Hospedagem de Aplicativos;
+- Hospeadagem de mídia;
+- Datalakes e Big data analytics;
+- Software delivery;
+- Site estatico
+
+## Amazon S3 – Buckets
+- Amazo S3 deixa pessoas armazenar arquivos(objects) em “Buckets”(diretórios);
+- Os buckets devem ter um nome exclusivo globalmente. Significado que esta em todas as regiões e todas as cotas na AWS;
+- Buckets são definidas no nível da região;
+- 	**O S3 parece ser um serviço global, mas os bucktes são criados em uma Região.**
+- Nome de convenção:
+	- Não pode ter letras maiúsculas;
+	- sem sublinhado;
+	- deve ter entre 3 – 63 caracteres;
+- Não deve ser um IP;
+- Não deve começar com letra minúscula ou úmero; 
+
+
+
+## Amazon S3 – Objects
+Pode armazenar Objects que contém um **Key**
+<img src="images/img12.png" alt="img12" width="800"/>
+
+- O tamanho máximo de um Objects é de 5TB;
+- para objetos maiores que 5GB terá q dividir e enviar em partes, usado o “multi-part upload”;
+- Acima do conteúdo do Body a os Metadados, que são um conjunto de key/value;
+- Pode ter Tags. Unicode key/value quando se tem segurança ou lifecircle;
+- ID ad versão;
+
+## Amazon S3 Hands On
+Em Storage > S3 > Create a Buckets
+
+Não pode usar nomes que já existam em outros clientes da amazon.
+Após fazer um upload de um arquivo, pode-se notar que no botão “Open”, conseguirá abrir o seu arquivo, porem quanto tentar usar o Object URL não irá abrir. Isto porque o bucket não público. Para conseguir isso terá que adicionar polycies ao seu bucket.
