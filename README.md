@@ -603,3 +603,77 @@ Em Storage > S3 > Create a Buckets
 
 Não pode usar nomes que já existam em outros clientes da amazon.
 Após fazer um upload de um arquivo, pode-se notar que no botão “Open”, conseguirá abrir o seu arquivo, porem quanto tentar usar o Object URL não irá abrir. Isto porque o bucket não público. Para conseguir isso terá que adicionar polycies ao seu bucket.
+
+
+## S3 Security
+Há diferentes componentes de segurança no S3.
+- **Por usuário:**
+	- É anexado IAM policies,para permitir que tenham acesso ao buckets S3
+- **Resouce Based:**
+	- podemos definir um buckets policies, que será uma regra anexada diretamente no bucket S3, para permitir ou negar as solicitações publicas ou de outras contas.
+	- Object Access Control List (ACL), podem definir o nivel do objeto, quem pode fazer algo
+	- Bucket Access Controll List (ACL), menos comum.
+
+Pode-se acessar um object s3 quando as permissões IAM anexadas ao IAM principal de forma que o usuário OU grupo da função possa permitir o acesso ao Bucket S3, ou se a politica de Bucket S3 Permitir OU se não nenhuma política  e negação de acesso. 
+ 
+**Exemplos de Acesso:**
+<img src="images/img13.png" alt="img13" width="800"/>
+<img src="images/img14.png" alt="img14" width="800"/>
+<img src="images/img15.png" alt="img15" width="800"/>
+<img src="images/img16.png" alt="img16" width="800"/>
+
+## S3 Website Overview
+Uma das razões pelas quais tornamos os Objects Públicos  é para poder hospedar sites no Amazon S3. Sendo uma ótima maneira de hospeda-los em disponibiliza-los em rede mundial.
+As URL dos sites serão:
+- \<bucket-name\>.s3-website-\<aws-region\>.amazonaws.com OU
+- \<bucket-name\>.s3-website.\<aws-region\>.amazonaws.com
+
+Se não tornar o buckets público, os usuários receberão um erro 403 (forbidden), tendo certeza q é relacionada a permissão do bucket.
+
+**OBS: os sites no S3 serão somente para sites estáticos.**
+
+Para criar um website va em Amazon S3 > Buckets > <piccini-s3-2022-v1>  > Properties > Static website hosting > e anexe eu index.html.
+
+Lembre-se que antes de tudo, o bucket deve estar público, fazendo os passos de Bucket policy
+
+## Amazon S3 – Versioning
+Supondo que criamos um site e queremos atualizar ou adicionar novos arquivos a ele, seria bom marte versões anteriores como um backup para possíveis roll back.
+
+Para isso, pode-se habilitar o controle de versões para seus arquivos no S3.
+- Toda a vez que atualizar um arquivo, ele terá uma nova versão;
+- É uma boa pratica criar versões de seus buckets;
+	- Protege contra qualquer exclusão indesejada;
+	- pode reverter para uma versão anterior;
+- Qualquer arquivo que não tiver versão, será atribuído o valor “null” a ele.
+Hands On
+Vá em seu bucket S3 > Properties > Bucket Versioning > Habilitar.
+
+## S3 Access Loggin
+- É usado caso você precise utilizar ou analizar os logs do seu S3 Bucket;
+- Terá acesso a todas as requisições feitas para o S3.
+- Tambem é utilizado para analisar quem pode ter excluído algum arquivo, em que momento e como.
+
+**Hands On**
+
+Primeiramente terá que criar um novo S3 para que possa armazenar os logs no S3 principal.
+Depois vá no S3 principal > Propreties > Server access logging > habilita > e coloque o s3 de log /logs.
+
+## S3 Replication (CRR & SRR)
+Esta função replica seus buckets. Pode ser uma réplica entre regiões (Cross Replication Terio - CRR) ou replica na mesma região (Same Replication Region).
+
+Para isso:
+- Controle de versão no bucket de origem e destino deve estar habilitado;
+- e habilitar o CRR ou SRR;
+- podem estar em contas diferentes;
+- a copia é assyncrona;
+- para funcionar deve-se dar permissão de IAM adequadas para copiar os arquivos
+
+Casos de uso CRR – Acesso de menor latência, Replicação entre cotas diferentes...
+Casos de uso SRR – Agregar loggs, replicação ao vivo entre PRD e TEST Acounts
+
+**Hands On**
+
+Crie um novo bucket e habilite o sistema de versionamento. No bucket principal va em Maagement > Replication rules > Create replication rulem, e configuro como desejar a replica.
+
+## S3 Storage Classes
+
