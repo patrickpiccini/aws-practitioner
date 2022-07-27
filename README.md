@@ -676,4 +676,97 @@ Casos de uso SRR – Agregar loggs, replicação ao vivo entre PRD e TEST Acount
 Crie um novo bucket e habilite o sistema de versionamento. No bucket principal va em Maagement > Replication rules > Create replication rulem, e configuro como desejar a replica.
 
 ## S3 Storage Classes
+Quando é criado um object S3, você pode escolher manualmente sua classe, também pode modificar sua classe de armazenamento manualmente ou pode usar configurações de ciclo para mover objects automaticamente entre todos esses 
+## Storage Classes
+S3 Durability and Availability:
+- Durability:
+	- Há uma durabilidade Muito Alta (99.999999999%).
+	- Se tiver 10milhoes de objects no S3, pode considerar perde um em 10mil anos;
+	- Isso para todas as classe S3
+- Availability:
+	- Representa rapidez com que um serviço é.
+	- Isso depende da classe de storage;
+	- Ex: S3 Standard tem 99.99% de disponibilidade
 
+**S3 Standard – General Purpose**
+
+- 99.99% de disponibilidade;
+- Usado para Dados acessados frequentemente
+- Tem baixa latência e alta taxa de transferência
+- Pode sustentar 2 falha de instalação simultâneas
+
+**S3 Storage Classes – Infrequent Access**
+- Usado para dados não acessados com frequência porem com acesso rápido quando necessário;
+- Custo será menor do o que S3 Standard
+
+	**Amazon S3 Standard-Infrequent Access (S3 Standard-IA)**
+	- tem um pouco menos de disponibilidade – 99.9%
+	- Usado em casos de Disaster Recovery, backups
+
+	**Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)**
+	- High durability (99.999999999%) em uma única zona, e os dados serão perdidos se a AZ for um pouco destruída.
+	-  tem um pouco menos de disponibilidade – 99.5%
+	- são usadas para armazenar copias secundarias de backups
+
+**Amazon S3 Glacier Storage Classes**
+- É um armazenamento de objetos de baixo custo destinado a arquivamento e backup
+- Paragá pelo armazenamento + custo de recuperação
+
+	**Amazon S3 Glacier Instant Retrieval**
+	- Recuperação de milissegundos, excelente para dados acessados uma vez por trimestre
+	- Duração mínima de armazenamento de 90 dias
+
+	**Amazon S3 Glacier Flexible Retrieval (formerly Amazon S3 Glacier):**
+	- Rápido (1 a 5 minutos), Padrão (3 a 5 horas), Granel (5 a 12 horas) – grátis
+	- Duração mínima de armazenamento de 90 dias
+
+	**Amazon S3 Glacier Deep Archive – for long term storage:**
+	- Padrão (12 horas), Granel (48 horas)
+	- Duração mínima de armazenamento de 180 dias
+
+**S3 Intelligent-Tiering**
+	- Pequeno monitoramento mensal e taxa de classificação automática
+- Move objetos automaticamente entre níveis de acesso com base no uso
+- Não há cobranças de recuperação no S3 Intelligent-Tiering
+- Nível de acesso frequente (automático): nível padrão
+- Nível de acesso pouco frequente (automático): objetos não acessados por 30 dias
+- Nível de acesso instantâneo de arquivo (automático): objetos não acessados por 90 dias
+- Nível de acesso ao arquivo (opcional): configurável de 90 dias a mais de 700 dias
+- Camada Deep Archive Access (opcional): config. de 180 dias a mais de 700 dias
+
+<img src="images/img17.png" alt="img17" width="800"/>
+<img src="images/img18.png" alt="img18" width="800"/>
+
+**Hands On**
+
+Adicionando um arquivo a se bucket, vá em properties e encontrará todas as storage classes disponíveis. 
+
+Após o upload do arquivo também é possível mover de classe, basta nas propriedades do arquivo.
+
+Para movimentar automaticamente os objetos vá no seu bucket > Management > Create lifecircle rules. Com isso você pode definir todas para mudar de classe.
+
+## S3 Object Lock & Glacier Vault Lock
+-  S3 Object Lock
+	- A ideia é caso queria adotar o modelo WORM (Write Once Read 
+	Many) model
+	- Isso faz com que você suba um arquivo e defina um tempo para que ninguém possa modificalo
+- Glacier Vault Lock
+	- A ideia é caso queria adotar o modelo WORM (Write Once Read 
+	Many) model
+	- Cria uma politica de bloqueio que impede futuras alterações do arquivo. Depois de configurada, ninguem pode excluir a policie.
+	- Garante n ter perda de dados nunca.
+
+## S3 Encryption
+- No Encryption:
+	- não sofre nenhum tipo de criptografia ao fazer uploads de arquivos ao S3
+- Server-Side Encryption:
+	- o usuário faz upload ao S3 e o servidor Amazon criptografa o arquivo após recebe-lo
+- Client-Side Encryption:
+	- o usuário faz o upload de um arquivo já criptografado ao S3 e e não será criptografado pelo servidor. 
+
+## Shared Responsibility Model for S3
+A **AWS** será responsável por toda a infraestrutura, incluído todas as coisas especificas ao S3(global security, durability, availability, sustentar perdas de dados). Configuração e analise de vulnerabilidade. E sua própria validação.
+
+O **Usuário** será responsável por configurar o controle de versão do S3, ter a certeza de configurar as buckets policies, configurações de replicação de dados, registro e monitoramento de log, saber se a storage class que está usando é a ideal, saiba como criptografar os dados na S3.
+
+<img src="images/img19.png" alt="img19" width="800"/>
