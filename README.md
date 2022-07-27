@@ -770,3 +770,78 @@ A **AWS** será responsável por toda a infraestrutura, incluído todas as coisa
 O **Usuário** será responsável por configurar o controle de versão do S3, ter a certeza de configurar as buckets policies, configurações de replicação de dados, registro e monitoramento de log, saber se a storage class que está usando é a ideal, saiba como criptografar os dados na S3.
 
 <img src="images/img19.png" alt="img19" width="800"/>
+
+## AWS Snow Family
+Dispositivos portáteis altamente seguros para coletar e processar dados na borda, e migrar dados para dentro e fora da AWS.
+
+<img src="images/img20.png" alt="img20" width="800"/>
+
+O tempo para migrar seus arquivos para a AWS pode levar muito tempo, e as vezes pode dar problemas. Com o AWS Snow Family a aws envia um dispositivo físico para você, onde terá que fazer o upload dos arquivos a ele, e depois você enviará novamente para Amazon para que ela possa fazer a transferência dos arquivos rapidamente.
+
+A regra é que só use esse serviço caso a sua transferência leve mais de uma semana pela rede. Assim poderá usar um dispositivo Snowball
+
+**Snowball Edge (for data transfers)**
+- Solução de transporte de dados físicos: mova TBs ou PBs de dados para dentro ou para fora da AWS
+- Alternativa para mover dados pela rede (e pagar honorários)
+- Pague por trabalho de transferência de dados 
+- Forneça armazenamento em bloco e Amazon S3-compatible object storage
+- Armazenamento otimizado para Snowball Edge 
+	- 80 TB de capacidade de HDD para volume em bloco e objeto compatível com S3 storage
+- Snowball Edge Compute otimizado 
+	- 42 TB de capacidade de HDD para volume em bloco e objeto compatível com S3 storage
+- **Casos de uso:** grandes migrações de nuvem de dados, descomissionamento de DC, desastre recuperação
+
+**AWS Snowcone**
+- Computação pequena e portátil, em qualquer lugar, robusta e seguro, resiste a ambientes agressivos
+- Leve (4,5 libras, 2,1 kg) 
+- Dispositivo usado para computação de borda, armazenamento e dados transferir
+- 8 TBs de armazenamento utilizável 
+- Use o Snowcone onde o Snowball não se encaixa (espaço-ambiente restrito)
+- Deve fornecer sua própria bateria/cabos 
+- Pode ser enviado de volta para a AWS offline ou conectá-lo a internet e use o AWS DataSync para enviar dados
+
+**AWS Snowmobile**
+- Transferir exabytes de dados (1 EB = 1.000 PB = 1.000.000 TBs)
+- Cada Snowmobile tem 100 PB de capacidade (use vários em paralelo)
+- Alta segurança: temperatura controlada, GPS, vigilância por vídeo 24 horas por dia, 7 dias por semana
+- Melhor que Snowball se você transferir mais de 10 PB
+
+**AWS Snow Family for Data Migrations**
+<img src="images/img21.png" alt="img21" width="800"/>
+
+## Snow Family – Edge Computing
+Edge Computing é quando fosse processa dados enquanto eles estão sendo criados em um edge location(é um lugar que n tenha internet ou sem conexão a nuvem). E ainda estando nesses locais deseja fazer algum processamento de dados o cliente solicitará um Snowball Edge ou Snowcone.
+
+**Use cases of Edge Computing:**
+- Preprocess data
+- Machine learning at the edge
+- Transcoding media streams
+
+<img src="images/img22.png" alt="img22" width="800"/>
+
+## AWS OpsHub
+Para usar a Snow Family devices antigamente utilizava-se o CLI.
+Atualmente usa-se o OpsHub que é um software que você instala em seu computador para gerenciar a Snow Family devices.
+
+- Desbloquear e configurar dispositivos únicos ou em cluster
+- Transferindo arquivos
+- Iniciar e gerenciar instâncias em execução no Snow Dispositivos da família
+- Monitore as métricas do dispositivo (capacidade de armazenamento, ativo instâncias no seu dispositivo)
+- Inicie serviços compatíveis da AWS em seus dispositivos (ex: instâncias do Amazon EC2, AWS DataSync, Network File System (NFS))
+
+**Hands On**
+Vá na aba da AWS Snow Family e crie uma ordem de device escolhendo o dispositivo que desejar. (ISSO PAGA, CUIDADO)
+
+## Storage Gateway Overview
+ Vimos que o S3 é um serviço autônomo, mas é possível usa-lo em um tipo de configuração de nuvem hibrida.
+	- Parter da infraestrutura ficará no local e o resto ficara na nuvem
+Isso pode acontecer em casos de que começou sua infra local e deseja tem em cloud, porem será muito longo o processo de migração, por isso usa o Hybrid Cloud. Ou também é um estratégia ter a infra separada.
+
+Para expor esses dados que ficam no S3 é necessário usar o AWS Storage Gateway.
+
+A AWS Storage Gateway fara uma ponte entre os seus dados locais e seus dados na nuvem,  também utilizado em casos de disaster recovery, backup & restore, tiered storage.
+
+- Types of Storage Gateway:
+	- File Gateway 
+	- Volume Gateway
+	- Tape Gateway
