@@ -833,15 +833,15 @@ Atualmente usa-se o OpsHub que é um software que você instala em seu computado
 Vá na aba da AWS Snow Family e crie uma ordem de device escolhendo o dispositivo que desejar. (ISSO PAGA, CUIDADO)
 
 ## Storage Gateway Overview
- Vimos que o S3 é um serviço autônomo, mas é possível usa-lo em um tipo de configuração de nuvem hibrida.
+Vimos que o S3 é um serviço autônomo, mas é possível usa-lo em um tipo de configuração de nuvem hibrida.
 	- Parter da infraestrutura ficará no local e o resto ficara na nuvem
-Isso pode acontecer em casos de que começou sua infra local e deseja tem em cloud, porem será muito longo o processo de migração, por isso usa o Hybrid Cloud. Ou também é um estratégia ter a infra separada.
+	Isso pode acontecer em casos de que começou sua infra local e deseja ter em cloud, porem será muito longo o processo de migração, por isso usa o Hybrid Cloud. Ou também é uma estratégia ter a infra separada.
 
 Para expor esses dados que ficam no S3 é necessário usar o AWS Storage Gateway.
 
-A AWS Storage Gateway fara uma ponte entre os seus dados locais e seus dados na nuvem,  também utilizado em casos de disaster recovery, backup & restore, tiered storage.
+A AWS Storage Gateway fará uma ponte entre os seus dados locais e seus dados na nuvem, também utilizado em casos de disaster recovery, backup & restore, tiered storage.
 
-- Types of Storage Gateway:
+- Tipos ode Storage Gateway:
 	- File Gateway 
 	- Volume Gateway
 	- Tape Gateway
