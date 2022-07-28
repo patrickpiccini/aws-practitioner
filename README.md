@@ -845,3 +845,108 @@ A AWS Storage Gateway fará uma ponte entre os seus dados locais e seus dados na
 	- File Gateway 
 	- Volume Gateway
 	- Tape Gateway
+
+<img src="images/img24.png" alt="img24" width="800"/>
+
+# Databases
+## Databases e Shared Responsability o AWS
+A AWS se proponha  a gerencias bancos de dados. 
+- O benefício é que é muito rápido para provisionar, terá alta disponibilidade, pode fazer escalonamento vertical e horizontal. 
+- Terá backup e restauração automatizado dos bancos de dados, operações e atualizações do banco.
+- Corrige a instancia que esta alocado o DB.
+- Monitoramento e alertas serão integrados 
+
+RDS & Aurora Overview
+RDS significa  Relation Database Service e obviamente é um banco relational que usa SQL como linguagem. Esse serviço provisionar bancos de dado que serão gerenciados pela AWS podendo ser de diferentes tipos:
+- Postgrs
+- MySQL
+- MariaDB
+- Oracle
+- Microsoft SQL Server
+- Aurora (BD proprietário da AWS)
+
+**Vantagens de usar RDS ao invés de criar em uma EC2:**
+- RDS é um serviço gerenciado:
+- Provisionamento automatizado, patch de SO
+- Backups contínuos e restauração para timestamp específico (Point in Time Restore)!
+- Painéis de monitoramento
+- Réplicas de leitura para melhor desempenho de leitura
+- Configuração Multi AZ para DR (Recuperação de Desastres)
+- Janelas de manutenção para atualizações
+- Capacidade de dimensionamento (vertical e horizontal)
+- Armazenamento suportado por EBS (gp2 ou io1)
+- MAS você não pode usar SSH em suas instâncias.
+
+<img src="images/img25.png" alt="img25" width="600"/>
+
+## **Aurora**
+- Aurora é uma tecnologia proprietária da AWS (não de código aberto)
+- PostgreSQL e MySQL são suportados como Aurora DB
+- O Aurora é “otimizado para a nuvem da AWS” e reivindica uma melhoria de desempenho de 5x sobre MySQL no RDS, mais de 3x o desempenho do Postgres no RDS
+- O armazenamento Aurora cresce automaticamente em incrementos de 10 GB, até 64 TB.
+- Aurora custa mais do que RDS (20% a mais) – mas é mais eficiente
+- **Não está no nível gratuito**
+
+**Hands On**
+Vá em RDS > DataBases > Create Database, e configure seu banco. Lembre-se de verificar para usar o free tier.
+Pode ser criado snapshots para restaurar em um novo banco de dados futuramente na aba Actions > Take Snapshot.
+Na Snapshot va em Actions > Restore Snapshot e configure um novo banco de dados.
+
+## RDS Deployments: Read Replicas, Multi-AZ
+**Read Replicas:**
+	- distribui a leitura de informações em seu banco de dados para não sobrecarregar
+	-  pode ser criado até 5 Read Replicas
+	- Os dados podem ser gravados somente no banco principal
+
+<img src="images/img26.png" alt="img26" width="400"/>
+
+**Multi-AZ:**
+- É útil quando se tem um failover no caso de uma AZ travar. Usa-la te trará(high-availability)
+- os dados são somente lidos e gravados no banco principal
+- Pode ter uma outra AZ como AZ failover
+
+<img src="images/img27.png" alt="img27" width="400"/>
+
+## RDS Deployments: Multi-Region
+**Multi-Region (Read Replicas):**
+- Usados para casos de Disaster Recovery 
+- Cria replicar em regiões diferentes
+- tem melhor performace para aplicações globais
+- haverá um custo de replicação associado a uma transferência de dados entre regiões
+
+<img src="images/img28.png" alt="img28" width="800"/>
+
+## ElastiCache Overview
+- Da mesma forma que o RDS é para obter bancos de dados relacionais gerenciados…
+- ElastiCache é obter Redis ou Memcached gerenciado
+- Caches são bancos de dados na memória com alto desempenho e baixa latência
+- Ajuda a reduzir a carga de bancos de dados para cargas de trabalho de leitura intensa
+- A AWS cuida da manutenção / aplicação de patches, otimizações, instalação, configuração, monitoramento, recuperação de falhas e backups
+
+<img src="images/img29.png" alt="img29" width="800"/>
+
+## DynamoDB
+- é um serviço de banco de dados sem servidor (sem uma instancia especifica)
+- Totalmente gerenciado Altamente disponível com replicação em 3 AZ
+- Banco de dados NoSQL - não é um banco de dados relacional
+- Escala para cargas de trabalho massivas, banco de dados distribuído "sem servidor"
+- Suporta milhões de solicitações por segundo, trilhões de linhas, centenas de TB de armazenamento
+- Rápido e consistente em desempenho
+- Latência de milissegundos de um dígito - recuperação de baixa latência
+- Integrado com IAM para segurança, autorização e administração
+- Recursos de baixo custo e dimensionamento automático
+- Possui classes Standar e Infrequent Access (IA) para economizar seus dados
+- trabalha com dados de Key/Value assim como JSON
+
+## DynamoDB Accelerator - DAX 
+- É um cache de memória totalmente gerencia para o DynamoDB
+- Melhoria de desempenho de 10x – latência de milissegundos de um dígito para microssegundos latência – ao acessar seu DynamoDB 
+- Seguro, altamente escalável e altamente disponível
+- Diferença com o ElastiCache no CCP nível: DAX é usado apenas para e é integrado ao DynamoDB, enquanto o ElastiCache pode ser usado para outros bancos de dados
+
+## DynamoDB Global Tables
+- É uma maneira de tornar o DynamoDB acessível com baixa latência em múltiplas regiões.
+- É criada uma replica do DB em outra region, porem os usuário também pode ler e escrever nessa replica.
+
+
+## Redshift Overview 
