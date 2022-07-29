@@ -950,3 +950,93 @@ Na Snapshot va em Actions > Restore Snapshot e configure um novo banco de dados.
 
 
 ## Redshift Overview 
+- Redshift é baseado no PostgreSQL, mas não é usado para OLTP
+- OLAP é o processamento analítico online (análise e armazenamento de dados)
+- Carregar dados uma vez a cada hora, não a cada segundo
+- Desempenho 10x melhor do que outros data warehouses, dimensione para PBs de dados
+- Armazenamento colunar de dados (em vez de baseado em linha)
+- Execução de Consulta Massivamente Paralela (MPP), altamente disponível
+- Pague conforme o uso com base nas instâncias provisionadas
+- Possui interface SQL para realizar as consultas
+- Ferramentas de BI, como AWS Quicksight ou Tableau integram-se a ele
+
+## Amazon EMR
+- Signnifica Elastic MapReduce
+- não bem um database. Ele ajuda a criar um Hadoop cluster quando deseja fazer big data
+- Hadoop é usado para analisar e processar uma grande quantia de dados.
+- usado o hadoop, pode ser criado centenas de EC2 instances para analisar seus dados.
+- Apache Spark, HBase, Presto, Flink etc estarão funcionando no topo do seu cluster hadoop
+- EMR é responsável por criar todas essas instâncias que você precisa 
+- possui escalonamento automático e integração com Spot Instances
+
+## Amazon Athena
+É um serviço de consulta sem servidor para realizar análises em relação ao seu armazenamento de objects (S3)
+- A ideia é usar uma linguagem SQL para consultar esses arquivos, mas não carrega-los.
+- Esses arquivos podem ser formatados em CSV, JSON, ORC, Acro e Parquet (Athena tem engine Presto)
+- Preço: US$ 5,00 por TB de dados verificados
+- Use dados compactados ou colunares para economia de custos (menos varredura)
+
+- Casos de uso: BI / análise / relatórios, análise e consultar logs de fluxo de VPC, logs de ELB, trilhas do CloudTrail, etc...
+- Dica de exame: analise dados no S3 usando SQL sem servidor, use Athena
+
+## Amazon Quicksight
+É um serviço de BI sem servidor com Machine learning para criar painéis interativos.
+- pode criar Dashboards em seus bancos de dados para monitoramento e representar visualmente os dados.
+- É rápido, escalonável automaticamente, tem o preço por sessão 
+Use cases:
+- Business analytics
+- Building visualizations
+- Perform ad-hoc analysis
+- Get business insights using data
+
+Pode ser integrado com RDS, Aurora, Athena, Redshift
+
+## DocumentDB
+É o mesmo conceito do Aurora porem no formato de MongoDB.
+- É um banco de dados totalmente gerenciado, com alta disponibilidade com replicação em 3 AZ.
+- O armazenamento pode aumentar automaticamente 10GB até 64TB
+- Pode ser dimensionado para cargas de trabalho com milhões de solicitações por segundo.
+
+## Amazon Neptune
+É um banco de dados gráfico totalmente gerenciado, tem alta disponibilidade em até 3 AZ com até 15 réplicas de leitura.
+- É usado para rodar application que estarão com conjuntos de dados altamente conectados, como uma rede social. Pois o Neptune é optimizado para executar consultas que são complexas encima desses conjuntos de dados gráficos.
+- Podem armazenar Bilhões de Relações no banco de dados e consultar o gráfico com latência de milissegundos.
+- É ótimo para armazenar gráficos de conhecimento por ex Wikipedia, Detecção de fraude, mecanismo de recomendação e rede social.
+
+Para o exame, sempre que ver algo relacionado a banco de dados de gráficos pense no Neptue
+
+## Amazon QLDB
+QLDB significa ”Quantum Ledger Database”. 
+- um ledger é um livro que registra transações financeiras
+- É um banco totalmente gerenciado, serverless, com alta disponibilidade e com replicação de ate 3 AZ.
+
+É usado para revisar o histórico de toas as alterações feitas nos dados do seu App ao longo do tempo.
+
+É um sistema imutável significando que uma vez que você grava algo no DB, ele não pode ser removido ou modificado. E também há uma maneira de ter uma assinatura criptográfica para ver que nada foi removiso.
+
+- Desempenho 2-3x melhor do que as estruturas comuns de ledger blockchain, e pode manipular dados usando SQL
+- Diferença com Amazon Managed Blockchain: sem componente de descentralização, de acordo com regras de regulação financeira. Isso significa se somente um banco de dados central de propriedade da Amazon que permite que você escreva os diários.
+
+
+## Amazon Managed Blockchain
+Blockchain torna possível construir aplicativos onde várias partes podem executar transações sem a necessidade de uma central confiável autoridade.
+O Amazon Managed Blockchain é um serviço gerenciado para:
+- Junte-se a redes públicas de blockchain
+- Ou crie sua própria rede privada escalável
+- Compatível com os frameworks Hyperledger Fabric & Ethereum
+
+## DMS – Database Migration Service
+É usado para migrar os dados de um serviço de DB para outro serviço de DB.
+- com o DMS há uma migração de banco de dados rapidae segura pela AWS, sendo resiliente e autocorretiva.
+- Os dados do DB de origem continuam disponível durante migração.
+
+**Suporta:**
+- Migrações homogêneas: ex Oracle para Oracle
+-  Migrações heterogêneas: ex Microsoft SQL Server para Aurora
+
+## AWS Glue
+É um serviço gerenciado de extração, transformação e carregamento(ELT).
+- ETl é muito útil quando se tem alguns conjutos de dados, mas eles não estão exatamente na forma certa ou formato que você precisa. Por isso, você usará o ETL para transformar esse dados.
+- GLue é totalmente serverless
+
+<img src="images/img30.png" alt="img30" width="800"/>
