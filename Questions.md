@@ -149,6 +149,7 @@ You can use AWS Marketplace AMIs to use someone else's AMI.
 - 10 - What is an EBS Volume tied to?
 EBS Volumes are tied to only one availability zone.
 
+---
 <h1 align="center">TESTE ELB & ASG - ELASTIC LOAD BALANCING E AUTO SCALING</h1>
 
 - 1 - What is the main purpose of High Availability in the Cloud?
@@ -178,7 +179,7 @@ Auto Scaling Groups (ASG) offers the capacity to scale-out and scale-in by addin
 - 9 - Which of the following statements is NOT a feature of Load Balancers?
 Back-end Autoscaling. Load Balancers cannot help with back-end autoscaling. You should use Auto Scaling Groups.
 
-
+---
 <h1 align="center">TEST S3</h1>
 
 - 1 - Which S3 Storage Class is the most cost-effective for archiving data with no retrieval time requirement?
@@ -213,4 +214,59 @@ Snowball Edge Storage Optimized devices are well suited for large-scale data mig
 
 - 11 - Which S3 Storage Class is suitable for less frequently accessed data, but with rapid access when needed, while keeping a high durability and allowing an Availability Zone failure?
 Amazon S3 Standard-Infrequent Access allow you to store infrequently accessed data, with rapid access when needed, has a high durability, and is stored in several Availability Zones to avoid data loss in case of a disaster. It can be used to store data for disaster recovery, backups, etc.
+
+
+---
+<h1 align="center">TEST DATABASE</h1>
+
+1 - You want to create a decentralized blockchain on AWS. Which AWS service would you use?
+Amazon Managed Blockchain is a fully managed service that makes it easy to create and manage scalable blockchain networks using the popular open source frameworks Hyperledger Fabric and Ethereum. It allows multiple parties to execute transactions without the need of a trusted, central authority.
+
+2 - Which AWS database is a data warehouse?
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud.
+
+3 - Which AWS service is always serverless and has SQL capabilities?
+Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run.
+
+4 - You would like to use a serverless service to prepare data so it can be loaded for analytics. Which service would you use?
+AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics.
+
+5 - Which relational database is a proprietary technology from AWS and is cloud-optimized?
+Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud, that combines the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases. It is a proprietary technology from AWS.
+
+6 - You would like to migrate databases to AWS while still being able to use the database during the migration. What service allows you to do this?
+AWS Database Migration Service helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database.
+
+7 - How can you create Hadoop clusters to analyze and process a vast amount of data?
+Amazon EMR is a web service that enables businesses, researchers, data analysts, and developers to easily and cost-effectively process vast amounts of data. EMR helps creating Hadoop clusters (Big Data) to analyze and process vast amount of data
+
+8 - Which in-memory AWS database can you use to reduce the load off databases and has high performance, low latency?
+Amazon ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud. ElastiCache caches are in-memory databases with high performance, low latency. They help reduce load off databases for read intensive workloads.
+
+9 - What is the name of a central repository to store structural and operational metadata for data assets in AWS Glue?
+The AWS Glue Data Catalog is a central repository to store structural and operational metadata for all your data assets. For a given data set, you can store its table definition, physical location, add business relevant attributes, as well as track how this data has changed over time.
+
+10 - Which of the following databases is a managed service with SQL capability suited for Online Transaction Processing (OLTP)?
+Amazon Relational Database Service (Amazon RDS) is a SQL managed service that makes it easy to set up, operate, and scale a relational database in the cloud. It is suited for OLTP workloads
+
+11 - Which AWS service is an immutable ledger database?
+Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority. Amazon QLDB tracks each and every application data change and maintains a complete and verifiable history of changes over time.
+
+12 - You would like to set up a NoSQL database that can scale with no downtime and can handle millions of requests per second. Which AWS database is best suited for this work?
+DynamoDB is a fast and flexible non-relational database service for any scale. It can scale with no downtime, it can process millions of requests per second, and is fast and consistent in performance.
+
+13 - Which AWS service can create complex graphs for fraud detection?
+Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it easy to build and run applications that work with highly connected datasets. It can be used for knowledge graphs, fraud detection, recommendations engines, social networking, etc.
+
+14 - Which AWS serverless service can use machine learning-powered business intelligence to create interactive dashboards such as business analytics?
+Amazon QuickSight is a fast, cloud-powered business intelligence (BI) service that makes it easy for you to deliver insights to everyone in your organization. You can create and publish interactive dashboards.
+
+15 - A company would like to set up a fully managed MongoDB database. Which AWS database is best-suited for this task?
+Amazon DocumentDB (with MongoDB compatibility) is a fast, calable, highly available, and fully managed document database service that supports MongoDB workloads.
+
+16 - Which exclusive DynamoDB feature is an in-memory cache that can improve your performance up to 10x?
+Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for Amazon DynamoDB that delivers up to a 10 times performance improvement—from milliseconds to microseconds—even at millions of requests per second.
+
+17 - O objetivo principal das implantações do RDS Multi-AZ é a alta disponibilidade, enquanto o objetivo principal das réplicas de leitura do RDS é a escalabilidade.
+True. RDS Multi-AZ deployments’ main purpose is high availability, and RDS Read replicas’ main purpose is scalability. Moreover, Multi-Region deployments’ main purpose is disaster recovery and local performance.
 
