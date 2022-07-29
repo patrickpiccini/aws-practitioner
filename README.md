@@ -848,7 +848,9 @@ A AWS Storage Gateway fará uma ponte entre os seus dados locais e seus dados na
 
 <img src="images/img24.png" alt="img24" width="800"/>
 
-# Databases
+---
+<h1 align="center">Databases</h1>
+
 ## Databases e Shared Responsability o AWS
 A AWS se proponha  a gerencias bancos de dados. 
 - O benefício é que é muito rápido para provisionar, terá alta disponibilidade, pode fazer escalonamento vertical e horizontal. 
