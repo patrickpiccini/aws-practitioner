@@ -1049,7 +1049,7 @@ O Amazon Managed Blockchain é um serviço gerenciado para:
 ## Elastic Container Service – ECS
 É usado para criar containers na AWS
 - Para que funcione, precisamos  que os containers sejam executados em uma EC2.
-- a AWS se encarrega de iniciar ou parar os containers
+- A AWS se encarrega de iniciar ou parar os containers
 - Tem integração com ELB
 
 ## Fargate
@@ -1060,4 +1060,4 @@ O Amazon Managed Blockchain é um serviço gerenciado para:
 ## Elastic Container Registry – ECR
 É usado para armazenar imagens do Docker para que possam ser executadas na AWS.
 - É uma Registry privado na AWS
-- armazena as imagem e podem ser executadas tanto no EDS quando no Forgate
+- Armazena as imagem e podem ser executadas tanto no EDS quando no Forgate
