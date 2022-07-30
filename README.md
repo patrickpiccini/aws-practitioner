@@ -1061,3 +1061,92 @@ O Amazon Managed Blockchain é um serviço gerenciado para:
 É usado para armazenar imagens do Docker para que possam ser executadas na AWS.
 - É uma Registry privado na AWS
 - Armazena as imagem e podem ser executadas tanto no EDS quando no Forgate
+
+## Serverless
+É um paradigma no qual os desenvolvedores não gerenciam mais os servidores.
+- Hoje tudo que é serverless é mencionado principalmente como algo que é gerenciado e isso inclui databases,messagin storage, etc.
+- Serverless não significa que não haja servidores, eles existem em backend. Mas apenas que como usuário final, fosse não gerencia e provisiona ou vê os servidores
+
+## AWS Lambda
+- Apenas há funções virtuais e serverless
+- São destinadas a execuções mais curtas
+- São executadas sob demanda
+- podem ser escalonadas automaticamente
+
+**Benefits of AWS Lambda**
+- Paga por request ou tempo de computação. No Free Tier tem 1 milhão de requisições Lambda por  mês, e 400GBs de segundos de tempo de computação.
+- É integrado com todo os serviços da AWS
+- É Orientado a Eventos. As funções são invocadas quando precisam
+- É integrado com varias linguagens de programação
+- Tem monitoramento fácil pelo CloudWatch
+- É fácil obter mais recursos por funções(chegando a 10GB de RAM)
+- pode aumentar a RAM e isso melhorará o CPU e a Network
+
+**AWS Lambda language support**
+- Node.js (JavaScript) 
+- Python 
+- Java (Java 8 compatible) 
+- C# (.NET Core) 
+- Golang 
+- C# / Powershell 
+- Ruby 
+- Custom Runtime API (community supported, example Rust) 
+
+**Lambda Container Image **
+- The container image must implement the Lambda Runtime API 
+- ECS / Fargate is preferred for running arbitrary Docker images
+
+<img src="images/img31.png" alt="img31" width="800"/>
+<img src="images/img32.png" alt="img32" width="800"/>
+
+**Hands On**
+Vá em https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/begin 
+Basta criar uma function que será serverless, e pode definir triggers para disparar essas functions
+
+## Amazon AP Gateway
+Usado se deseja construir um Serveless HTTP API. Pode criar uma API gateway para acessar suas funções Lambda externamente
+
+<img src="images/img33.png" alt="img33" width="800"/>
+
+- É usado como um serviço totalmente gerenciado que permitira os desenvolvedores Criar, Publicar,  Manutenir, monitorar e proteger APIs
+- É Serverless e Escalonavel
+- Suporta RESTfull e WebSockets APIs
+- Suporta Segurança, User Authentication, API Throttling, API Keysn Monitoring...
+
+## AWS Batch
+- Processamento em lote totalmente gerenciado em qualquer escala
+- Execute com eficiência 100.000 trabalhos em lote de computação na AWS
+ -Um trabalho "Batch" é um trabalho com início e fim (oposto a contínuo)
+- O Lote iniciará dinamicamente instâncias do EC2 ou instâncias spot
+- O AWS Batch provisiona a quantidade certa de computação/memória
+- Você envia ou agenda trabalhos em lote e o AWS Batch faz o resto!
+- Os trabalhos em lote são definidos como imagens do Docker e executados no ECS
+- Útil para otimizações de custos e menos foco na infraestrutura
+
+## Diferença entre Batch e Lambda
+**Lambda:**
+- Limite de tempo
+- Tempos de execução limitados 
+- Espaço em disco temporário limitado 
+- Sem servidor 
+
+**Bacth:**
+- Sem limite de tempo 
+- Qualquer tempo de execução, desde que seja empacotado como uma imagem do Docker 
+- Confie no EBS/armazenamento de instâncias para espaço em disco 
+- Depende do EC2 ( pode ser gerenciado pela AWS)
+
+## Amazon Lifthsail
+É uma espécie de “serviço autônomo” da AWS. Com ele pode obter  Virtual servers, storage, databases, and networking.
+- Todos com preços baixos e previsíveis
+- É uma alternativa simples para usar EC2, RDS, ELB, EBS, Route 53…
+- É um serviço para pessoas que tem pouca experiencia em cloud
+- Pode configurar notificações e monitoramento de seus recursos do Lightsail
+
+**Casos de uso:**
+- Aplicações web simples (tem templates para LAMP, Nginx, MEAN, Node.js…)
+- Sites (modelos para WordPress, Magento, Plesk, Joomla)
+- Ambiente de desenvolvimento/teste
+- Tem alta disponibilidade, mas sem dimensionamento automático, integração limitada da AWS
+
+<img src="images/img34.png" alt="img34" width="800"/>

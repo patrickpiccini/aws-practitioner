@@ -219,54 +219,89 @@ Amazon S3 Standard-Infrequent Access allow you to store infrequently accessed da
 ---
 <h1 align="center">TEST DATABASE</h1>
 
-1 - You want to create a decentralized blockchain on AWS. Which AWS service would you use?
+- 1 - You want to create a decentralized blockchain on AWS. Which AWS service would you use?
 Amazon Managed Blockchain is a fully managed service that makes it easy to create and manage scalable blockchain networks using the popular open source frameworks Hyperledger Fabric and Ethereum. It allows multiple parties to execute transactions without the need of a trusted, central authority.
 
-2 - Which AWS database is a data warehouse?
+- 2 - Which AWS database is a data warehouse?
 Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud.
 
-3 - Which AWS service is always serverless and has SQL capabilities?
+- 3 - Which AWS service is always serverless and has SQL capabilities?
 Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run.
 
-4 - You would like to use a serverless service to prepare data so it can be loaded for analytics. Which service would you use?
+- 4 - You would like to use a serverless service to prepare data so it can be loaded for analytics. Which service would you use?
 AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics.
 
-5 - Which relational database is a proprietary technology from AWS and is cloud-optimized?
+- 5 - Which relational database is a proprietary technology from AWS and is cloud-optimized?
 Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud, that combines the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases. It is a proprietary technology from AWS.
 
-6 - You would like to migrate databases to AWS while still being able to use the database during the migration. What service allows you to do this?
+- 6 - You would like to migrate databases to AWS while still being able to use the database during the migration. What service allows you to do this?
 AWS Database Migration Service helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database.
 
-7 - How can you create Hadoop clusters to analyze and process a vast amount of data?
+- 7 - How can you create Hadoop clusters to analyze and process a vast amount of data?
 Amazon EMR is a web service that enables businesses, researchers, data analysts, and developers to easily and cost-effectively process vast amounts of data. EMR helps creating Hadoop clusters (Big Data) to analyze and process vast amount of data
 
-8 - Which in-memory AWS database can you use to reduce the load off databases and has high performance, low latency?
+- 8 - Which in-memory AWS database can you use to reduce the load off databases and has high performance, low latency?
 Amazon ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud. ElastiCache caches are in-memory databases with high performance, low latency. They help reduce load off databases for read intensive workloads.
 
-9 - What is the name of a central repository to store structural and operational metadata for data assets in AWS Glue?
+- 9 - What is the name of a central repository to store structural and operational metadata for data assets in AWS Glue?
 The AWS Glue Data Catalog is a central repository to store structural and operational metadata for all your data assets. For a given data set, you can store its table definition, physical location, add business relevant attributes, as well as track how this data has changed over time.
 
-10 - Which of the following databases is a managed service with SQL capability suited for Online Transaction Processing (OLTP)?
+- 10 - Which of the following databases is a managed service with SQL capability suited for Online Transaction Processing (OLTP)?
 Amazon Relational Database Service (Amazon RDS) is a SQL managed service that makes it easy to set up, operate, and scale a relational database in the cloud. It is suited for OLTP workloads
 
-11 - Which AWS service is an immutable ledger database?
+- 11 - Which AWS service is an immutable ledger database?
 Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority. Amazon QLDB tracks each and every application data change and maintains a complete and verifiable history of changes over time.
 
-12 - You would like to set up a NoSQL database that can scale with no downtime and can handle millions of requests per second. Which AWS database is best suited for this work?
+- 12 - You would like to set up a NoSQL database that can scale with no downtime and can handle millions of requests per second. Which AWS database is best suited for this work?
 DynamoDB is a fast and flexible non-relational database service for any scale. It can scale with no downtime, it can process millions of requests per second, and is fast and consistent in performance.
 
-13 - Which AWS service can create complex graphs for fraud detection?
+- 13 - Which AWS service can create complex graphs for fraud detection?
 Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it easy to build and run applications that work with highly connected datasets. It can be used for knowledge graphs, fraud detection, recommendations engines, social networking, etc.
 
-14 - Which AWS serverless service can use machine learning-powered business intelligence to create interactive dashboards such as business analytics?
+- 14 - Which AWS serverless service can use machine learning-powered business intelligence to create interactive dashboards such as business analytics?
 Amazon QuickSight is a fast, cloud-powered business intelligence (BI) service that makes it easy for you to deliver insights to everyone in your organization. You can create and publish interactive dashboards.
 
-15 - A company would like to set up a fully managed MongoDB database. Which AWS database is best-suited for this task?
+- 15 - A company would like to set up a fully managed MongoDB database. Which AWS database is best-suited for this task?
 Amazon DocumentDB (with MongoDB compatibility) is a fast, calable, highly available, and fully managed document database service that supports MongoDB workloads.
 
-16 - Which exclusive DynamoDB feature is an in-memory cache that can improve your performance up to 10x?
+- 16 - Which exclusive DynamoDB feature is an in-memory cache that can improve your performance up to 10x?
 Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for Amazon DynamoDB that delivers up to a 10 times performance improvement—from milliseconds to microseconds—even at millions of requests per second.
 
-17 - O objetivo principal das implantações do RDS Multi-AZ é a alta disponibilidade, enquanto o objetivo principal das réplicas de leitura do RDS é a escalabilidade.
+- 17 - O objetivo principal das implantações do RDS Multi-AZ é a alta disponibilidade, enquanto o objetivo principal das réplicas de leitura do RDS é a escalabilidade.
 True. RDS Multi-AZ deployments’ main purpose is high availability, and RDS Read replicas’ main purpose is scalability. Moreover, Multi-Region deployments’ main purpose is disaster recovery and local performance.
 
+---
+<h1 align="center">TESTE OTHER COMPUTE SERVICES QUIS</h1>
+
+- 1 - How do you get charged in AWS Lambda?
+In AWS Lambda, you are charged per request and compute time, that's it.
+
+- 2 - You would like a serverless service to launch Docker containers with no infrastructure to provision. Which AWS service should you use?
+Fargate allows you to launch Docker containers on AWS, and you don't need to provision and maintain the infrastructure (=no EC2 instances to manage). It is serverless.
+
+- 3 - A complete cloud beginner would like to create a simple application with predictable pricing. What service should this person use?
+Amazon Lightsail is designed to be the easiest way to launch and manage a virtual private server with AWS. Lightsail plans include everything you need to jumpstart your project – a virtual machine, SSD- based storage, data transfer, DNS management, and a static IP address – for a low, predictable price. It can be used to create a simple web application, a website or a dev/test environment.
+
+- 4 - What is the name of the software development platform that allows you to run applications the same way, regardless of where they are run?
+Docker is a software development platform that allows you to run applications the same way, regardless of where they are run. It can scale containers up and down within seconds.
+
+- 5 - How would you best describe "event-driven" in AWS Lambda?
+"Event-driven" in Lambda means that functions are invoked when needed. They are triggered.
+
+- 6 - Which AWS service allows you to launch Docker containers on AWS, but requires you to provision and maintain the infrastructure?
+ECS allows you to launch Docker containers on AWS, but you must provision and maintain the infrastructure (i.e. EC2 instances).
+
+- 7 - Which of the following statements is INCORRECT regarding the definition of the term "serverless"?
+Serverless does not mean that there are no servers, you just do not manage, provision and see them, but they do exist.
+
+- 8 - Which of the following statements is NOT a feature of AWS Lambda?
+Definition of a minimum and maximm of EC2 instances running. This is a feature of Auto Scaling Groups, not AWS Lambda.
+ 
+- 9 - A company needs to run thousands of jobs but would like to NOT manage the compute resources. What service can it use?
+AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. AWS Batch dynamically provisions the optimal quantity and type of compute resources (e.g., CPU or memory-optimized instances) based on the volume and specific resource requirements of the batch jobs submitted.
+
+- 10 - Where should you store your private Docker images so they can be run by ECS or Fargate?
+Elastic Container Registry (ECR) is a service where you store your Docker image so they can be run by ECS or Fargate.
+
+- 11 - Which AWS serverless service can be used by developers to create APIs?
+Amazon API Gateway is a fully managed serverless service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
