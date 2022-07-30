@@ -1042,3 +1042,6 @@ O Amazon Managed Blockchain é um serviço gerenciado para:
 - GLue é totalmente serverless
 
 <img src="images/img30.png" alt="img30" width="800"/>
+
+---
+<h1 align="center">Other compute Service: ECS, Lambda, Batch, Lightsail</h1>
