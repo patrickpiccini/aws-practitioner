@@ -1249,3 +1249,67 @@ Go, Java SE, Java with Tomcat, .NET on Windows Server with IIS, Node.js, PHP, Py
 **Hands On**
 
 Vá até Elastic Beanstalk, crie sua aplicação, e escolha a linguagem que desejar. Depois é só criar. Esse serviço usara o CloudFormation para criar a infraestrutura, porem você só precisa configurar como deseja, e ele cria sozinho.
+
+## AWS CodeDeploy
+É uma maneira de implantarmos os aplicativos automaticamente.
+- Funciona com EC2 Instance
+- Funciona em servidores Locais
+- Funciona em servidore Huibrido
+
+Servidores / Instâncias devem ser provisionados e configurado antecipadamente com o Agente CodeDeploy
+
+## AWS CodeCommit
+Antes de dar Push do código da aplicação para o server, você precisa armazenalo em algum lugar.
+- É o mesmo propósito do GitHub
+
+**CodeCommit:**
+- Serviço de controle de origem que hospeda repositórios baseados em Git
+- Facilita a colaboração com outras pessoas no código
+- As alterações de código são versionadas automaticamente
+
+**Benefícios:**
+- Totalmente gerenciado
+- Escalável e altamente disponível
+- Privado, protegido, integrado com a AWS
+
+## AWS CodeBuild
+Permite que faça build do código na nuvem. O Codigo fonte será compilado, testes serão rodados, e em seguita esses packages estarão porntos para ser implementados.
+
+<img src="images/img36.png" alt="img36" width="800"/>
+
+**Benefícios:**
+- Totalmente gerenciado, serverless
+- Continuamente escalável e altamente disponível
+- Seguro
+- Preços de pagamento conforme o uso - pague apenas pelo tempo de construção.
+
+## AWS CodePipeline
+É uma maneira de orquestrar as diferentes etapas para que o código seja enviado automaticamente para a produção.
+- Code => Build => Test => Provision => Deploy
+- Basis for CICD (Continuous Integration & Continuous Delivery)
+
+**Benefícios:**
+- Totalmente gerenciado, compatível com CodeCommit, CodeBuild, CodeDeploy, Elastic Beanstalk, CloudFormation, GitHub, serviços de terceiros (GitHub…) e plugins personalizados…
+- Entrega rápida e atualizações rápidas
+
+<img src="images/img37.png" alt="img37" width="800"/>
+
+## AWS CodeArtifact
+- Os pacotes de software dependem uns dos outros para serem construídos (também chamados de código dependências), e novas são criadas
+- Armazenar e recuperar essas dependências é chamado de gerenciamento de artefatos
+- Tradicionalmente, você precisa configurar seu próprio sistema de gerenciamento de artefatos
+- CodeArtifact é um artefato seguro, escalável e econômico gerenciamento para desenvolvimento de software
+- Funciona com ferramentas comuns de gerenciamento de dependência, como Maven, Gradle, npm, fios, barbantes, pip e NuGet
+- Desenvolvedores e CodeBuild podem então recuperar dependências diretamente do CodeArtifact
+
+## AWS CodeStar
+É uma UI unificada para gerenciar facilmente as atividades de desenvolvimento de software em um só lugar.
+
+Fornece um único lugar para que apresa inicie um projeto, e automaticamente o CodeStar fornecerá uma tela e em back-end criará p CodeCommit, CodePipeline, CodeBuild, CodeDeploy, Elastic Beanstalk, EC2, etc…
+Pode editar o código “in the cloud” usando AWS cloud9.
+
+## AWS Cloud9
+É uma Cloud IDE para escrever, rodar e debugar seu código, executado no navegador.
+- pode ser usado dentro do Chrome, Firefox, Internet Explorer etc...
+- pode trabalhar em seus projetos de qualquer lugar que se tenha uma conexão com a internet.
+- Permite que haja colaboração de  código em tempo real, podendo programar junto com colegas no mesmo código.
