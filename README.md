@@ -1150,3 +1150,66 @@ Usado se deseja construir um Serveless HTTP API. Pode criar uma API gateway para
 - Tem alta disponibilidade, mas sem dimensionamento automático, integração limitada da AWS
 
 <img src="images/img34.png" alt="img34" width="800"/>
+
+---
+<h1 align="center">Deployments & managin Infraestructure at Scale</h1>
+
+## CloudFormation
+É uma forma declarativa de delinear sua infraestrutura AWS, para qualquer recurso.
+
+Por exemplo, em um modelo do CloudFormation, você diz:
+- Quero um grupo de segurança
+- Quero duas instâncias do EC2 usando este grupo de segurança
+- Eu quero um bucket S3
+- Eu quero um balanceador de carga (ELB) na frente dessas máquinas
+
+Então o CloudFormation cria aqueles para você, na ordem certa, com o configuração exata que você especifica
+
+**Beneficios da AWS CloudFormation**
+Infraestrutura como código
+- Nenhum recurso é criado manualmente, o que é excelente para controle
+- As alterações na infraestrutura são revisadas por meio de código
+
+**Custo**
+- Cada recurso na pilha é marcado com um identificador para que você possa ver facilmente como quanto custa uma pilha
+- Você pode estimar os custos de seus recursos usando o modelo CloudFormation
+- Estratégia de economia: no Dev, você pode automatizar a exclusão de modelos às 17h e recriado às 8h, com segurança
+
+**Produtividade**
+- Capacidade de destruir e recriar uma infraestrutura na nuvem em tempo real
+- Geração automatizada de Diagramas para seus templates!
+- Programação declarativa (sem necessidade de descobrir ordenação e orquestração)
+
+**Não reinvente a roda**
+• Aproveite os modelos existentes na web!
+• Aproveite a documentação
+
+**Suporta (quase) todos os recursos da AWS:**
+• Tudo o que veremos neste curso é compatível
+• Você pode usar "recursos personalizados" para recursos que não são compatíveis
+
+**Em resumo para o exame**, o CloudFomation será usado quando tivermos infraestrutura como código, e quando precisamos repetir uma arquitetura em diferentes ambientes, regiões ou até mesmo diferentes contas da AWS.
+
+**Hands On**
+Antes de tudo mudo sua AZ para N.Virigia. Vá até o serviço de CloudFormation, e crie um Stack. Pode ter um tamplate em aum Bucket S3 ou carregar seu próprio arquivo .ymal
+~~~exemple.ymal
+---
+Resources:
+    MyInstance:
+        Type: AWS::EC2::Instance
+        Properties:
+            AvailabilityZone: us-east-1a
+            ImageId: ami-a4c7edb2
+            InstanceType: t2.micro
+~~~
+
+Pode colocar alguma tag para identificar seus serviços.
+Com o CloudFormation pode-se atualizar as coisas que você quer, basta atualizar o arquivo, ou até mesmo excluir tudo
+
+## CDK AWS Cloud Development Kit
+É uma maneira de criar sua infraestrutura com um linguaem de programação familiar (JavaScript/TypeScript, Python, Java, and .NET ). Após a escrita do código, ele será compilado para o CloudFormation para o tamplate JSON/YMAL.
+- Pode implantar infraestrutura e sua própria aplicação juntas pois podem compartilhar as mesmas linguagens.
+	- Otimo para Lambda Functions
+	- Otimo para ECS / EKS
+
+<img src="images/img35.png" alt="img35" width="800"/>
