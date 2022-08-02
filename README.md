@@ -1181,12 +1181,12 @@ Infraestrutura como código
 - Programação declarativa (sem necessidade de descobrir ordenação e orquestração)
 
 **Não reinvente a roda**
-• Aproveite os modelos existentes na web!
-• Aproveite a documentação
+- Aproveite os modelos existentes na web!
+- Aproveite a documentação
 
 **Suporta (quase) todos os recursos da AWS:**
-• Tudo o que veremos neste curso é compatível
-• Você pode usar "recursos personalizados" para recursos que não são compatíveis
+- Tudo o que veremos neste curso é compatível
+- Você pode usar "recursos personalizados" para recursos que não são compatíveis
 
 **Em resumo para o exame**, o CloudFomation será usado quando tivermos infraestrutura como código, e quando precisamos repetir uma arquitetura em diferentes ambientes, regiões ou até mesmo diferentes contas da AWS.
 
@@ -1213,3 +1213,39 @@ Com o CloudFormation pode-se atualizar as coisas que você quer, basta atualizar
 	- Otimo para ECS / EKS
 
 <img src="images/img35.png" alt="img35" width="800"/>
+
+## AWS Elastic Beanstalk
+**Problemas do desenvolvedor na AWS**
+- Gerenciamento de infraestrutura
+- Código de implantação
+- Configurando todos os bancos de dados, balanceadores de carga, etc.
+- Preocupações de dimensionamento
+- A maioria dos aplicativos da web tem a mesma arquitetura (ALB + ASG)
+- Tudo o que os desenvolvedores querem é que seus códigos sejam executados!
+- Possivelmente, de forma consistente em diferentes aplicativos e ambientes
+
+Elastic Beanstalk é uma visão centrada no desenvolvedor da implantação de um aplicativo na AWS.
+- Utiliza todos os componentes que foi visto no curso por baixo dos panos(EC2, ASG, ELB, RDS, etc…)
+- Se tem o controle de toda a configuração sobre todos os componentes, mas esta tudo dentro do Beanstalk
+
+Beanstalk = Platform as a Service (PaaS) 
+- Beanstalk é grátis, **mas pagará pelos serviços que eles estarão usando**
+
+- Serviço gerenciado 
+	- Configuração de instância / SO é tratado pelo Beanstalk 
+	- A estratégia de implantação é configurável, mas executada pelo Elastic Beanstalk 
+	- Provisionamento de capacidade 
+	- Balanceamento de carga e dimensionamento automático 
+	- Monitoramento de integridade e capacidade de resposta do aplicativo 
+- **A responsabilidade como Dev é apenas o código do aplicativo é responsabilidade do desenvolvedor**
+- Três modelos de arquitetura: 
+	- Implantação de instância única: bom para dev 
+	- LB + ASG: ótimo para aplicativos Web de produção ou pré-produção 
+	- Somente ASG: ótimo para aplicativos não Web em produção (trabalhadores, etc.)
+
+**Support for many platforms:**
+Go, Java SE, Java with Tomcat, .NET on Windows Server with IIS, Node.js, PHP, Python, Ruby, Packer Builder, Single Container Docker, Multi-Container Docker, Preconfigured Docker
+
+**Hands On**
+
+Vá até Elastic Beanstalk, crie sua aplicação, e escolha a linguagem que desejar. Depois é só criar. Esse serviço usara o CloudFormation para criar a infraestrutura, porem você só precisa configurar como deseja, e ele cria sozinho.
