@@ -305,3 +305,49 @@ Elastic Container Registry (ECR) is a service where you store your Docker image 
 
 - 11 - Which AWS serverless service can be used by developers to create APIs?
 Amazon API Gateway is a fully managed serverless service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
+
+---
+<h1 align="center">TESTE DEPLOYMENTS & MANAGING INFRASTRUCTURE AT SCALE IN AWS</h1>
+
+
+- 1 - CodeStar can be used to monitor and check the health of an environment.
+False. CodeStar is used to quickly develop, build, and deploy applications on AWS. Elastic Beanstalk can be used to monitor and to check the health of an environment.
+
+- 2 - Which AWS managed service allows to automate software deployments to a hybrid mix of EC2 Instances and On-Premises servers?
+AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises.
+
+- 3 - A developer team would like to collaborate on code with versioning support. Which AWS service can help the developers?
+AWS CodeCommit is a secure, highly scalable, managed source control service that makes it easier for teams to collaborate on code. It also provides software version control.
+
+- 4 - You need a unified user interface that gives you visibility, control, and patching capabilities for your EC2 Instances on AWS, as well as for servers running in your on-premises data centers. Which service should you use?
+AWS Systems Manager gives you visibility and control of your infrastructure on AWS. It is used for patching systems at scale.
+
+- 5 - You need to use Chef or Puppet. Which AWS service should you use?
+AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet.
+
+- 6 - A developer would like to deploy infrastructure on AWS but only knows Python. Which AWS service can assist him?
+The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages.
+
+- 7 - Which of the following allows you to deploy any AWS Infrastructure as a Code?
+AWS CloudFormation provides a common language for you to model and provision AWS and third party application resources in your cloud environment. It allows you to deploy Infrastructure as a Code.
+
+- 8 - A new startup would like an online integrated development environment (IDE) to write, run, and debug code. Which AWS service can help with this task?
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser.
+
+- 9 - Which service is referred to as a Platform as a Service (PaaS)?
+Elastic Beanstalk is a Platform as a Service (PaaS). You only manage data and applications. AWS Elastic Beanstalk makes it even easier for developers to quickly deploy and manage applications in the AWS Cloud
+
+- 10 - What is called the declaration of the AWS resources that make up a stack?
+AWS CloudFormation templates are JSON or YAML-formatted text files. They are declarations of the AWS resources that make up a stack.
+
+- 11 - Which of the following services can a developer use to store code dependencies?
+AWS CodeArtifact is a fully managed artifact repository (also called code dependencies) service that makes it easy for organizations of any size to securely store, publish, and share software packages used in their software development process.
+
+- 12 - CodeStar can orchestrate the different steps to have code automatically pushed to production, while CodePipeline is a unified UI to easily manage software development activities in one place.
+False. AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. CodeStar is used to quickly develop, build, and deploy applications on AWS with a unified user interface.
+
+- 13 - Which serverless service can be used to build code and run tests?
+AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. With CodeBuild, you don’t need to provision, manage, and scale your own build servers, it is serverless.
+
+- 14 - CloudFormation and Elastic Beanstalk are free of use.
+CloudFormation and Elastic Beanstalk are free of use, but you do pay for the resources created.
