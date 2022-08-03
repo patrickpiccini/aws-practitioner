@@ -1313,3 +1313,48 @@ Pode editar o código “in the cloud” usando AWS cloud9.
 - pode ser usado dentro do Chrome, Firefox, Internet Explorer etc...
 - pode trabalhar em seus projetos de qualquer lugar que se tenha uma conexão com a internet.
 - Permite que haja colaboração de  código em tempo real, podendo programar junto com colegas no mesmo código.
+
+## AWS System Manager(SSM)
+Ajuda a gerenciar suas EC2 e sistemas On-Promises em escala.
+- É outro sistema hibrido da AWS
+- Obtem insights operacionais sobre o estado de sua infraestrutura
+- Tem acesso a um conjunto de  mais de 10 produtos
+
+**Importante para o exame**
+
+Sempre que precisar corrigir sua frota de EC2 Instances ou servidores locais, pense em SSM
+- Automação de patches para maior conformidade
+- Pode executar comando em toda a sua frota de servidores diretamente
+- Pode armazenar a configuração primaria com o armazenamento de parâmetros SSM
+
+**Como funciona:**
+- Funciona para Windows e Linux
+- Tem que instalar o Agent em seu sistema operacional
+- nas imagens Amazon Linux AMI ou ubundu AMI eles já vêm instalados
+- Se uma instancia não poder controlar com SSM, provavelmente é um problema com o SSM Agent
+- Graças ao agente SSM, nós pode executar comandos, patch e configurar nossos servidores 
+
+
+## Systems Manager – SSM Session Manager
+- Permita o lançamento de um shell seguro em seu EC2 e servidores locais
+- Não é necessário acesso SSH, bastiões de hosts ou chaves SSH
+- Não há necessidade de porta 22 (melhor segurança)
+- Suporta Linux, macOS e Windows
+- Envie dados de log de sessão para S3 ou CloudWatch Logs
+
+**Hands On**
+
+Crie uma instancia EC2 ena configuração de IAM instance profile, crie uma Role com a seguinte Policie: AmazonSSMServiceRolePolicy. Após isso, atribua a sua EC2.
+Vá ao serviço AWS Systems Manager e espere sua instancia aparecer la, pois já tem o agente instalado na imagem. 
+
+## AWS OpsWorks
+- O Chef & Puppet ajuda você a configurar o servidor automaticamente ou ações repetitivas
+- Eles funcionam muito bem com EC2 e VM no local
+- AWS OpsWorks = Chef gerenciado e marionete
+- É uma alternativa ao AWS SSM
+- Provisione apenas recursos padrão da AWS:
+- Instâncias EC2, bancos de dados, balanceadores de carga, volumes EBS…
+- No exame: Chef ou Puppet necessário => AWS OpsWorks
+
+<img src="images/img38.png" alt="img38" width="800"/>
+<img src="images/img39.png" alt="img39" width="800"/>
