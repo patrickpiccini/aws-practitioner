@@ -1358,3 +1358,84 @@ Vá ao serviço AWS Systems Manager e espere sua instancia aparecer la, pois já
 
 <img src="images/img38.png" alt="img38" width="800"/>
 <img src="images/img39.png" alt="img39" width="800"/>
+
+---
+<h1 align="center">Global Infrastructure Section</h1>
+É uma aplicação implantado em várias áreas Geográficas(Regions ou  Edge Locations)
+
+**Latência diminuída**
+- Latência é o tempo que leva para um pacote de rede chegar a um servidor
+- Leva tempo para um pacote da Ásia chegar aos EUA
+- Implante seus aplicativos mais perto de seus usuários para diminuir a latência e melhorar a experiência
+
+**Recuperação de Desastres (DR)**
+- Se uma região da AWS ficar inativa (terremoto, tempestades, desligamento de energia, política)…
+- Você pode fazer failover para outra região e manter seu aplicativo funcionando
+- Um plano de DR é importante para aumentar a disponibilidade do seu aplicativo
+- Proteção contra ataques: a infraestrutura global distribuída é mais difícil de atacar
+
+## Global AWS Infrastructure
+- Regions: para implantação aplicativos e a infraestrutura
+- Availability Zones: Feito de vários data centers 
+- Edge Locations (Points of Presence):para entrega de conteúdo como próximo possível de usuários
+
+## Aplicativos globais na AWS
+
+**DNS Global: Rota 53**
+- Ótimo para direcionar os usuários para a implantação mais próxima com menos latência
+- Ótimo para estratégias de recuperação de desastres
+
+**Rede Global de Entrega de Conteúdo (CDN): CloudFront**
+- Replique parte do seu aplicativo para pontos de presença da AWS – diminua a latência
+- Cache de solicitações comuns – experiência do usuário aprimorada e latência reduzida
+
+**Aceleração de Transferência S3**
+- Acelere uploads e downloads globais no Amazon S3
+
+**Acelerador global da AWS:**
+- Melhore a disponibilidade e o desempenho global de aplicativos usando o AWS global
+rede
+
+## Amazon Route 53 Overview
+É um sistema de DNS(Domain Name Sysem) gerenciado
+- DNS é uma coleção de regras e registros que ajudam os clientes a entender como chegar a um servidor através de URLs.
+
+<img src="images/img40.png" alt="img40" width="800"/>
+
+## Route 53 Routing Policies
+- **Simple Routing Policy:** o Web faz a requisição para o Route 53 e ele devolve o IP sem nenhuma verificação de saúde.
+- **Weighted Routing Policy:** Permite distribuir o trafego entre várias instâncias. Porém é necessário setar pesos para as instancias. Pode usar verificações de saúde.
+- **Latency Routing Policy:** É usado para minimizar a latência entre os usuários e servidores, fazendo os usuários se conectar aos servidores mais próximos a eles.
+- **Failover Routing Policy:** A Web faz uma requisição para o Route 53, ele faz um health check da instancia primaria, caso esteja com falha, ele manda para uma instancia FailOver.
+
+**OBS: Route53 NÃO É GRATUITO. 12doll/month**
+
+## AWS CloudFront
+É uma rede de entrega de conteúdo(CDN)
+- Melhora o desempenho de leitura, armazenamento em cache de conteúdo do seu site em diferentes Edge Location. Melhorando a experiencia do usuário
+- CloudFront é composto por 216 pontos de presença globalmente (edge locations)
+- Tem proteção de DDos, integração com Shield e AWS Web Applications Firewall
+
+## CloudFront – Origens
+**Bucket S3**
+- Para distribuir arquivos e armazená-los em cache na borda 
+- Segurança aprimorada com CloudFront Origin Access Identity (OAI) 
+- CloudFront pode ser usado como uma entrada (para fazer upload de arquivos para S3) 
+
+**Origem personalizada (HTTP)**
+- Balanceador de carga de aplicativos 
+- Instância do EC2 
+- Site S3 (primeiro deve habilitar o bucket como um site S3 estático) 
+- Qualquer back-end HTTP desejado
+
+## Replicação entre regiões do CloudFront vs S3
+**CloudFront:**
+- Rede de borda global
+- Os arquivos são armazenados em cache por um TTL (talvez um dia)
+- Ótimo para conteúdo estático que deve estar disponível em todos os lugares
+
+**Replicação entre regiões do S3:**
+- Deve ser configurado para cada região em que você deseja que a replicação aconteça
+- Os arquivos são atualizados quase em tempo real
+- Somente leitura
+- Ótimo para conteúdo dinâmico que precisa estar disponível com baixa latência em algumas regiões
