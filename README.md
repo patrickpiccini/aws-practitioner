@@ -1439,3 +1439,73 @@ rede
 - Os arquivos são atualizados quase em tempo real
 - Somente leitura
 - Ótimo para conteúdo dinâmico que precisa estar disponível com baixa latência em algumas regiões
+
+**Hands On**
+Primeiro crie um bucket no S3 com um site estatico. Após isso, vá em CloudFront configure as opções padrões, e crie um OIA(Origin Access Identity) caso não tenha. E marque como Yes no campo bucket Policy.
+
+## S3 Transfer Acceleration
+É um serviço que aumenta a velocidade de transferência dos arquivos do S3 para outra Região.
+
+É pego o arquivo que você deseja transferir, é feito o carregamento em uma Edge Location, e depois é usado uma rede interna de edge location para enviar o arquivo para outra region.
+
+Para testar a velocidade de transferencia: https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html
+
+## AWS Global Accelerator
+É usado para melhorar a disponibilidade e desempenho de uma aplicação global. A ideia é que suas solicitações sejam encaminhadas através da rede interna citada anteriormente, permitindo que optimize a rota para sua aplicação cerca de 60%.
+
+Voce conecta seu aplicativo por meio do “2 Anycast IP”, e através dele você é redigido automaticamente para a Edge Location.
+
+## AWS Global Accelerator vs CloudFront
+Ambos usam a rede global da AWS e seus pontos de presença em todo o mundo
+
+Ambos os serviços se integram ao AWS Shield para proteção contra DDoS.
+
+**CloudFront – Content Delivery Network**
+- Melhora o desempenho do seu conteúdo em cache (como imagens e vídeos)
+- O conteúdo é veiculado na borda
+
+**Global Accelerator**
+- Sem armazenamento em cache, pacotes de proxy na borda para aplicativos executados em uma ou mais regiões da AWS.
+- Melhora o desempenho para uma ampla variedade de aplicativos em TCP ou UDP
+- Bom para casos de uso HTTP que exigem endereços IP estáticos
+- Bom para casos de uso HTTP que exigiam failover regional rápido e determinístico
+Para testar a Global Accelerator: https://speedtest.globalaccelerator.aws/ 
+
+## AWS Outposts
+- AWS Outposts são “racks de servidores” que oferecem a mesma infraestrutura, serviços, APIs e ferramentas da AWS para construir seus próprios aplicativos on-premises assim como na nuvem
+- AWS irá configurar e gerenciar “Outposts Racks” dentro do on-premises e você pode  começar a aproveitar os serviços da AWS no local.
+- Você é responsável pelo rack de postos avançados segurança física
+
+**Benefícios:**
+- Acesso de baixa latência a sistemas locais
+- Processamento de dados locais
+- Residência de dados
+- Migração mais fácil do local para a nuvem
+- Serviço totalmente gerenciado
+	
+## AWS WaveLength
+- Zonas WaveLength são implantações de infraestrutura incorporadas aos provedores de telecomunicações datacenters na borda das redes 5G
+- Leva os serviços da AWS para a borda das redes 5G
+- Exemplo: EC2, EBS, VPC…
+- Aplicativos de latência ultrabaixa por meio de redes 5G
+- O tráfego não sai do Serviço de Comunicação Rede do provedor (CSP)
+- Conexão segura e de alta largura de banda com a região pai da AWS
+- Sem encargos adicionais ou contratos de serviço
+- Casos de uso: cidades inteligentes, diagnóstico assistido por ML, veículos conectados, fluxos de vídeo interativos ao vivo, AR/VR, Jogos em tempo real,…
+
+## AWS Local Zones
+- Coloca computação, armazenamento, banco de dados da AWS, e outros serviços selecionados da AWS mais próximos aos usuários finais para executar sensíveis à latência formulários
+- Estenda sua VPC para mais locais – “Extensão de uma região da AWS”
+- Compatível com EC2, RDS, ECS, EBS, ElastiCache, Conexão Direta…
+Exemplo:
+- Região da AWS: norte da Virgínia (us-east-1)
+- Zonas locais da AWS: Boston, Chicago, Dallas, Houston, Miami, …
+
+## Global Applications Architecture
+
+<img src="images/img41.png" alt="img41" width="800"/>
+<img src="images/img42.png" alt="img42" width="800"/>
+
+## Summary
+<img src="images/img43.png" alt="img43" width="800"/>
+<img src="images/img44.png" alt="img44" width="800"/>
