@@ -1566,3 +1566,103 @@ Exemplo:
 
 ## Summary
 <img src="images/img47.png" alt="img47" width="800"/>
+
+---
+<h1 align="center">Cloud Monitoring Section</h1>
+
+## Amazon CloudWatch Metrics
+- Fornece métricas para cada serviço na AWS
+- Métrica é uma variável a ser monitoradar (CPUUtilization, NetworkIn…)
+- As métricas terão Timestamps
+- Pode criar uma dashborad para todas as métricas.
+
+**Matricas Importantes**
+- EC2 instances: CPU Utilization, Status Checks, Network (not RAM)
+- Obtem a métrica a cada 5 min por padão
+- Pode habilitar o Monitoramento detalhado para pegar a cada minuto. Pago 
+- EBS volumes: Disk Read/Writes
+- S3 buckets: BucketSizeBytes, NumberOfObjects, AllRequests
+- Billing: Total Estimated Charge (only in us-east-1)
+- Service Limits: how much you’ve been using a service API
+- Custom metrics: push your own metrics
+
+## Amazon CloudWatch Alarm
+- Os alarmes são usados para acionar notificações para qualquer métrica
+- Ações de alarmes…
+	- **Auto Scaling:** aumente ou diminua a contagem “desejada” de instâncias do EC2
+	- **Ações do EC2:** pare, encerre, reinicialize ou recupere uma instância do EC2
+	- **Notificações SNS:** envie uma notificação para um tópico SNS
+- Várias opções (amostragem, %, max, min, etc…)
+- Pode escolher o período no qual avaliar um alarme
+- Exemplo: crie um alarme de cobrança na métrica de cobrança do CloudWatch
+- Estados de alarme: OK. INSUFICIENT_DATA, ALARME
+
+## Amazon CloudWatch Logs
+**Coleta logs dos serviços através do:**
+- Elastic Beanstalk: Coleta logs através dos agentes
+- ECS: Coleta logs de containers
+- AWS Lambda: Coleta logs das functions
+- CloudTrail baseado no filtro
+- CloudWatch log agents: nas EC2 machines ou on-premises servers
+- Route53: Logs de querires de DNS
+
+Pode habilitar o monitoramento em tempo real dos logs.
+
+Pode reajustar os logs para retenção
+
+## CloudWatch Logs for EC2
+- Por padrão, nenhum log do seu EC2 instância irá para o CloudWatch
+- Você precisa executar um CloudWatch agente no EC2 para enviar os arquivos de log você quer
+- Certifique-se de que as permissões do IAM sejam correto
+- O agente de log do CloudWatch pode ser configuração no local também
+
+## Amazon CloudWatch Events
+É uma maneira de reagir as eventos que acontecem dentro da AWS
+<img src="images/img48.png" alt="img48" width="800"/>
+
+## Amazon EventBridge
+- EventBridge é a próxima evolução do CloudWatch Events
+- Barramento de eventos padrão: gerado pelos serviços da AWS (CloudWatch Events)
+- Barramento de eventos do parceiro: receba eventos de serviços ou aplicativos SaaS (Zendesk, DataDog, Segment, Auth0…)
+- Barramentos de eventos personalizados: para seus próprios aplicativos
+- Registro de Esquema: esquema de evento de modelo
+- EventBridge tem um nome diferente para marcar os novos recursos
+- O nome do CloudWatch Events será substituído por EventBridge
+
+## AWS CloudTrail
+É uma forma de fornece governança, conformidade e auditoria para sua conta da AWS
+- CloudTrail está habilitado por padrão!
+- Obtenha um histórico de eventos/chamadas de API feitas em sua conta da AWS:
+	- Console
+	- SDK
+	- CLI
+- Serviços da AWS
+- Pode colocar logs do CloudTrail no CloudWatch Logs ou S3
+- Uma trilha pode ser aplicada a Todas as Regiões (padrão) ou a uma única Região.
+- Se um recurso for excluído na AWS, investigue o CloudTrail primeiro!
+
+## CloudTrail Events
+**Management Event**
+- Operações realizadas em recursos na conta AWS
+- Exemplos:
+	- Configuring security (IAM AttachRolePolicy) 
+	- Configuring rules for routing data (Amazon EC2 CreateSubnet) 
+	- Setting up logging (AWS CloudTrail CreateTrail) 
+- Por padrão, as trilas são configuradas para registrar eventos de gerenciamento
+- Pode separar em Eventos de Leitura(não modifica o recurso), e Eventos de Escrita(Modificam recursos)
+
+**Data Events**
+- Por padrão não são registrados nos logs (por causa do grande volume)
+-  Quando se tem um nível de objeto na S3 (ex: GetObject, DeleteObject, PutObject), e tem a opção de separa a Leitura e Escrita.
+- Sempre que alguém usar API invoque, você poderá obter insights sobre quantas vezes as funções estão sendo chamadas
+
+## CloudTrail Insights Events (Pago)
+Serviço que analisa seus eventos e tenta detectar atividades incomuns na sua conta.
+- Provisionamento impreciso de recurso
+- Limites atingidos dos serviços
+- Surto de ações na AWS
+- Gaps na atividade de manutenção periódica
+O CloudTrail irá analisar como são as atividade normais de gerenciamento para criar uma linha de base, e em seguida irá analisar continuamente qualquer coisa que seja um tipo de Write event fora do padrão.
+- As anomalias irão aparecer no CloudTrail Console
+- Podem ser enviadas para um S3 se quiser
+- Um EnventBridge será gerado caso precise
