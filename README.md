@@ -1361,6 +1361,7 @@ Vá ao serviço AWS Systems Manager e espere sua instancia aparecer la, pois já
 
 ---
 <h1 align="center">Global Infrastructure Section</h1>
+
 É uma aplicação implantado em várias áreas Geográficas(Regions ou  Edge Locations)
 
 **Latência diminuída**
@@ -1509,3 +1510,59 @@ Exemplo:
 ## Summary
 <img src="images/img43.png" alt="img43" width="800"/>
 <img src="images/img44.png" alt="img44" width="800"/>
+
+---
+<h1 align="center">Cloud Integration Section</h1>
+
+## Section Introduction
+**Tipos de comuniacção etre aplicações**
+
+<img src="images/img45.png" alt="img45" width="800"/>
+
+- A sincronização entre aplicativos pode ser problemática se houver picos de tráfego repentinos
+- E se de repente você precisar codificar 1.000 vídeos, mas geralmente são 10?
+- Nesse caso, é melhor desacoplar suas aplicações:
+	- usando SQS: modelo de fila
+	- usando SNS: modelo pub/sub
+	- usando Kinesis: modelo de streaming de dados em tempo real (fora do escopo do exame)
+- Esses serviços podem ser dimensionados independentemente do nosso aplicativo!
+
+## Amazon SQS(Simple Queue Service)
+- Oferta mais antiga da AWS (mais de 10 anos)
+- Serviço totalmente gerenciado (~serverless), use para desacoplar aplicativos
+- Escala de 1 mensagem por segundo a 10.000s por segundo
+- Retenção padrão de mensagens: 4 dias, máximo de 14 dias
+- Sem limite de quantas mensagens podem estar na fila
+- As mensagens são excluídas depois de lidas pelos consumidores
+- Baixa latência (<10 ms na publicação e recepção)
+- Os consumidores compartilham o trabalho de ler mensagens e dimensionar horizontalmente
+
+<img src="images/img46.png" alt="img46" width="800"/>
+
+## Amazon SNS (Simple Notification Service)
+É usado para enviar mensagem para os tópicos SNS e automaticamente irá enviar uma notificação para o serviço do mesmo tópico.
+- Os “editores de eventos” só enviam mensagens para um tópico do SNS
+- Quantos "assinantes de eventos" quisermos ouvir as notificações de tópicos do SNS
+- Cada assinante do tópico receberá todas as mensagens
+- Até 12.500.000 assinaturas por tópico, limite de 100.000 tópicos
+
+## Amazon Kinesis
+- Para o exame: Kinesis = real-time big data streaming
+- Serviço gerenciado para coletar, processar e analisar streaming em tempo real dados em qualquer escala
+- Detalhado demais para o exame Cloud Practitioner, mas é bom saber:
+- Kinesis Data Streams: streaming de baixa latência para ingerir dados em escala de centenas de milhares de fontes
+- Kinesis Data Firehose: carregue streams no S3, Redshift, ElasticSearch, etc…
+- Kinesis Data Analytics: execute análises em tempo real em fluxos usando SQL
+- Streams de vídeo do Kinesis: monitore fluxos de vídeo em tempo real para análise ou ML
+
+## Amazon MQ
+- SQS, SNS são serviços “nativos de nuvem” e usam protocolos proprietários da AWS.
+- Os aplicativos tradicionais executados no local podem usar protocolos abertos, como: MQTT, AMQP, STOMP, Openwire, WSS
+- Ao migrar para a nuvem, em vez de reprojetar o aplicativo para usar SQS e SNS, podemos usar o Amazon MQ
+- Amazon MQ = Apache ActiveMQ gerenciado
+- O Amazon MQ não “escalona” tanto quanto o SQS/SNS
+- O Amazon MQ é executado em uma máquina dedicada (não sem servidor)
+- O Amazon MQ tem recursos de fila (~SQS) e de tópicos (~SNS)
+
+## Summary
+<img src="images/img47.png" alt="img47" width="800"/>
