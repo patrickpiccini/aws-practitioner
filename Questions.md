@@ -396,3 +396,35 @@ When using SQS or SNS, you apply the "decouple your applications” principle. T
 
 - 5 - Which service allows you to send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available, using a pull-based system?
 Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It uses a pull-based system.
+
+---
+<h1 align="center">TEST CLOUD MONITORING</h1>
+
+- 1 - Which CloudWatch feature would you use to trigger notifications when a metric reaches a threshold you specify?
+The CloudWatch Alarms feature allows you to watch CloudWatch metrics and to receive notifications when the metrics fall outside of the levels (high or low thresholds) that you configure.
+
+- 2 - Which AWS service helps developers analyze and debug production as well as distributed applications?
+AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture.
+
+- 3 - Which AWS service provides alerts and remediation guidance when AWS is experiencing events that may impact you?
+AWS Personal Health Dashboard provides alerts and remediation guidance when AWS is experiencing events that may impact you.
+
+- 4 - You need to set up metrics monitoring for every service in AWS. Which service would you use?
+Amazon CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. You can use Amazon CloudWatch to collect and track metrics, collect and monitor log files, and set alarms.
+
+- 5 - Which cloud monitoring feature can you use to detect unusual activity in your account such as inaccurate resource provisioning or hitting service limits?
+AWS CloudTrail Insights helps AWS users identify and respond to unusual activity associated with write API calls by continuously analyzing CloudTrail management events.
+
+- 6 - Which service allows you to inspect, audit, and record events and API calls made within your AWS account?
+AWS CloudTrail is a web service that records activity made on your account and delivers log files to your Amazon S3 bucket. AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account.
+
+- 7 - Which AWS service automatically analyzes code and provides performance recommendations?
+Amazon CodeGuru is a developer tool that provides intelligent recommendations to improve code quality and identify an application’s most expensive lines of code.
+
+- 8 - How would you describe Amazon CloudWatch Logs?
+A single, highly scalable service that centralize the log from all os your systems, application, and AWS services that you use. 
+You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, Route 53, and other sources.
+
+- 9 - If a resource is deleted in AWS, which service should you use to investigate first?
+CloudTrail can record the history of events/API calls made within you AWS account, which will help determine who or what deleted the resource. You should investigate it first.
+
