@@ -1666,3 +1666,62 @@ O CloudTrail irá analisar como são as atividade normais de gerenciamento para 
 - As anomalias irão aparecer no CloudTrail Console
 - Podem ser enviadas para um S3 se quiser
 - Um EnventBridge será gerado caso precise
+
+## CloudTrail Events Retention
+Os eventos são armazenados por 90 dias no CloudTrail e só depois são deletados.
+- Para manter os arquivos além do período, pode ser armazenado em um S3 e usar athena para analisar eles
+
+**Hands On**
+Em CloudTrail > Dashboard pode-se ter uma visão ampla do serviço.
+Na aba Event History podemos obter as informações de todas as chamadas de API feitas por alguns serviços. Pode criar uma Athena Table para fazer análise dos dados.
+Na aba Trail pode criar um S3 para armazenar os logs, e deve desmarcar a criptografia SSE-KMS. Habilitar  CloudWatch Logs. Criar uma nova IMA Role. Depois é necessário escolher um tipo de log events(é pago se habilitar mais)
+
+## AWS X-Ray
+Serve para fazer um rastreamento e obter uma analise visual de sua aplicação
+Vantagens:
+- Solução de problemas de performance
+- Entender as dependências uma arquitetura de microsserviços
+- Identificar um problema de serviço
+- Revisar o comportamento de uma solicitação em PRD
+- Encontrar erros e exceções dessas solicitações
+- se está cumprindo os SLA
+- Identificar quais usuários estão sendo impactados por algum problema
+
+## Amazon CodeGuru  
+É um serviço baseado em Machine Learning Power service para automatizar code review e recomendação de desempenho de aplicativo.
+
+**CodeGuru Reviewer:** revisões de código automatizadas para análise de código estático (desenvolvimento).
+- Identificar problemas críticos, segurança vulnerabilidades e bugs difíceis de encontrar
+- Exemplo: práticas recomendadas de codificação comuns, vazamentos de recursos, detecção de segurança, entrada validação
+- Usa Machine Learning e automatizado raciocínio
+- Lições aprendidas com dificuldade em milhões de revisões de código em 1000s de código aberto e repositórios da Amazon
+-  Suporta Java e Python
+-  Integra-se ao GitHub, Bitbucket e AWS CodeCommit
+
+**CodeGuru Profiler:** visibilidade/recomendações sobre o desempenho do aplicativo durante tempo de execução (produção)
+- Ajuda a entender o comportamento de tempo de execução do seu inscrição
+- Exemplo: identifique se seu aplicativo está consumindo capacidade excessiva da CPU em uma rotina de log
+- **Características:**
+	- Identificar e remover ineficiências de código
+	- Melhore o desempenho do aplicativo (por exemplo, reduza a CPU utilização)
+	- Reduza os custos de computação
+	- Fornece resumo de heap (identificar quais objetos usando memória)
+	- Detecção de anomalia
+- Suporte a aplicativos executados na AWS ou no local
+- Sobrecarga mínima na aplicação
+
+## AWS Status - Service Health Dashboard
+Mostra a saúde de todos as regions e serviços que esta rodando.
+- Mostra um histórico diário, e tem um RSS feed que pode assinar para receber notificações de status.
+Status dos serviços: https://status.aws.amazon.com/ 
+
+## AWS Personal Health Dashboard
+Provisiona alertas e orientação de correção quando a AWS estiver experimentando eventos que podem impactar  sua aplicação.
+- Enquanto o Service Health Dashboard exibe o status geral de serviços da AWS, o Personal Health Dashboard oferece uma visualizar o desempenho e a disponibilidade dos serviços da AWS subjacente aos seus recursos da AWS.
+- O painel exibe informações relevantes e oportunas para ajudá-lo gerenciar eventos em andamento e fornece notificação proativa para ajudá-lo a planejar as atividades programadas.
+
+Global service https://phd.aws.amazon.com/
+
+## Summary
+
+<img src="images/img49.png" alt="img49" width="800"/>
