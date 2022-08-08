@@ -1725,3 +1725,19 @@ Global service https://phd.aws.amazon.com/
 ## Summary
 
 <img src="images/img49.png" alt="img49" width="800"/>
+
+---
+<h1 align="center">VPC Section</h1>
+Significa Virtual Private Cloud
+
+## VPC & Subnets Primer
+- VPC -Virtual Private Cloud: rede privada para implantar seus recursos(recurso regional)
+- As Subnets permitem particionar sua rede dentro de sua VPC (recurso de zona de disponibilidade)
+- Uma sub-rede pública é uma sub-rede que é acessível pela internet
+- Uma sub-rede privada é uma sub-rede que não é acessível pela internet
+- Para definir o acesso à internet e entre sub-redes, usamos tabelas de rotas
+
+## Internet Gateway & NAT Gateways
+- Gateways de Internet ajudam nossa VPC instâncias se conectam à internet
+- As sub-redes públicas têm uma rota para o porta de internet.
+- Gateways NAT (gerenciados pela AWS) e Instâncias NAT (autogerenciadas) permitem suas instâncias em suas sub-redes privadas para acessar a internet enquanto permanece privado
