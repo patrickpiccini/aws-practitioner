@@ -1738,6 +1738,75 @@ Significa Virtual Private Cloud
 - Para definir o acesso à internet e entre sub-redes, usamos tabelas de rotas
 
 ## Internet Gateway & NAT Gateways
+
+Internet gateway faz com que as instancias que estão na subnet tenham acesso a internet e sejam públicas. NAT fica conectada a uma Private Subnet e faz uma ponte para que ela tenha acesso a internet, utilizando internet gateway
 - Gateways de Internet ajudam nossa VPC instâncias se conectam à internet
 - As sub-redes públicas têm uma rota para o porta de internet.
 - Gateways NAT (gerenciados pela AWS) e Instâncias NAT (autogerenciadas) permitem suas instâncias em suas sub-redes privadas para acessar a internet enquanto permanece privado
+Site para visualizar o range de IPs: https://cidr.xyz/ 
+
+## Network ACL & Security Groups
+**NACL (Network ACL)**
+- É um firewall que controla o trafico de e para sua subnet
+- Pode ter regras PERMISSÃO e NEGAÇÃO
+- Estão anexados no nível de sub-rede
+- As regras incluem apenas endereços IP
+
+**Securiry Groups**
+- Um firewall que controla o tráfego de e para um ENI/uma instância EC2
+- Pode ter apenas regras PERMITIR
+- As regras incluem endereços IP e outros itens de segurança grupos
+
+<img src="images/img50.png" alt="img50" width="600"/>
+
+## VPC Flow Logs
+São registros de todo o tráfego de IP que passa pelas interfaces:
+- VPC Flow Logs
+- Subnet Flow Logs
+- Elastic Network Interface Flow Logs
+
+Ajuda a monitorar e resolver problemas de conectividade. Exemplo:
+Subnet não conecta a internet, Subnet não conecta a outra Subnet, Internet não consegue se conectar a subnet.
+
+Captura informações de network do gerenciamento de interface AWS como: Elastic Load Balancers, ElastiCache, RDS, Aurora, etc…
+
+Os dados da VPC Flow Logs podem ser armazenados em um S3 ou enviados para CloudWatch
+
+## VPC Peering
+É uma forma de conectar duas VPC de forma privada usando a rede da AWS, em fazer com que se comportem como se fossem parte da mesma rede. 
+
+Para fazer isso deve-se ter certeza que a faixa de IPs não se sobreponham. Caso isso aconteça, não será possível estabelecer uma coneção de VPC Peering.
+
+Outra coisa é que a conexão de VPC Peering não é transitiva. Isso significa que para se conectar a uma terceira VPC, é necessário fazer a conexão com as duas VPC já existentes.
+
+<img src="images/img51.png" alt="img51" width="400"/>
+
+## VPC Endpoints
+Endpoints permite você conectar nos serviços da AWS usando uma Private Network ao invés de uma Public Network.
+Usar isso dará uma segurança porque não estará navegando pela internet, e também terá menos latência por não acessar os serviços através de pulos de rede.
+- VPC Endpoint Gateway: S3 & DynamoDB
+- VPC Endpoint Interface: the rest
+
+
+## Site to Site VPN & Direct Connect
+**VPN site a site**
+- Conecte uma VPN local à AWS
+- A conexão é automaticamente criptografado
+- Passa pela internet pública
+- On-premises: precisa usar uma Customer Gateway (CGW)
+- AWS: precisa usar uma Virtual Private Gateway (VGW)
+**Conexão Direta (DX)**
+- Estabeleça uma conexão física entre local e AWS
+- A conexão é privada, segura e rápida
+- Passa por uma rede privada
+- Leva pelo menos um mês para estabelecer
+
+## Transit Gateway
+- deve ter conexão de peering entre milhares de VPC e seu sitema On-premises, com uma conexão hub-and-spoke (star) 
+- Um único Gateway para fornecer esta funcionalidade
+- Funciona com Conexão Direta Gateway, conexões VPN
+
+<img src="images/img52.png" alt="img52" width="300"/>
+
+## Summary
+<img src="images/img53.png" alt="img53" width="800"/>
