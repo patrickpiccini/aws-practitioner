@@ -1883,16 +1883,20 @@ A AWS gerencia as encryption Keys para a gente
 A AWS gerencia criptográfica de hardware. Um Hardware é dedicado chamado HSM(Hardware Security Module) porem as encryption Keys é o usuário que terá que gerenciar
 
 ## Types of Customer Master Keys: CMK
+
 **Customer Managed CMK:**
 - Criado, gerenciado e utilizado pelo cliente, pode habilitar ou desabilitar.
 - Possibilidade de política de rotação (nova chave gerada todos os anos, chave antiga preservada).
 - Possibilidade de trazer sua própria chave.
+
 **AWS managed CMK:**	
 - Criado, gerenciado e usado em nome do cliente pela AWS
 - Usado pelos serviços da AWS (aws/s3, aws/ebs, aws/redshift)
+
 **AWS owned CMK:**
 - Coleção de CMKs que um serviço da AWS possui e gerencia para usar em várias contas
 - A AWS pode usá-los para proteger recursos em sua conta (mas você não pode visualizar as chaves)
+
 **CloudHSM Keys (custom keystore):**
 - Chaves geradas a partir do seu próprio dispositivo de hardware CloudHSM
 - As operações criptográficas são realizadas no cluster do CloudHSM
