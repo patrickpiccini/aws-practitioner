@@ -1810,3 +1810,90 @@ Usar isso dará uma segurança porque não estará navegando pela internet, e ta
 
 ## Summary
 <img src="images/img53.png" alt="img53" width="800"/>
+
+---
+<h1 align="center">Security e Compliance</h1>
+
+## AWS Shared Responsibility Model
+**AWS responsibility - Security of the Cloud**
+- Proteção da infraestrutura (hardware, software, instalações e rede) que funcionatodos os serviços da AWS
+- Serviços gerenciados como S3, DynamoDB, RDS, etc. Responsabilidade do cliente - Segurança na Nuvem
+**Customer responsibility - Security in the Cloud:**
+- Para instância do EC2, o cliente é responsável pelo gerenciamento do SO convidado (incluindo patches de segurança e atualizações), configuração de firewall e rede, IAM
+- Criptografia de dados do aplicativo
+**Controles compartilhados:**
+- Gerenciamento de patches, gerenciamento de configuração, conscientização e treinamento
+
+## DDOS Protection on AWS
+É um ataque de negação de serviço distribuído na infraestrutura. O Hacker criar varias maquinas q lanças milhares de bots para a sua aplicação, fazendo com que em algum momento ela pare de funcionar por sobrecarga de requests.
+
+## AWS Shield
+**AWS Shield Standard:**
+- É um serviço gratuito para os clientes, que fornece proteção  para ataques de SYN/UDP Floods, Reflection attacks e ataques nas layer 3/layer 4 
+**AWS Shield Advanced:**
+- É um serviço opcional que custa 3000 doll/mês.
+- Protege de ataques mais sofisticados na Amazon EC2, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Route 53.
+- Tem acesso ao time de DDoS para ajudar na defesa contra o ataque
+
+## AWS WAF – Web Application Firewall
+Protege as aplicações na web. Pode ser aplicado no Application Load Balancer, API Gateway, CloudFront.
+- Pode ser definido uma ACL(Web Access Control List), e as regras podem incluir a filtragem de  IP addresses, HTTP headers, HTTP body, or URI strings.
+- Fornece proteção contra SQL injection e Cross-Site Scripting(XSS)
+- Pode definir o tamanho das solicitações para que não sejam muito grandes e também bloquear certos países usando uma Geo-Match.
+- Para DDoS pode ser usado a Rate-Based Rules
+
+## Penetration Testing on AWS Cloud
+É quando você esta tentando atacar sua própria infraestrutura para testar a segurança.
+Os clientes da AWS podem realizar avaliações de segurança ou testes de penetração em sua infraestrutura AWS sem aprovação prévia para 8 serviços:
+- Amazon EC2 instances, NAT Gateways, and Elastic Load Balancers
+- Amazon RDS
+- Amazon CloudFront
+- Amazon Aurora
+- Amazon API Gateways
+- AWS Lambda and Lambda Edge functions
+- Amazon Lightsail resources
+- Amazon Elastic Beanstalk environments
+
+**Atividades Proibidas para testar**
+- Zona DNS caminhando pelas zonas hospedadas do Amazon Route 53
+- Negação de Serviço (DoS), Negação de Serviço Distribuída (DDoS), DoS Simulado, DDoS simulado
+- Port flooding
+- Protocol flooding
+- Protocol flooding (inundação de solicitação de login, inundação de solicitação de API)
+
+## Data at rest vs. Data in transit
+At rest(dado que não esta se movendo): Dados armazenados ou arquivados em um dispositivo fisico(HD,RDS instance, S3, etc)
+At Transit(dado que esta se movendo): Dados que estão se movendo de uma direção parar outra, ou dados transferidos pela rede(transferência de dados de on-premises para AWS, EC2, DynamoDB, etc).
+Para ambos os casos é utilizado encrypted key para proteger as informações
+
+## AWS KMS (Key Management Service)
+A AWS gerencia as encryption Keys para a gente
+**Encryption Opt-in:**
+- EBS volumes: encrypt volumes
+- S3 buckets: Server-side encryption of objects
+- Redshift database: encryption of data
+- RDS database: encryption of data
+- EFS drives: encryption of data
+**Encryption Automatically enabled:**
+- CloudTrail Logs
+- S3 Glacier
+- Storage Gateway
+
+## CloudHSM
+A AWS gerencia criptográfica de hardware. Um Hardware é dedicado chamado HSM(Hardware Security Module) porem as encryption Keys é o usuário que terá que gerenciar
+
+## Types of Customer Master Keys: CMK
+**Customer Managed CMK:**
+- Criado, gerenciado e utilizado pelo cliente, pode habilitar ou desabilitar.
+- Possibilidade de política de rotação (nova chave gerada todos os anos, chave antiga preservada).
+- Possibilidade de trazer sua própria chave.
+**AWS managed CMK:**	
+- Criado, gerenciado e usado em nome do cliente pela AWS
+- Usado pelos serviços da AWS (aws/s3, aws/ebs, aws/redshift)
+**AWS owned CMK:**
+- Coleção de CMKs que um serviço da AWS possui e gerencia para usar em várias contas
+- A AWS pode usá-los para proteger recursos em sua conta (mas você não pode visualizar as chaves)
+**CloudHSM Keys (custom keystore):**
+- Chaves geradas a partir do seu próprio dispositivo de hardware CloudHSM
+- As operações criptográficas são realizadas no cluster do CloudHSM
+
