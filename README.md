@@ -1901,3 +1901,35 @@ A AWS gerencia criptográfica de hardware. Um Hardware é dedicado chamado HSM(H
 - Chaves geradas a partir do seu próprio dispositivo de hardware CloudHSM
 - As operações criptográficas são realizadas no cluster do CloudHSM
 
+## AWS Certificate Manager (ACM)
+É um serviço para provisionar, gerenciar e implantar facilmente certificados SSL ou TSL. É utilizado para fornecer criptografias in-fligth para sites. ACM suporta certificados TSL públicos e privados. 
+- É **Gratuito** para certificados TSL. 
+- Tem um sistema de renovação automático de certificado TSL
+- Tem integração para carregar certificados em diferentes serviços como ELB, CloudFront, APIs ou APIs Gateway
+
+## AWS Secrets Manager
+É um serviço recente e destina-se ao armazenamento de secrets. Pode forçar a rotação de secrets, podendo ser alteradas a cara **X** dias.
+- Pode automatizar a criação de Secrets usando Lambda
+- Tem integração com RDS
+- As secretsd são criptografadas usando KMS
+- Sempre que ver um secrets para ser gerenciado no RDS e ser rotacionado, a resposta será AWS Secrets Manager
+
+## AWS Artifact (not really a service)
+É portal que oferece aos clientes acesso sob demanda à documentação de conformidade da AWS e aos contratos da AWS.
+Esses relatórios podem ser usados para oferecer suporte aos recursos de auditorias internas dentro da sua empresa ou necessidades de reclamações.
+
+## Amazon GuardDuty
+É um serviço que realizará a descoberta inteligente de ameaçar para proteger a conta da AWS. Ele usa algoritmos de Machine Learning, detecção de anomalias e dados de terceiros.
+GuardDuty obtem alguns dados de input como 
+- CloudTrail Events Logs – unusual API calls, unauthorized deployments
+	- CloudTrail Management Events – create VPC subnet, create trail, …
+	- CloudTrail S3 Data Events – get object, list objects, delete object, …
+- VPC Flow Logs – unusual internal traffic, unusual IP address
+- DNS Logs – compromised EC2 instances sending encoded data within DNS queries
+- Kubernetes Audit Logs – suspicious activities and potential EKS cluster compromises
+
+- Pode configurar CloudWatch Event rules para receber notificação em casos de descobertas.
+- Pode configurar também Lambda function ou SNS
+- O GuardDuty pode ajudar contra ataques de criptomoedas porque possui descoberta(“finding”) dedicada para isso
+
+
