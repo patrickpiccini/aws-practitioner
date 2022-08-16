@@ -1920,6 +1920,7 @@ Esses relatórios podem ser usados para oferecer suporte aos recursos de auditor
 
 ## Amazon GuardDuty
 É um serviço que realizará a descoberta inteligente de ameaçar para proteger a conta da AWS. Ele usa algoritmos de Machine Learning, detecção de anomalias e dados de terceiros.
+	
 GuardDuty obtem alguns dados de input como 
 - CloudTrail Events Logs – unusual API calls, unauthorized deployments
 	- CloudTrail Management Events – create VPC subnet, create trail, …
