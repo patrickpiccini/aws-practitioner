@@ -1933,4 +1933,31 @@ GuardDuty obtem alguns dados de input como
 - Pode configurar também Lambda function ou SNS
 - O GuardDuty pode ajudar contra ataques de criptomoedas porque possui descoberta(“finding”) dedicada para isso
 
+## Amazon Inspector
+Permite que você faça avaliações de segurança automática na infraestrutura AWS. Ele ira olar para duas coisas.
+EC2 Instances:
+- Erecutará no back-end o agente do gerenciador de sistemas da AWS.
+- Em seguida analisará a acessibilidade de rede não intencional.
+- Analizará o OS executando em relação a vulnerabilidades conhecidas
+Containers push to Amazon ECR:
+- Avaliação dos containers a medida que são enviados para ECR
 
+Todos os reports estão integrados com AWS Security Hub, e as descobertas serão enviadas ao Amazon Event Brige.
+
+**O que AWS Inspector avalia?**
+- Lembre-se: apenas para instâncias do EC2 e infraestrutura de contêiner
+- Verificação contínua da infraestrutura, somente quando necessário
+- Vulnerabilidades do pacote (EC2 e ECR) – banco de dados do CVE
+- Acessibilidade da rede (EC2)
+- Uma pontuação de risco está associada a todas as vulnerabilidades para priorização
+
+## AWS Config
+- Ajuda na auditoria e registro de conformidade de seus recursos da AWS, registrando configurações e alterações ao longo do tempo.
+- Possibilidade de armazenar os dados de configuração no S3 (analisado pelo Athena)
+- Perguntas que podem ser resolvidas pelo AWS Config:
+- Existe acesso SSH irrestrito aos meus grupos de segurança?
+- Meus buckets têm acesso público?
+- Como minha configuração do ALB mudou ao longo do tempo?
+- Você pode receber alertas (notificações SNS) para quaisquer alterações
+- AWS Config é um serviço por região
+- Pode ser agregado entre regiões e contas
