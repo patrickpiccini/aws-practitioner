@@ -281,7 +281,7 @@ On-Demans Instances:
 ### EC2 Reserved Instance:
 - As instacias reservadas 72% de desconto em comparação com a On-Demand;
 - Voce reserva atributos de instância especifico(Instance Type, region, Tenancy, OS);
-- especifica um período de desconto de 1 a 3 anos, quando mais, maior o desconto;
+- especifica um período de desconto de 1 ou 3 anos, quando mais, maior o desconto;
 - escolha entre pagar adiantado, pagar parcialmente, não pagar adiantado;
 - Reserva de uma região ou zona q desejar de A à Z;
 - Uso para casos de uso estável, como um banco de dados;
@@ -290,7 +290,7 @@ On-Demans Instances:
 
 ### EC2 Savings Plans
 - Permite ter um desconto com base no use de longo prazo com 72% de desconto;
-- Define quanto gastar por hora nos próximos 1 a 3 anos.
+- Define quanto gastar por hora nos próximos 1 ou 3 anos.
 - Será cobrado pelo preço On-Deman;
 - fica preso a família e region de instancias especificas. Por exemplo M5 em us-east-1, porem pode ter todos os type da instancia, pode alterar entre wind ou Linux, e pode alterar a tenancy.
 
