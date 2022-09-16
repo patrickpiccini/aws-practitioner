@@ -1961,5 +1961,3 @@ Todos os reports estão integrados com AWS Security Hub, e as descobertas serão
 - Você pode receber alertas (notificações SNS) para quaisquer alterações
 - AWS Config é um serviço por região
 - Pode ser agregado entre regiões e contas
-
-	
