@@ -1616,7 +1616,7 @@ Pode reajustar os logs para retenção
 - Certifique-se de que as permissões do IAM sejam correto
 - O agente de log do CloudWatch pode ser configuração no local também
 
-## Amazon CloudWatch Events
+## Amazon CloudWatch Events ou Amazon EventBridge
 É uma maneira de reagir as eventos que acontecem dentro da AWS
 <img src="images/img48.png" alt="img48" width="800"/>
 
