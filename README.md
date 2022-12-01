@@ -1788,13 +1788,22 @@ Usar isso dará uma segurança porque não estará navegando pela internet, e ta
 - VPC Endpoint Interface: the rest
 
 
+## AWS PrivateLink
+Cria uma conexão privada entro duas VPC
+- A maneira mais segura e escalável de expor um serviço a 1000s de VPCs
+- Não requer emparelhamento de VPC, gateway de internet, NAT, tabelas de rotas...
+- Requer um balanceador de carga de rede (VPC de serviço) e ENI (VPC do cliente)
+
+<img src="images/img54.png" alt="img51" width="500"/>
+
+
 ## Site to Site VPN & Direct Connect
 **VPN site a site**
 - Conecte uma VPN local à AWS
 - A conexão é automaticamente criptografado
 - Passa pela internet pública
 - On-premises: precisa usar uma Customer Gateway (CGW)
-- AWS: precisa usar uma Virtual Private Gateway (VGW)
+- AWS: precisa usar uma Virtual Private Gateway (VPG)
 **Conexão Direta (DX)**
 - Estabeleça uma conexão física entre local e AWS
 - A conexão é privada, segura e rápida
