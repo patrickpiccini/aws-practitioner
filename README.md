@@ -1868,7 +1868,7 @@ Os clientes da AWS podem realizar avaliações de segurança ou testes de penetr
 - Negação de Serviço (DoS), Negação de Serviço Distribuída (DDoS), DoS Simulado, DDoS simulado
 - Port flooding
 - Protocol flooding
-- Protocol flooding (inundação de solicitação de login, inundação de solicitação de API)
+- Request flooding (inundação de solicitação de login, inundação de solicitação de API)
 
 ## Data at rest vs. Data in transit
 At rest(dado que não esta se movendo): Dados armazenados ou arquivados em um dispositivo fisico(HD,RDS instance, S3, etc)
