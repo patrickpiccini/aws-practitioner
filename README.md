@@ -1943,7 +1943,7 @@ GuardDuty obtem alguns dados de input como:
 - O GuardDuty pode ajudar contra ataques de criptomoedas porque possui descoberta(“finding”) dedicada para isso
 
 ## Amazon Inspector
-Permite que você faça avaliações de segurança automática na infraestrutura AWS. Ele ira olar para duas coisas.
+Permite que você faça avaliações de segurança automática na infraestrutura AWS. Ele ira olhar para duas coisas.
 EC2 Instances:
 - Erecutará no back-end o agente do gerenciador de sistemas da AWS.
 - Em seguida analisará a acessibilidade de rede não intencional.
@@ -1954,19 +1954,84 @@ Containers push to Amazon ECR:
 Todos os reports estão integrados com AWS Security Hub, e as descobertas serão enviadas ao Amazon Event Brige.
 
 **O que AWS Inspector avalia?**
-- Lembre-se: apenas para instâncias do EC2 e infraestrutura de contêiner
+- Lembre-se: apenas para instâncias do EC2, infraestrutura de contêiner e Lambda Functions
 - Verificação contínua da infraestrutura, somente quando necessário
 - Vulnerabilidades do pacote (EC2 e ECR) – banco de dados do CVE
 - Acessibilidade da rede (EC2)
 - Uma pontuação de risco está associada a todas as vulnerabilidades para priorização
 
-## AWS Config
+## AWS Config(Pago)
 - Ajuda na auditoria e registro de conformidade de seus recursos da AWS, registrando configurações e alterações ao longo do tempo.
+- Mostra uma timeline com as ações dos serviços
+- Faz checagens de seguraça
 - Possibilidade de armazenar os dados de configuração no S3 (analisado pelo Athena)
 - Perguntas que podem ser resolvidas pelo AWS Config:
-- Existe acesso SSH irrestrito aos meus grupos de segurança?
-- Meus buckets têm acesso público?
-- Como minha configuração do ALB mudou ao longo do tempo?
+	- Existe acesso SSH irrestrito aos meus grupos de segurança?
+	- Meus buckets têm acesso público?
+	- Como minha configuração do ALB mudou ao longo do tempo?
 - Você pode receber alertas (notificações SNS) para quaisquer alterações
 - AWS Config é um serviço por região
 - Pode ser agregado entre regiões e contas
+
+## AWS Macie
+É um serviço totalmente gerenciado de segurança e privacidade de dados que usa Machile Learning e Patter matchin para proteger os dados sensíveis na AWS
+- Macie Ajuda a idendificar e alerta voce sobre dados sensiveis como Personally Identifiable Information(PII)
+
+Exemplo:
+Os dados estão no S3, serão analizados pelo Macie e seção notivifados atravez do EventBrige
+
+## AWS Security Hub
+OBS: Para o exame, se falar em sistema centralizado de segurança em varias contas, Lembre do Security Hub
+Ferramenta de segurança central para gerenciar a segurança em várias contas da AWS e automatizar verificações de segurança.
+- Fornece Dashboards mostrando o status atual de segurança e conformidade para tomada de decisoes
+- Agrega automaticamente alertas em formatos predefinidos ou de descobertas pessoais de vários serviços da AWS e ferramentas de parceiros da AWS:
+	- GuardDuty
+	- Inspector
+	- Macie
+	- IAM Access Analyzer
+	- AWS Systems Manager
+	- AWS Firewall Manager
+	- AWS Partner Network Solutions
+Para funcionar, é necessario primeiramente habilitar o AWS Config
+
+<img src="images/img55.png" alt="img55" width="600"/>
+
+Faz a coleta de todos os possiveis problemas dos serviços acima, em seguida as vericações serão automatizadas e aparecerão centralizadas nas Dashboards do Security Hub. Tambem pode eventos podem ser gerados pelo eventbridge. e pode ser ivestigado a causa raiz atravez do Amazon Detective.
+
+## Amazon Detective
+- Amazon Detective analisa, investiga e identifica rapidamente a raiz causa de problemas de segurança ou atividades suspeitas (usando Machine Learnig e gráficos)
+- Coleta e processa automaticamente eventos do VPC flow logs, CloudTrail, GuardDuty e crie uma visão unificada.
+- Produz visualizações com detalhes e contexto para chegar à causa raiz
+
+## AWS Abuse
+-  Tem como objetivo relatar recursos suspeitos da AWS usados para fins abusivos ou ilegais.
+- Comportamenteos abisuvos e proibidos são:
+	- Spam
+	- Port Scanning 
+	- DoS ou DDoS Ataques
+	- Tentativa de Intrusão
+	- Hospedar conteúdo censurável ou protegido por direitos autorais
+	- Distribuição de malware
+
+## Root user privileges
+É Essencial que crie um conta ADM e não use o user root!!!!
+o Root é o primeiro usuario da conta quando ela é criada. Essa conta tem acessototal aos serviços e recursos da AWS.
+A ideia é que o root pode fazer algumas ações que mesmo o usuario criado com omaximo de privilégios, não pode fazer.
+- Não é boa praticar usar o root para fazer tarefas diarias
+- Tarefas que poder ser feitas com o Root:
+	- **Alterar as configurações da conta** (nome da conta, endereço de e-mail, senha do usuário root, chaves de acesso do usuário root)
+	- Ver algumas notas fiscais
+	- **Encerre sua conta da AWS**
+	- Restaurar permissões de usuário do IAM
+	- **Alterar ou cancelar seu plano do AWS Support**
+	- **Registre-se como vendedor no Marketplace de instâncias reservadas**
+	- Configurar um bucket do Amazon S3 para habilitar o MFA
+	- Editar ou excluir uma política de bucket do Amazon S3 que inclui um VPC ID inválido ou um VPC endpoint ID
+	- Inscreva-se no GovCloud
+
+## Summary
+<img src="images/img56.png" alt="img56" width="800"/>
+<img src="images/img57.png" alt="img57" width="800"/>
+
+---
+<h1 align="center">Machine Learning</h1>
