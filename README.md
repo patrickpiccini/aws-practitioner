@@ -2035,3 +2035,91 @@ A ideia é que o root pode fazer algumas ações que mesmo o usuario criado com 
 
 ---
 <h1 align="center">Machine Learning</h1>
+
+## Amazon Rekognition
+Encontra objetos, pessoas, texto, cenas em imagens e vídeos usando ML
+- Análise facial e pesquisa facial para fazer a verificação do usuário, contagem de pessoas
+- Crie um banco de dados de “rostos familiares” ou compare com celebridades
+- Casos de uso:
+	- Marcação
+	- Moderação de conteúdo
+	- Detecção de texto
+	- Detecção e análise facial (gênero, faixa etária, emoções...)
+	- Pesquisa e verificação facial
+	- Reconhecimento de celebridades
+	- Pathing (ex: para análise de jogos esportivos)
+
+## Amazon Transcribe
+- Converter automaticamente fala em texto
+- Usa um processo de aprendizado profundo chamado automatic speech recognition (ASR) para converter fala em texto com rapidez e precisão
+- Remova automaticamente as Personally Identifiable Information (PII) usando a redação
+- Suporta identificação automática de idioma para áudio multilíngue
+- Casos de uso:
+- transcrever chamadas de atendimento ao cliente
+- automatizar closed caption e legendagem
+- gerar metadados para ativos de mídia para criar um arquivo totalmente pesquisável
+
+## Amazon Polly
+Transforme texto em fala realista usando aprendizado profundo
+- Permitindo que você crie aplicativos que falam
+
+## Amazon Translate
+- Tradução de linguagem natural e precisa
+- O Amazon Translate permite que você localize o conteúdo
+
+## Amazon Lex & Connect
+
+### LEX
+É a mesma tecnologia que alimenta os dispositivos Alexa
+- O objetivo é ter o Automatic Speech recogition(ASR), que converte a fala em textos.
+- Faz o entendimento das frases usando Neutral Language Understanding
+- Tecnologia utilizada para criar chatbots ou call center bot
+
+### Connect
+Permite Receber chamadas, criar fluxos de contato, contact center virtual baseado em nuvem
+- Pode integrar-se com outros sistemas de CRM ou AWS
+- Sem pagamentos antecipados, 80% mais baratos que as soluções tradicionais de contact center
+
+## Amazon Comprehend
+Para o exame: **Faz a compreenção de frases usando Neutral Leanguage Processing(NLP)**
+
+Usa o aprendizado de máquina para encontrar informações e relacionamentos no texto
+- Idioma do texto
+- Extrai frases-chave, lugares, pessoas, marcas ou eventos
+- Compreende o quão positivo ou negativo o texto é
+- Analisa texto usando tokenização e partes do discurso
+- Organiza automaticamente uma coleção de arquivos de texto por tópico
+- Exemplos de casos de uso:
+- analisar as interações do cliente (e-mails) para descobrir o que leva a uma experiência positiva ou negativa
+- Crie e agrupe artigos por tópicos que o Comprehend descobrirá
+
+## Amazon SageMaker
+É um serviço totalmente gerenciado para desenvolvedores e cientistas de dados criatem um modelo de Machine Learning
+
+## Amazon Forecast
+É um serviço totalemnte gerenciado que através de ML fornece predictions altamente precisas
+- É 50% mais preciso do que olhar para os proprios dados
+- Reduz tempo de predição de meses para horas
+- Use cases: Product Demand Planning, Financial Planning, Resource Planning…
+
+## Amazon Kendra
+Para o exame: **É um serviço que faz pesquisa de documentos**
+É um serviço de pesquisa de documentos totalmente gerenciado usando ML
+- Extrai respostas de um documento(text, pdf, HTML, PowerPoint, MS Word, FAQs…)
+- Recursos de pesquisa em linguagem natural
+- Aprenda com as interações/feedback do usuário para promover os resultados preferidos (Aprendizado Incremental)
+- Capacidade de ajustar manualmente os resultados da pesquisa (importância dos dados, atualização, personalização, …)
+
+## Amazon Personalize
+Para o exame: **É um serviço de ML para criar recomendações personalizadas, como no site da Amazon**
+É um serviço para criar aplicações com recomentação personalizada em tempo real.
+Mesma tecnologia utilizada na Amazon.com para recomendar produtos, dps de algumas compras.
+Integrados com websites, aplicativos, SMS, Email…
+
+## Amazon Textract
+É usado para extrair texto manuscrito ou de documentos digitalizados usando ML e é salvo como um object para poder analizar posteriormente.
+
+<img src="images/img58.png" alt="img58" width="800"/>
+
+## AWS Machine Learning - Summary
+<img src="images/img50.png" alt="img59" width="800"/>
