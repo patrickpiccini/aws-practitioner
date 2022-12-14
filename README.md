@@ -2122,4 +2122,47 @@ Integrados com websites, aplicativos, SMS, Email…
 <img src="images/img58.png" alt="img58" width="800"/>
 
 ## AWS Machine Learning - Summary
-<img src="images/img50.png" alt="img59" width="800"/>
+<img src="images/img59.png" alt="img59" width="800"/>
+
+---
+<h1 align="center">Account Management, Billing & Support Section</h1>
+
+## AWS Organizations
+É um serviço global com objetivo de criar organizações que voce seja capaz de gereciar varias cotas da AWS.
+
+- A conta principal se chamará de Master account e as outras de child-account
+- Custo Beneficios:
+	- Faturameto consolidado(todas as cotas serão pagas pela mestre)
+	- Preços de beneficio com o uso agregado(quando se usa muito um serviço)
+	- as reserved EC2 istace são compartilhadas por todas as contas(Maximizar economia de custo)
+
+- Há uma API para automatizar a criação de contas AWS
+- **Pode ser restrigido plrivilégios da cota usando uma Politica de Controle de Serviço(SCP)**
+
+### Multi Account Strategies
+- Criar contas por departameto
+- Criar contas por cetro de custo
+- Criar contas por ambiete
+- Criar contas por desevolvimento
+- Criar contas por produção
+Todos baseados em restriçõesd de compartilhamento regular(SCP)
+- Se tem Limites de  serviço separasdos por conta e tambem cotas isoladas para Logging
+
+- Multi Account vs One Account Multi VPC
+- Utilização de padrões de Tagging em todas as contas para fins de faturameto.
+- Habilitar CloudTrail em todas as contas, para enviar os logs para uma conta S3 central.
+- Enviar para CloudWatch Logs de uma conta de logging cetral
+
+## Organizational Units (OU) - Examples
+
+<img src="images/img60.png" alt="img60" width="800"/>
+
+## Service Control Policies (SCP)
+Permite colocar na with ou black list ações de IAM aplicadas nas OU ou Account level, mas não se aplica as contas Mater
+
+- Se parece muito com o JSON ce uma IAM Policy 
+
+- Casos de uso:
+	- Restringir acesso para certos cerviços
+	- Import a conformidade com PCI desabilitando explicitamete serviços
+
