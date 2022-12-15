@@ -2166,3 +2166,19 @@ Permite colocar na with ou black list ações de IAM aplicadas nas OU ou Account
 	- Restringir acesso para certos cerviços
 	- Import a conformidade com PCI desabilitando explicitamete serviços
 
+## AWS Organization – Consolidated Billing
+Quando é habilitado o Organization é fornecido:
+- **Uso Combiado** : irá compartilhar o preço das instances e descontos de Reserved e Savigs Plans.
+- **Uma Fatura** : Receberá uma fatura para todas as cotas da orgaização.
+
+## AWS Control Tower
+É um serviço para cofigurar de maneira facil e administrar um **ambiente AWS** seguro e compatível com varias contas.
+Ao ivé de fazer tudo manualmente, criando orgaizations, e em seguida apricar praticas de segurança, o **Cotrol Tower** pode com alguns clicks, criar um ambiente AWS com vairas contas.
+
+- Beneficios:
+	- Automatize a configuração do seu ambiente em poucos cliques
+	- Automatize o gerenciamento contínuo de políticas usando proteções
+	- Detecte violações de políticas e corrija-as
+	- Monitore a conformidade por meio de um painel interativo
+- O AWS Control Tower é executado no AWS Organizations:
+	- Configura automaticamente o AWS Organizations para organizar contas e implementar SCPs (Políticas de Controle de Serviço)
