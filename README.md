@@ -2164,7 +2164,7 @@ Permite colocar na with ou black list ações de IAM aplicadas nas OU ou Account
 
 - Casos de uso:
 	- Restringir acesso para certos cerviços
-	- Import a conformidade com PCI desabilitando explicitamete serviços
+	- Import a conformidade com PCI(Payment Card Industry) desabilitando explicitamete serviços
 
 ## AWS Organization – Consolidated Billing
 Quando é habilitado o Organization é fornecido:
@@ -2182,3 +2182,279 @@ Ao ivé de fazer tudo manualmente, criando orgaizations, e em seguida apricar pr
 	- Monitore a conformidade por meio de um painel interativo
 - O AWS Control Tower é executado no AWS Organizations:
 	- Configura automaticamente o AWS Organizations para organizar contas e implementar SCPs (Políticas de Controle de Serviço)
+
+## Pricing Models in AWS
+
+- Pay as you go
+- Save whe you reserve - Ecoomiza ao fazer uma reserva. Orçameto previsivel
+- Pay less by using more - descontos baseados em volume
+- Pay less as AWS grow - Pague menos à medida que a AWS cresce
+
+### Free services & free tier in AWS
+
+- Free Service:
+	- IAM, VPC, Consolidated Billing, Elastic Beanstalk, CloudFormation, ASG
+- Free Tier:
+	- EC2 t2.micro 1 ano
+	- S3,EBS,ELB,AWS Data Transfer
+
+### Compute Pricing – EC2
+- Instâncias sob demanda:
+	- Mínimo de 60s
+	- Pagamento por segundo (Linux/Windows) ou por hora (outros)
+- Instâncias reservadas: 
+	- Até 75% de desconto em comparação com a taxa horária sob demanda
+	- Compromisso de 1 ou 3 anos
+	- Tudo adiantado, parcialmente adiantado, sem adiantamento
+- Instâncias spot: 
+	- Até 90% de desconto em comparação com On-demand na taxa por hora 
+	- Oferta de capacidade não utilizada 
+- Host dedicado: 
+	- Sob demanda 
+	- Reserva para compromisso de 1 ano ou 3 anos 
+- Savings plans como alternativa para poupar na utilização sustentada
+
+### Compute Pricing – Lambda & ECS
+- Lamda:
+	- Paga por chamada
+	- Paga por duração vezes numero de quantidade
+- ECS: 
+	- EC2 Launch Type Model: Sem taxas adicionais, você paga Recursos da AWS armazenados e criados em seu aplicativo
+- Forgate:
+	- Fargate Launch Type Model: Paga por CPU e Memoria alocada para sua aplicação ao container.
+
+### Storage Pricing – S3
+- Paga pela quantia e tamanho dos objects.
+- Paga por fazer requisições I\O da S3
+- Paga pela transferencia de dados fora da Ragião da S3
+- Paga pela S3 Transfer Acceleration
+- Paga pela transição do ciclo de vida entre classes 
+
+É similar ao EFS (Paga por uso, tem IA e lifecycle rules)
+
+### Storage Pricing - EBS
+O preço é baseado no tipo de volume criado, o tamanho do volume(GB) criado 
+- IOPS:
+	- General Purpose SSD: Incluso
+	- IOPS Provisioado SSD : Paga pela supervisão do aplicativo
+	- Magnetico: Paga pelo numero de requests
+- Snapshots:
+	- Quando mais Snapshots, mais voce pagará
+	- Custo por GB por mês
+- Data Transfer:
+	- Cobrado quando tiver qualquer transferecia de dados para fora do EBS, será escalonado para descontos por volume
+	- Imputs serão gratuitos
+
+### Database Pricing - RDS
+Fatura é feita por hora com base no DB que usa(Engine, tamaho, classe de memoria)
+- Tipo de compra:
+	- On-demand
+	- Reserved isntance(1 ou 3 anos)
+Armazenamento de backup: não há custo adicional para armazenamento de backup de até 100% do armazenamento total do banco de dados para uma região.
+- Paga pelo espaço adicinal(por GB por mes)
+- Paga pelo numero de entrada e saida de requisições por mes
+- Paga pelo type de implemetação(Single AZ, Multi AZ)
+- Paga a transferecia de dados
+
+### Content Delivery – CloudFront
+É global, portanto o preço será diferete com base no local onde a coferecia é servida
+- Preço é diferente entre diferentes regions 
+- Quanto mais usar cloudfro tm uma region, mais descoto obterá
+- Irá pagar pela saida de dados
+- Paga pelo numero de solicitações feita ao CloudFront
+
+### Networking Costs in AWS per GB
+- Qualquer trafego para detro da rede aws será free
+- Comunnicação entre EC2 detro da mesma AZ são free usando Pivate Ip
+- Se as EC2 estiveres em duas AZ e se comunicarem é pago 0,02 por GB usado Public IP, se for Private IP é 0,01 por GB
+- se as EC2 estão em regios diferentes, é pago 0,02 por GB  
+
+## Savings Plan
+Diferente de reservar instancias, com o savings plan, voce se compromente a gastar uma certa quantia em dolares por hora durante 1 ou 3 anos
+- EC2 Savings Plan:
+	- Até 72% de desconto comparando a On-Demand
+	- Usa as insatancias das Familias de uma region
+	- independente do tamanho ou SO
+	- Pode fazer Tudo adiantado, parcialmente adiantado, sem adiantamento
+- Compute Savings Plan:
+	- Ate 66% de desconto comparando a On-Demand
+	- Idependente da Familia, region, tamanho, OS, tenancy, opção de computação(EC2, forgate, Lambda)
+- Machine Learning Savings Plan: 
+	- SageMaker
+
+Estimate pricing at [Savings Plans](https://aws.amazon.com/savingsplans/pricing)
+
+## AWS Compute Optimizer
+É usado para reduzir custos e melhorar o desempenho recomendando recurços AWS ideais para suas cargas de trabalho.
+- Utiliza ML para analizar os recursos e configurações, assim como utilizará CloudWatch metrics para entender a utilização
+
+- Recursos suportados: EC2, ASG, EBS e Lambda
+- Pode reduzir até 25% de custos
+- As Recomedações podem ser exportadas para S3
+
+## Billing and Costing Tools
+
+- Custo estimado na Nuvem:
+	- Pricing Calculator(Calculadoura de preços)
+- Rastrear custos a Nuvem:
+	- Billing Dashboard
+	- Alocação de Tags
+	- Relatórios de custos e uso
+	- Cost Explorer (Explorador dse custos)
+- Monitorar novamente o plao de custo:
+	- Billing alarms
+	- Budgets
+
+## AWS Pricing Calculator
+[AWS Pricing Calculator](https://calculator.aws/) permite que estime o custo para a sua arquitetura 
+
+## AWS Billing Dashboard
+Responsavel por rastrear seus custos na Nuvem
+
+- AWS Free Tier Dashboard
+	- Mostra o uso para cada Free Tier baseado no mes
+
+## Alocação de Tags
+As tags nos permite rastrear os custos em um ivel detalhado e agrupa-los.
+
+Pode ser usado a **AWS Generated Tags** para aplicar tags ao recurso que voce criar. Começarão com o prefixo(AWS: talcoisa)
+Pode criar suas proprias tags começando com o prefixo user: talcoisa
+
+#### Tagging and Resource Groups
+As Tags são usadas para organizar recursos como: EC2 instaces, images, LB, SG.
+
+Tags podem ser criadas não sómente para orgaizar os custos mas tambem para grupos de recursos. Para Criar, mater e visualizar uma coleção de recursos.
+
+## Cost and Usage Reports
+Serviço para gerar um relatório de custo e uso para aprofundar nos detalhes.
+
+- Fornecerão informações e serão os **conjuntos mais abrangentes de dados de custo e uso disponivel na AWS**.
+- Esse relatório fornecerá toso o uso da AWS para cada serviço usado por uma conta e seus usuarios do IAM por hora ou diariamete.
+- Pode ser itegrado com Athena, Redshift ou QuickSight
+
+## Cost Explorer
+É uma ferramenta na qual visualizamos e etendemos o gerenciamento de custos e uso ao logo do tempo.
+
+- Pode ser criado relatórios personalizados para analizar o custo e uso.
+- visto por mes, hora ou a nivel de recurso.
+- Pode acessar seu Savings Plan ideal para reduzir os preços na fatura.
+- **Pode prever o uso em até 12 meses**
+
+## Billing Alarms in CloudWatch
+- A métrica de dados de faturamento é armazenada no CloudWatch apenas na region us-east 1
+- Os dados de cobrança são gerais custos mundiais da AWS
+- É para custo real, não para custos projetados
+- Pretendia um alarme simples(não tão poderoso quanto o AWS Budgets)
+
+## AWS Budgets
+São muito uteis para enviar alarmes quando excede o custo ou quado uma previsão excede o orçamemnto
+- Existem 3 tiops de Budget: Usage, Cost, Reservation 
+para as Reserved Instaces: pode ser rastreado a utilização deles, suporta EC2, ElastiChache, RDS, Redshift
+- Suporta 5 Notificações por Budget
+
+## Trusted Advisor 
+Não  Precisa instalar nada 
+Analise suas contas da AWS e forneçe recomendação em 5 categorias
+**Lembrar desses 5 itens**
+- Cost optimization
+- Performance
+- Security
+- Fault tolerance
+- Service limits
+
+## Trusted Advisor – Support Plans
+### Basic & Developer Support plan 
+- S3 Bucket Permissions
+- Security Groups – Specific Ports Unrestricted
+- IAM Use (one IAM user minimum)
+- MFA on Root Account
+- EBS Public Snapshots
+- RDS Public Snapshots
+- Service Limits
+
+### Business & Enterprise Support plan
+- Cheques completos disponíveis nas 5 categorias
+- Capacidade de definir alarmes do CloudWatch ao atingir limites
+- **Acesso programático usando a API de suporte da AWS**
+
+## AWS Support Plans Pricing
+<img src="images/img61.png" alt="img61" width="600"/>
+
+### AWS Basic Support Plan
+- Atendimento ao cliente e comunidades - acesso 24 horas por dia, 7 dias por semana ao atendimento ao cliente, documentação, whitepapers e fóruns de suporte.
+- AWS Trusted Advisor - acesso às 7 principais verificações do Trusted Advisor e orientação para provisionar seus recursos seguindo as melhores práticas para aumentar o desempenho e melhorar a segurança.
+- AWS Personal Health Dashboard - Uma visão personalizada da saúde de Serviços da AWS e alertas quando seus recursos são afetados.
+
+### WS Developer Support Plan
+- Tem tudo que há o Basic
+- Acesso por e-mail em horário comercial para Cloud Suport Associates
+- Pode obter uma quantia ilimitada de casos e pode ter um contato principal nas contas
+- Baseado na gravidade do problemas:
+	- Orientação geral - menos de 24 horas uteis
+	- Sistema com Defeito - menos de 12 horas uteis
+
+### AWS Business Support Plan (24/7)
+- Destina-se a ser usado se você tiver cargas de trabalho de produção
+- Trusted Advisor – Conjunto completo de verificações + acesso à API
+- Acesso 24 horas por dia, 7 dias por semana por telefone, e-mail e bate-papo aos Engenheiros de Suporte em Nuvem
+- Casos ilimitados / contatos ilimitados
+- Acesso ao gerenciamento de eventos de infraestrutura por uma taxa adicional.
+- Gravidade do caso/tempos de resposta:
+	- Orientação geral: < 24 horas úteis
+	- Sistema prejudicado: < 12 horas úteis
+	- Sistema de produção prejudicado: < 4 horas
+	- Sistema de produção inativo: < 1 hora
+
+### AWS Enterprise On-Ramp Support Plan (24/7)
+- Destina-se a ser usado se você tiver cargas de trabalho críticas de produção ou de negócios
+- Todo o plano de suporte empresarial +
+- Acesso a um pool de gerentes técnicos de contas (TAM)
+- Equipe de suporte do concierge (para práticas recomendadas de cobrança e conta)
+- Gerenciamento de eventos de infraestrutura, bem arquitetado e análises de operações
+- Gravidade do caso/tempos de resposta:
+	- Orientação geral: < 24 horas úteis
+	- Sistema prejudicado: < 12 horas úteis
+	- Sistema de produção prejudicado: < 4 horas
+	- Sistema de produção inativo: < 1 hora
+	- Inatividade do sistema crítico para os negócios: < 30 minutos
+
+### AWS Enterprise Support Plan (24/7)
+- Destinado a ser usado se você tiver cargas de trabalho de missão crítica
+- Todo o plano de suporte empresarial +
+- Acesso a um Gerente Técnico de Contas (TAM) **designado**
+- Equipe de suporte do concierge (para práticas recomendadas de cobrança e conta)
+- Gerenciamento de eventos de infraestrutura, bem arquitetado e análises de operações
+- Gravidade do caso/tempos de resposta:
+	- Orientação geral: < 24 horas úteis
+	- Sistema prejudicado: < 12 horas úteis
+	- Sistema de produção prejudicado: < 4 horas
+	- Sistema de produção inativo: < 1 hora
+	- Inatividade do sistema crítico para os negócios: < 15 minutos
+
+## Account Best Practices – Summary
+- Operar várias contas usando **AWS Organizations**
+- Use **SCP** (políticas de controle de serviço) para restringir o poder da conta
+- Configure facilmente várias contas com as melhores práticas com o **AWS Control Tower**
+- Use **Tags & Cost Allocation Tags** para fácil gerenciamento e cobrança
+- **IAM guidelines\Diretrizes IAM**: MFA, privilégio mínimo, política de senha, rotação de senha
+- **Config** para registrar todas as configurações de recursos e conformidade ao longo do tempo
+- **CloudFormation** para implantar pilhas em contas e regiões
+- **Trusted Advisor** para obter insights, plano de suporte adaptado às suas necessidades
+- Enviar logs de serviço e logs de acesso para **S3 ou CloudWatch Logs**
+- **CloudTrail** para registrar chamadas de API feitas em sua conta
+- **Se sua conta estiver comprometida:** altere a senha root, exclua e gire todas as senhas/chaves, entre em contato o suporte da AWS
+
+## Billing and Costing Tools – Summary
+- **Compute Optimizer:** recomenda configurações de recursos para reduzir custos
+- **Calculadora de preços:** custo dos serviços na AWS
+- **Painel de cobrança:** visão geral de alto nível + painel de nível gratuito
+- **Tags de alocação de custos:** marque recursos para criar relatórios detalhados
+- **Relatórios de custo e uso:** conjunto de dados de faturamento mais abrangente
+- **Explorador de custos:** visualize o uso atual (detalhado) e o uso previsto
+- **Alarmes de faturamento:** em us-east-1 – rastreie o faturamento geral e por serviço
+- **Orçamentos:** mais avançados – rastreie uso, custos, RI e receba alertas
+- **Savings Plans:** maneira fácil de economizar com base no uso de longo prazo da AWS
+
+
+<img src="images/img62.png" alt="img62" width="800"/>
+<img src="images/img63.png" alt="img63" width="800"/>
