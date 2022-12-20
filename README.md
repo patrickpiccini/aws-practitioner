@@ -2458,3 +2458,55 @@ Analise suas contas da AWS e forneçe recomendação em 5 categorias
 
 <img src="images/img62.png" alt="img62" width="800"/>
 <img src="images/img63.png" alt="img63" width="800"/>
+
+
+---
+<h1 align="center">Advanced Identity Section</h1>
+
+## AWS STS (SecurityToken Service)
+Serviço que permite criar credeciais de privilé-gios temporarios e limitados para acessar recursos da AWS
+- Casos de uso
+	- Federação de identidade: gerencie identidades de usuário em sistemas externos e forneça-lhes STS tokens para acessar recursos da AWS
+	- Funções IAM para acesso entre/mesma conta
+	- Funções IAM para Amazon EC2: fornecem credenciais para instâncias do EC2 acessarem a AWSRecursos
+
+Para o exame: Quando falar de criar credenciais de privilégios temporarios e limitados para AWS, pese em STS
+
+## Amazon Cognito (simplified)
+É uma forma de forecer idetidade aos usuarios de aplicativos moveis e web(potencialmente milhões)
+- Em vez de criar um usuário do IAM, você cria um usuário no Cognito
+
+Para o exame: forma de creiar ususarios para os seus aplicativos web, mobile. Pode fazer logi com Facebook, Google, Twitter…
+
+## Microsoft Active Directory(AD)*
+É ecotrado em qualquer sdervidor Windows que tenha serviços de dominio AD
+- Banco de dados de objetos: Usuário Contas, Computadores, Impressoras, Compartilhamentos de arquivos, Grupos de segurança
+- Segurança centralizada gestão, criar conta, atribuir permissões
+
+## AWS Directory Services*
+- Microsoft AD gerenciado pela AWS 
+	- Crie seu próprio AD na AWS, gerencie usuários localmente, suporta MFA
+	- Estabeleça conexões de “confiança” com seu AD local
+- AD Coector
+	- Gateway de diretório (proxy) para redirecionar para AD local, suporta MFA
+	- Os usuários são gerenciados no AD local
+- AD Simples
+	- Diretório gerenciado compatível com AD na AWS
+	- Não pode ser associado ao AD local
+
+## AWS IAM Identity Center(AWS Single Sign-On))
+Para o exame: Sempre que ver um acesso a multiplas contas AWS, pense em AWS IAM Identity Center
+pode ir trocado de conta atraves desse serviço.
+
+Provisioar um login(single sinal) para todas as suas:
+- Contas nas Organizations
+- Aplicações Cloud Business(Salesforce, Box, Microsoft 365...)
+- SAML2.0-enabled applications
+- EC2 Windows Instances
+
+- Provedores de Idetidade:
+	- Armazenamento de identidade integrado no IAM Identity Center
+	- 3rd party: Active Directory (AD), OneLogin, Okta…
+
+## Advanced Identity - Summary 
+<img src="images/img65.png" alt="img65" width="800"/>
