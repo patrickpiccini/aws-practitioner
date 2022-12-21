@@ -2510,3 +2510,103 @@ Provisioar um login(single sinal) para todas as suas:
 
 ## Advanced Identity - Summary 
 <img src="images/img65.png" alt="img65" width="800"/>
+
+---
+<h1 align="center">Advanced Identity Section</h1>
+
+## Amazon WorkSpaces
+Solução de desktop gerenciado como serviço (DaaS) para provisionar facilmente desktops Windows ou Linux
+
+Para o exame: Provisiona dasktops virtuais ou Desktop as a Service (DaaS)
+
+## Amazon AppStream 2.0
+Transmite um aplicativo de descktop muito especifico diretamente em um avegador, sem necessidade de se conectar a um desktop
+
+- Serviço de streaming de aplicativos de desktop
+- Entregue em qualquer computador, sem adquirir, provisionar infraestrutura
+- O aplicativo é entregue a partir de um navegador da web
+
+## Amazon Sumerian
+Cria e executa aplicativos de realidade virtual (VR), realidade aumentada (AR) e 3D
+
+## AWS IoT Core
+O AWS IoT Core permite que você conecte facilmente dispositivos IoT à Nuvem AWS. Serverless, secure & scalable 
+
+## Amazon Elastic Transcoder
+É usado para converter arquivos de mídia armazenados no S3 em arquivos de mídia nos formatos exigidos pelos dispositivos de reprodução do consumidor (telefones etc.)
+
+## AWS AppSync
+É usado para armazear dados para aplicações moveis e web usando GraphQL.
+A ideia é construir um back end para aplicação movel ou web em tempo real. utiliza GraphQL
+
+## AWS Amplify
+É um conjunto de ferramentas e serviços que ajudam você a desenvolver e implantar soluções escaláveis
+aplicativos móveis e web de pilha completa.
+Com esse serviço pode gerar API de Authentication, Storage, API (REST, GraphQL), CI/CD, PubSub, Analytics, 
+AI/ML Predictions, Monitoring, Source Code from AWS, GitHub, etc…
+
+## AWS Device Farm
+É um serviço que provisiona varios tipos de smartphones, tables, navegadores para poder testar as aplicações como deseja
+
+## AWS Backup
+Serviço totalmente gerenciado para gerenciar e automatizar backups de forma centralizada serviços AWS
+Pode fazer backups entre regiões ou ate entre contas, usando  AWS Organizations
+
+## Disaster Recovery Strategies
+
+- Backup and Restore - Mais barato, backup on-premises
+- Pilot Ligh
+- Warm Standby
+- Multi-Site / Hot-Site - Mais caro, backup nuvem
+
+## AWS Elastic Disaster Recovery (DRS)
+Recupere de forma rápida e fácil seus servidores físicos, virtuais e baseados em nuvem na AWS
+É isntalado um agent de replicação no datacenter,cloud que esta usado e será feito uma replicação cotinuados discos em uma abiente de baixo custo na AWS
+
+## AWS DataSync
+É um serviço para mover grande quantidade de dados do local para a AWS
+Depois que é feito o primeiro carregamento, as proximas replicações será **Incrementais**
+
+**Como Fuciona:**
+
+É instalado um agent de sicronização no servidor on-premises que deseja mover os dados. em seguida se conectará ao serviço de AWS DataSync, e enviará gratuitamente os dados para qualquer classe S3 EFS ou FSx
+
+## AWS Application Discovery Service
+A idéia é escanear seus servidores e reunir informações sobre os dados de seleção de servidores e mapeamento de dependência que serão importantes para suas migrações para que você possa entender como migrar e o que migrar primeiro.
+
+Tipos de migração:
+- Agentless Discovery (AWS Agentless Discovery Connector)
+	- Informações sobre VM, configuração e histórico de desempenho, como CPU, memória e uso de disco
+- Agent-based Discovery (AWS Application Discovery Agent)
+	- Configuração do sistema, desempenho do sistema, processos em execução e detalhes da rede conexões entre sistemas
+
+Depois de fazer os escaneamento é utilizado o MGN para fazer a migração
+
+## AWS Application Migration Service (MGN)
+Solução lift-and-shift (rehost) que simplifica a migração de aplicativos para a AWS
+
+## AWS Fault Injection Simulator (FIS)
+Um serviço totalmente gerenciado para executar experimentos de injeção de falhas em cargas de trabalho da AWS. É Baseado na Engenharia do Caos
+- Ajuda a descobrir bugs ocultos e gargalos de desempenho
+- Suporta os seguintes serviços da AWS: EC2, ECS, EKS, RDS…
+- Use modelos pré-construídos que geram as interrupções desejadas
+
+## AWS Step Functions
+- Crie um workflow visual serverless para orquestrar suas funções do Lambda
+- Pode integrar com EC2, ECS, servidores On-premises, API Gateway, SQS queues, etc
+- Possibilidade de implementação de aprovação humana funcionalidade
+- Casos de uso: atendimento de pedidos, processamento de dados, aplicativos da web, qualquer fluxo de trabalho
+<img src="images/img66.png" alt="img66" width="800"/>
+
+## AWS Ground Station
+Serviço totalmente gerenciado que permite controlar comunicações por satélite, processar dados e escalar suas operações de satélite.
+
+- Fornece uma rede global de satélites estações terrestres próximas às regiões da AWS
+- Permite baixar dados de satélite para sua AWS VPC em segundos
+- Enviar dados de satélite para a instância S3 ou EC2
+- Casos de uso: previsão do tempo, superfície imagens, comunicações, transmissões de vídeo
+
+## Amazon Pinpoint
+Amazon SNS ou Amazon SES
+- No SNS & SES você gerenciava o público de cada mensagem,conteúdo e cronograma de entrega
+- No Amazon Pinpoint, você cria modelos de mensagem, cronogramas de entrega, segmentos altamente segmentados e campanhas completas
