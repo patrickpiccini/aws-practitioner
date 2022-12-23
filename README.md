@@ -2742,3 +2742,15 @@ e as tecnologias evoluem
 	- antes de uma migração para a nuvem
 	- continuamente após o processo de integração na nuvem (os requisitos mudam com o tempo)
 	- CloudWatch, Cost Explorer, Trusted Advisor, ferramentas de terceiros podem ajudar
+
+## AWS IQ
+Encontre rapidamente ajuda profissional para seus projetos da AWS
+- Envolver e pagar especialistas terceirizados certificados pela AWS para trabalho de projeto sob demanda
+- Videoconferência, gerenciamento de contratos, colaboração segura, faturamento integrado
+
+## AWS re:Post
+É um forum comuitario
+
+- Perguntas de clientes do AWS Premium Support que não recebem uma resposta da comunidade são repassado aos engenheiros do AWS Support
+
+Para o exame: re:Post não é usado para chegar a pergutas que são sesiveis ao tempo, ou para envolver qualquer ação preparatória.
