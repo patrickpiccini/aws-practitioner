@@ -2640,9 +2640,105 @@ Amazon SNS ou Amazon SES
 
 ## Well Architected Framework 
 
-- 1) Operational Excellence
-- 2) Security
-- 3) Reliability
-- 4) Performance Efficiency
-- 5) Cost Optimization
-- 6) Sustainability
+### 1) Excelência Operacional
+
+- Inclui a capacidade de executar e monitorar sistemas para agregar valor aos negócios e melhorar continuamente os processos e procedimentos de suporte.
+
+- Princípios de design
+	- Executar operações como código - Infraestrutura como código
+	- Anotar documentação - Automatize a criação de documentação anotada
+	depois de cada compilação
+	- Faça alterações frequentes, pequenas e reversíveis - Para que, em caso de falha, você possa inverta isso
+	- Refine os procedimentos de operações com frequência - e garanta que os membros da equipe estejam familiarizado com isso
+	- Antecipar falha
+	- Aprenda com todas as falhas operacionais
+
+<img src="images/img67.png" alt="img67" width="800"/>
+
+### 2) Segurança
+
+- Inclui a capacidade de proteger informações, sistemas e ativos durante a entrega valor comercial por meio de avaliações de risco e estratégias de mitigação
+
+- Princípios de design
+	- Implemente uma base de identidade forte - Centralize o gerenciamento de privilégios e reduza (ou mesmo elimine) a dependência de credenciais de longo prazo - Princípio do menor privilégio - IAM
+	- Habilite a rastreabilidade - Integre logs e métricas com sistemas para responder e agir automaticamente
+	- Aplicar segurança em todas as camadas - como rede de borda, VPC, sub-rede, balanceador de carga, cada instância, sistema operacional e aplicativo
+	- Automatize as práticas recomendadas de segurança
+	- Proteja os dados em trânsito e em repouso - Criptografia, tokenização e controle de acesso
+	- Mantenha as pessoas longe dos dados - Reduza ou elimine a necessidade de acesso direto ou manual
+	processamento de dados
+	- Prepare-se para eventos de segurança - Execute simulações de resposta a incidentes e use ferramentas com automação para aumentar sua velocidade de detecção, investigação e recuperação
+	- Modo de responsabilidade compartilhada
+
+<img src="images/img68.png" alt="img68" width="800"/>
+
+### 3) Confiabilidade
+
+- Capacidade de um sistema se recuperar de interrupções de infraestrutura ou serviço, adquirir dinamicamente recursos de computação para atender à demanda e mitigar
+
+interrupções, como configurações incorretas ou problemas transitórios de rede
+- Princípios de design
+	- Procedimentos de recuperação de teste - Use a automação para simular diferentes falhas ou para recriar
+	cenários que levaram a falhas antes
+	- Recupere-se automaticamente de falhas - Antecipar e corrigir falhas antes que elas ocorram
+	- Escale horizontalmente para aumentar a disponibilidade agregada do sistema - Distribua as solicitações entre
+	vários recursos menores para garantir que eles não compartilhem um ponto comum de falha
+	- Pare de adivinhar a capacidade - Mantenha o nível ideal para satisfazer a demanda sem excesso ou
+	sob provisionamento - Use o Auto Scaling
+	- Gerenciar mudanças na automação - Use a automação para fazer mudanças na infraestrutura
+
+### 4) Eficiência de Desempenho
+
+- Inclui a capacidade de usar recursos de computação de forma eficiente para atender requisitos do sistema e manter essa eficiência à medida que a demanda muda
+
+e as tecnologias evoluem
+- Princípios de design
+	- Democratizar tecnologias avançadas - tecnologias avançadas tornam-se serviços e, portanto, você pode se concentrar mais no desenvolvimento de produtos
+	- Torne-se global em minutos - Implantação fácil em várias regiões
+	- Use arquiteturas sem servidor - Evite o fardo de gerenciar servidores
+	- Experimente com mais frequência - Fácil de realizar testes comparativos
+	- Simpatia mecânica - Esteja ciente de todos os serviços da AWS
+
+### 5) Otimização de Custos
+
+- Inclui a capacidade de executar sistemas para entregar valor de negócios com o menor custo ponto de preço
+
+- Princípios de design
+	- Adote um modo de consumo - Pague apenas pelo que usar
+	- Medir a eficiência geral - Use o CloudWatch
+	- Pare de gastar dinheiro em operações de data center - a AWS cuida da infraestrutura parte e permite que o cliente se concentre nos projetos da organização
+	- Analisar e atribuir despesas - Identificação precisa do uso do sistema e custos, ajuda a medir o retorno sobre o investimento (ROI) - Certifique-se de usar tags
+	- Use serviços gerenciados e de nível de aplicativo para reduzir o custo de propriedade - Como serviços gerenciados operam em escala de nuvem, eles podem oferecer um custo menor por transação ou serviço
+
+### 6) Sustentabilidade
+
+- O pilar da sustentabilidade se concentra em minimizar os impactos ambientais da corrida cargas de trabalho na nuvem.
+
+- Princípios de design
+	- Entenda seu impacto - estabeleça indicadores de desempenho, avalie melhorias
+	- Estabelecer metas de sustentabilidade – Definir metas de longo prazo para cada carga de trabalho modelar o retorno sobre o investimento (ROI)
+	- Maximize a utilização – Dimensione corretamente cada carga de trabalho para maximizar a eficiência nergética do hardware subjacente e minimizar os recursos ociosos.
+	- Antecipar e adotar novas ofertas de hardware e software mais eficientes – e projetar para ter flexibilidade para adotar novas tecnologias ao longo do tempo.
+	- Use serviços gerenciados – Serviços compartilhados reduzem a quantidade de infraestrutura; Os serviços gerenciados ajudam a automatizar as práticas recomendadas de sustentabilidade, como mover dados acessados com pouca frequência para armazenamento a frio
+	e ajustando a capacidade de computação.
+	- Reduza o impacto downstream de suas cargas de trabalho na nuvem – Reduza a quantidade de energia ou recursos necessários para usar seus serviços e reduza a necessidade de atualização de seus clientes seus dispositivos
+
+## AWS Well-Architected Tool
+
+- Ferramenta gratuita para revisar suas arquiteturas em relação aos 6 pilares Well-Architected Estruturar e adotar as melhores práticas de arquitetura
+
+- Como funciona?
+- Selecione sua carga de trabalho e responda às perguntas
+- Revise suas respostas em relação aos 6 pilares
+- Obtenha aconselhamento: obtenha vídeos e documentações, gere um relatório, veja os resultados em um painel
+
+## AWS Right Sizing
+
+- O EC2 tem muitos tipos de instância, mas escolher o tipo de instância mais poderoso não é a melhor escolha, porque a nuvem é elástica
+- O dimensionamento correto é o processo de combinar os tipos e tamanhos de instância com o seu desempenho da carga de trabalho e requisitos de capacidade com o menor custo possível
+- Ampliar é fácil, então sempre comece pequeno
+- É também o processo de olhar para as instâncias implantadas e identificar oportunidades para eliminar ou reduzir sem comprometer a capacidade ou outros requisitos, o que resulta em custos mais baixos
+- É importante ter o tamanho certo…
+	- antes de uma migração para a nuvem
+	- continuamente após o processo de integração na nuvem (os requisitos mudam com o tempo)
+	- CloudWatch, Cost Explorer, Trusted Advisor, ferramentas de terceiros podem ajudar
