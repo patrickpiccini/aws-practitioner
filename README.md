@@ -2561,7 +2561,7 @@ Pode fazer backups entre regiões ou ate entre contas, usando  AWS Organizations
 
 ## AWS Elastic Disaster Recovery (DRS)
 Recupere de forma rápida e fácil seus servidores físicos, virtuais e baseados em nuvem na AWS
-É isntalado um agent de replicação no datacenter,cloud que esta usado e será feito uma replicação cotinuados discos em uma abiente de baixo custo na AWS
+É instalado um agent de replicação no datacenter,cloud que esta usado e será feito uma replicação cotinuados discos em uma abiente de baixo custo na AWS
 
 ## AWS DataSync
 É um serviço para mover grande quantidade de dados do local para a AWS
@@ -2610,3 +2610,39 @@ Serviço totalmente gerenciado que permite controlar comunicações por satélit
 Amazon SNS ou Amazon SES
 - No SNS & SES você gerenciava o público de cada mensagem,conteúdo e cronograma de entrega
 - No Amazon Pinpoint, você cria modelos de mensagem, cronogramas de entrega, segmentos altamente segmentados e campanhas completas
+
+---
+<h1 align="center">AWS Architecting & Ecosystem Section</h1>
+
+## Well Architected Framework General Guiding Principles
+- Pare de adivinhar suas necessidades de capacidade 
+- Teste sistemas em escala de produção 
+- Automatize para facilitar a experimentação arquitetônica 
+- Permita arquiteturas evolutivas 
+	- Design baseado em requisitos em constante mudança 
+- Impulsione arquiteturas usando dados 
+- Melhore durante os dias de jogo 
+	- Simule aplicativos para dias de venda rápida
+
+
+## AWS Cloud Best Practices – Design Principles
+
+- Escalabilidade: vertical e horizontal
+- Recursos descartáveis: os servidores devem ser descartáveis e facilmente configurados
+- Automação: Serverless, Infrastructure as a Service, Auto Scaling…
+- Acoplamento solto:
+	- Monolith são aplicativos que fazem mais e mais ao longo do tempo, tornam-se maiores
+	- Divida-o em componentes menores e fracamente acoplados
+	- Uma alteração ou falha em um componente não deve afetar outros componentes
+- Serviços, não servidores:
+	- Não use apenas EC2
+	- Use serviços gerenciados, bancos de dados, serverless, etc!
+
+## Well Architected Framework 
+
+- 1) Operational Excellence
+- 2) Security
+- 3) Reliability
+- 4) Performance Efficiency
+- 5) Cost Optimization
+- 6) Sustainability
