@@ -475,7 +475,8 @@ Há 3 ofertas de FSx: FSx for Lustre, FSx for Windows File Server e FSx for NetA
 - Permite para casos de HPC como análise de dados, Machine learnig, Processamento de Vídeo, modelagem financeira etc... 
 - Trafego extremamente alto em termos de centenas de milhões de GB/s IOp/s com latência de sub-ms.
 
-EC2 Instance Storage Summary
+## EC2 Instance Storage Summary
+
 <img src="images/img11.png" alt="img11" width="800"/>
 
 
@@ -1596,6 +1597,7 @@ Exemplo:
 - Pode escolher o período no qual avaliar um alarme
 - Exemplo: crie um alarme de cobrança na métrica de cobrança do CloudWatch
 - Estados de alarme: OK. INSUFICIENT_DATA, ALARME
+O Amazon CloudWatch pode ser usado para criar um alarme para monitorar suas cobranças estimadas. 
 
 ## Amazon CloudWatch Logs
 **Coleta logs dos serviços através do:**
@@ -1618,6 +1620,7 @@ Pode reajustar os logs para retenção
 
 ## Amazon CloudWatch Events ou Amazon EventBridge
 É uma maneira de reagir as eventos que acontecem dentro da AWS
+
 <img src="images/img48.png" alt="img48" width="800"/>
 
 ## Amazon EventBridge
@@ -1839,6 +1842,7 @@ Cria uma conexão privada entro duas VPC
 ## AWS Shield
 **AWS Shield Standard:**
 - É um serviço gratuito para os clientes, que fornece proteção  para ataques de SYN/UDP Floods, Reflection attacks e ataques nas layer 3/layer 4 
+
 **AWS Shield Advanced:**
 - É um serviço opcional que custa 3000 doll/mês.
 - Protege de ataques mais sofisticados na Amazon EC2, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Route 53.
@@ -2520,7 +2524,7 @@ Solução de desktop gerenciado como serviço (DaaS) para provisionar facilmente
 Para o exame: Provisiona dasktops virtuais ou Desktop as a Service (DaaS)
 
 ## Amazon AppStream 2.0
-Transmite um aplicativo de descktop muito especifico diretamente em um avegador, sem necessidade de se conectar a um desktop
+Transmite um aplicativo de descktop muito especifico diretamente em um navegador, sem necessidade de se conectar a um desktop
 
 - Serviço de streaming de aplicativos de desktop
 - Entregue em qualquer computador, sem adquirir, provisionar infraestrutura
@@ -2596,7 +2600,8 @@ Um serviço totalmente gerenciado para executar experimentos de injeção de fal
 - Pode integrar com EC2, ECS, servidores On-premises, API Gateway, SQS queues, etc
 - Possibilidade de implementação de aprovação humana funcionalidade
 - Casos de uso: atendimento de pedidos, processamento de dados, aplicativos da web, qualquer fluxo de trabalho
-<img src="images/img66.png" alt="img66" width="800"/>
+
+<img src="images/img66.png" alt="img66" width="600"/>
 
 ## AWS Ground Station
 Serviço totalmente gerenciado que permite controlar comunicações por satélite, processar dados e escalar suas operações de satélite.
@@ -2687,6 +2692,8 @@ interrupções, como configurações incorretas ou problemas transitórios de re
 	sob provisionamento - Use o Auto Scaling
 	- Gerenciar mudanças na automação - Use a automação para fazer mudanças na infraestrutura
 
+<img src="images/img69.png" alt="img69" width="800"/>
+
 ### 4) Eficiência de Desempenho
 
 - Inclui a capacidade de usar recursos de computação de forma eficiente para atender requisitos do sistema e manter essa eficiência à medida que a demanda muda
@@ -2699,6 +2706,8 @@ e as tecnologias evoluem
 	- Experimente com mais frequência - Fácil de realizar testes comparativos
 	- Simpatia mecânica - Esteja ciente de todos os serviços da AWS
 
+<img src="images/img70.png" alt="img70" width="800"/>
+
 ### 5) Otimização de Custos
 
 - Inclui a capacidade de executar sistemas para entregar valor de negócios com o menor custo ponto de preço
@@ -2709,6 +2718,8 @@ e as tecnologias evoluem
 	- Pare de gastar dinheiro em operações de data center - a AWS cuida da infraestrutura parte e permite que o cliente se concentre nos projetos da organização
 	- Analisar e atribuir despesas - Identificação precisa do uso do sistema e custos, ajuda a medir o retorno sobre o investimento (ROI) - Certifique-se de usar tags
 	- Use serviços gerenciados e de nível de aplicativo para reduzir o custo de propriedade - Como serviços gerenciados operam em escala de nuvem, eles podem oferecer um custo menor por transação ou serviço
+
+<img src="images/img71.png" alt="img71" width="800"/>
 
 ### 6) Sustentabilidade
 
@@ -2722,6 +2733,8 @@ e as tecnologias evoluem
 	- Use serviços gerenciados – Serviços compartilhados reduzem a quantidade de infraestrutura; Os serviços gerenciados ajudam a automatizar as práticas recomendadas de sustentabilidade, como mover dados acessados com pouca frequência para armazenamento a frio
 	e ajustando a capacidade de computação.
 	- Reduza o impacto downstream de suas cargas de trabalho na nuvem – Reduza a quantidade de energia ou recursos necessários para usar seus serviços e reduza a necessidade de atualização de seus clientes seus dispositivos
+
+<img src="images/img72.png" alt="img72" width="600"/>
 
 ## AWS Well-Architected Tool
 
