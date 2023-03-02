@@ -1,5 +1,5 @@
 
-<h1 align="center">Estudo para certificação AWS</h1>
+<h1 align="center">AWS Practitiner certification study</h1>
 <p align="center">
     <img src="images/aws.png" alt="aws" width="200"/>
 </p>
